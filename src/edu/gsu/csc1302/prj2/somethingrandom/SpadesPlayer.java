@@ -19,9 +19,9 @@ public class SpadesPlayer implements PlayerInterface {
 	/**
 	 * Player constructor.
 	 * @param type int
-	 * @param hand Deck
+	 * @param controller Controller object for the game
 	 */
-	public SpadesPlayer(final int type, final Deck hand) {
+	public SpadesPlayer(final int type, final Controller controller) {
 
 	}
 
