@@ -12,7 +12,7 @@ import edu.gsu.csc1302.coll1.Deck;
 import edu.gsu.csc1302.prj2.somethingrandom.SpadesPlayer;
 
 /**
- * Spades Player to manage the four AI player types.
+ * Spades Player to manage the generic game stuff.
  *
  * @author Wesley
  *
