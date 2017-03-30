@@ -1,8 +1,6 @@
 package edu.gsu.csc1302.prj2.somethingrandom;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Scanner;
 
 import edu.gsu.csc1302.coll1.Card;
@@ -17,42 +15,46 @@ import edu.gsu.csc1302.prj2.somethingrandom.SpadesPlayer;
  * @author Wesley
  *
  */
-public class SpadesGame { 
+public class SpadesGame {
+	public static void main(String[] args) {
+
 	Scanner in = new Scanner(System.in);
-	LinkedList<Card> FullDeck = new LinkedList<>();
-	LinkedList<Card> ShuffledDeck = new LinkedList<>();
-	private Deck deck1 = null;
-	private Deck deck2 = null;
-	private Deck deck3 = null;
-	private Deck deck4 = null;
-	
+	LinkedList<Card> fullDeck = new LinkedList<>();
+	LinkedList<Card> shuffledDeck = new LinkedList<>();
+	Deck deck1 = null;
+	Deck deck2 = null;
+	Deck deck3 = null;
+	Deck deck4 = null;
+
 
 	for (Suit s : Suit.values()) {
 		for (Rank r : Rank.values()) {
 			Card adder = new Card(s,r);
-			FullDeck.add(adder);
+			fullDeck.add(adder);
 
 		}
 	}
 
-	for (int ShuffleNum = 51; ShuffleNum != 0; ShuffleNum-- ) {
-		int CardNum = (int) (Math.random()*ShuffleNum);
-		ShuffledDeck.add(FullDeck.get(CardNum));
-		FullDeck.remove(CardNum);
+	for (int shuffleNum = 51; shuffleNum != 0; shuffleNum--) {
+		int cardNum = (int) (Math.random() * shuffleNum);
+		shuffledDeck.add(fullDeck.get(cardNum));
+		fullDeck.remove(cardNum);
 	}
-	
 	//shuffle that shit
 
-	System.out.println("What would you like the play style of player One to be?");
+	System.out.println("What play style would you like player Four to be?");
 	SpadesPlayer playerOne = new SpadesPlayer((in.nextInt()), deck1);
-	System.out.println("What would you like the play style of player Two to be?");
+	System.out.println("What play style would you like player Two to be??");
 	SpadesPlayer playerTwo = new SpadesPlayer((in.nextInt()), deck2);
-	System.out.println("What would you like the play style of player Three to be?");
+	System.out.println("What play style would you like player Three to be?");
 	SpadesPlayer playerThree = new SpadesPlayer((in.nextInt()), deck3);
-	System.out.println("What would you like the play style of player Four to be?");
+	System.out.println("What play style would you like player Four to be?");
 	SpadesPlayer playerFour = new SpadesPlayer((in.nextInt()), deck4);
+
+
+	in.close();
+	}
 }
-} 
 
 //get players
 //set player turns
