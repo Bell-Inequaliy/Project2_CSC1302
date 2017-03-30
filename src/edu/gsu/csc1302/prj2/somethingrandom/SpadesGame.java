@@ -6,5 +6,5 @@ package edu.gsu.csc1302.prj2.somethingrandom;
  *
  */
 public class SpadesGame {
-
+	
 }
