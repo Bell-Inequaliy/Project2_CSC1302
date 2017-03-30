@@ -43,31 +43,95 @@ public class SpadesPlayer implements PlayerInterface {
 	private int playerType;
 
 	/**
+	 * The hand of the player.
+	 */
+	private Deck hand;
+
+	/**
+	 * The controller object.
+	 */
+	private final Controller myController;
+
+	/**
 	 * Player constructor.
 	 * @param type Player type to use.
 	 * @param controller Controller object for the game
 	 */
 	public SpadesPlayer(final int type, final Controller controller) {
-
+		playerType = type;
+		if (playerType > 4) {
+			playerType = 4;
+		}
+		hand = null;
+		myController = controller;
 	}
 
 	@Override
 	public final void setHand(final Deck deck) {
+		hand = deck;
 	}
 
 	@Override
 	public final int bet() {
-		return 0;
+		int r = 0;
+		switch (playerType) {
+		case TYPE_AGGRESSIVE:
+			break;
+		case TYPE_CHICKEN:
+			break;
+		case TYPE_WILDCARD:
+			break;
+		case TYPE_INTELLIGENT:
+			break;
+		case TYPE_USER:
+			break;
+		default:
+			throw new RuntimeException(
+					"DEFAULT CASE IN SWITCH THAT SHOULDN'T DEFAULT");
+		}
+		return r;
 	}
 
 	@Override
 	public final int talk() {
-		return 0;
+		int r = 0;
+		switch (playerType) {
+			case TYPE_AGGRESSIVE:
+				break;
+			case TYPE_CHICKEN:
+				break;
+			case TYPE_WILDCARD:
+				break;
+			case TYPE_INTELLIGENT:
+				break;
+			case TYPE_USER:
+				break;
+			default:
+				throw new RuntimeException(
+						"DEFAULT CASE IN SWITCH THAT SHOULDN'T DEFAULT");
+		}
+		return r;
 	}
 
 	@Override
 	public final Card play() {
-		return null;
+		Card r = null;
+		switch (playerType) {
+		case TYPE_AGGRESSIVE:
+			break;
+		case TYPE_CHICKEN:
+			break;
+		case TYPE_WILDCARD:
+			break;
+		case TYPE_INTELLIGENT:
+			break;
+		case TYPE_USER:
+			break;
+		default:
+			throw new RuntimeException(
+					"DEFAULT CASE IN SWITCH THAT SHOULDN'T DEFAULT");
+		}
+		return r;
 	}
 
 }
