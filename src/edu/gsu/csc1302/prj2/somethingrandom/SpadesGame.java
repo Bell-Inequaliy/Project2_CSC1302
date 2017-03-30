@@ -21,10 +21,6 @@ public class SpadesGame {
 	Scanner in = new Scanner(System.in);
 	LinkedList<Card> fullDeck = new LinkedList<>();
 	LinkedList<Card> shuffledDeck = new LinkedList<>();
-	Deck deck1 = null;
-	Deck deck2 = null;
-	Deck deck3 = null;
-	Deck deck4 = null;
 
 
 	for (Suit s : Suit.values()) {
@@ -35,22 +31,26 @@ public class SpadesGame {
 		}
 	}
 
-	for (int shuffleNum = 51; shuffleNum != 0; shuffleNum--) {
+	for (int shuffleNum = 52; shuffleNum != 0; shuffleNum--) {
 		int cardNum = (int) (Math.random() * shuffleNum);
 		shuffledDeck.add(fullDeck.get(cardNum));
 		fullDeck.remove(cardNum);
 	}
-	//shuffle that shit
+
+	//Deck deck1 = new Deck
+
 
 	System.out.println("What play style would you like player Four to be?");
-	SpadesPlayer playerOne = new SpadesPlayer((in.nextInt()), deck1);
+//	SpadesPlayer playerOne = new SpadesPlayer((in.nextInt()), deck1);
 	System.out.println("What play style would you like player Two to be??");
-	SpadesPlayer playerTwo = new SpadesPlayer((in.nextInt()), deck2);
+//	SpadesPlayer playerTwo = new SpadesPlayer((in.nextInt()), deck2);
 	System.out.println("What play style would you like player Three to be?");
-	SpadesPlayer playerThree = new SpadesPlayer((in.nextInt()), deck3);
+//	SpadesPlayer playerThree = new SpadesPlayer((in.nextInt()), deck3);
 	System.out.println("What play style would you like player Four to be?");
-	SpadesPlayer playerFour = new SpadesPlayer((in.nextInt()), deck4);
+//	SpadesPlayer playerFour = new SpadesPlayer((in.nextInt()), deck4);
 
+	System.out.println(fullDeck);
+	System.out.println(shuffledDeck);
 
 	in.close();
 	}
