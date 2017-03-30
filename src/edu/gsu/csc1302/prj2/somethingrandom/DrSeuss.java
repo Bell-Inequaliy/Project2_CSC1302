@@ -9,5 +9,5 @@ public class DrSeuss {
 	/**
 	 * I just hate it when checkstyle yells at me.
 	 */
-	int fish = 1;
+	int fish = 2;
 }
