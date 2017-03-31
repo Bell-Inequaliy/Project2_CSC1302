@@ -6,7 +6,6 @@ import java.util.Scanner;
 import edu.gsu.csc1302.coll1.Card;
 import edu.gsu.csc1302.coll1.Card.Rank;
 import edu.gsu.csc1302.coll1.Card.Suit;
-import edu.gsu.csc1302.coll1.Deck;
 import edu.gsu.csc1302.prj2.somethingrandom.SpadesPlayer;
 
 /**
@@ -18,14 +17,20 @@ import edu.gsu.csc1302.prj2.somethingrandom.SpadesPlayer;
 public class SpadesGame {
 	public static void main(String[] args) {
 
+
 	Scanner in = new Scanner(System.in);
 	LinkedList<Card> fullDeck = new LinkedList<>();
 	LinkedList<Card> shuffledDeck = new LinkedList<>();
+	LinkedList<Card> deck1 = new LinkedList<>();
+	LinkedList<Card> deck2 = new LinkedList<>();
+	LinkedList<Card> deck3 = new LinkedList<>();
+	LinkedList<Card> deck4 = new LinkedList<>();
+	Controller controller = new Controller();
 
 
 	for (Suit s : Suit.values()) {
 		for (Rank r : Rank.values()) {
-			Card adder = new Card(s,r);
+			Card adder = new Card(s, r);
 			fullDeck.add(adder);
 
 		}
@@ -37,20 +42,43 @@ public class SpadesGame {
 		fullDeck.remove(cardNum);
 	}
 
-	//Deck deck1 = new Deck
+	for (int deal = 0; deal < 13; deal++) {
+		deck1.add(shuffledDeck.get(0));
+		shuffledDeck.remove(0);
+		deck2.add(shuffledDeck.get(0));
+		shuffledDeck.remove(0);
+		deck3.add(shuffledDeck.get(0));
+		shuffledDeck.remove(0);
+		deck4.add(shuffledDeck.get(0));
+		shuffledDeck.remove(0);
+	}
 
 
-	System.out.println("What play style would you like player Four to be?");
-//	SpadesPlayer playerOne = new SpadesPlayer((in.nextInt()), deck1);
-	System.out.println("What play style would you like player Two to be??");
-//	SpadesPlayer playerTwo = new SpadesPlayer((in.nextInt()), deck2);
-	System.out.println("What play style would you like player Three to be?");
-//	SpadesPlayer playerThree = new SpadesPlayer((in.nextInt()), deck3);
-	System.out.println("What play style would you like player Four to be?");
-//	SpadesPlayer playerFour = new SpadesPlayer((in.nextInt()), deck4);
 
-	System.out.println(fullDeck);
-	System.out.println(shuffledDeck);
+//	System.out.println("What play style would you like player Four to be?");
+	SpadesPlayer playerOne = new SpadesPlayer(1, controller);
+//	System.out.println("What play style would you like player Two to be??");
+	SpadesPlayer playerTwo = new SpadesPlayer(1, controller);
+//	System.out.println("What play style would you like player Three to be?");
+	SpadesPlayer playerThree = new SpadesPlayer(1, controller);
+//	System.out.println("What play style would you like player Four to be?");
+	SpadesPlayer playerFour = new SpadesPlayer(1, controller);
+	DeckImplementation deck11 = new DeckImplementation(deck1);
+	DeckImplementation deck22 = new DeckImplementation(deck2);
+	DeckImplementation deck33 = new DeckImplementation(deck3);
+	DeckImplementation deck44 = new DeckImplementation(deck4);
+
+	playerOne.setHand(deck11);
+	playerTwo.setHand(deck22);
+	playerThree.setHand(deck33);
+	playerFour.setHand(deck44);
+
+//	System.out.println(fullDeck);
+//	System.out.println(shuffledDeck);
+	System.out.println(deck11);
+	System.out.println(deck22);
+	System.out.println(deck33);
+	System.out.println(deck44);
 
 	in.close();
 	}
