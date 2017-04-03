@@ -69,7 +69,24 @@ public class Controller {
 			return null;
 		}
 	}
-
+	/**
+	 * Get the given player's team from the controller's array of players.
+	 * 0 for Dealer's Team, 1 for Rival Team.
+	 * @param player The player's team mate to get.
+	 * @return A number representing the player's team.
+	 */
+	public int getTeam(final SpadesPlayer player) {
+		// TODO Make this work.
+		if (players.contains(player)) {
+			if (players.indexOf(player) % 2 == 0) {
+				return 0;
+			} else {
+				return 1;
+			}
+		} else {
+			return 0;
+		}
+	}
 	/**
 	 * Get the cards that have been played (are on the table).
 	 * @return The List of cards that have been played, ordered from P1 to P4.

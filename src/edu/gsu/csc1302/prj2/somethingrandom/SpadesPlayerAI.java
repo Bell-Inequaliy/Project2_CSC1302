@@ -10,7 +10,7 @@ import edu.gsu.csc1302.coll1.Deck;
  * @author stgilbert
  *
  */
-public class SpadesPlayerAI implements PlayerInterface {
+public class SpadesPlayerAI implements PlayerInterface{
 	/**
 	 * Stores the behavior type of the given Player object.
 	 */
@@ -31,6 +31,10 @@ public class SpadesPlayerAI implements PlayerInterface {
 	 * Comparator used for evaluating betting numbers.
 	 */
 	private SpadesComparatorImplementation aiComparator;
+	/**
+	 * Comparator used for evaluating betting numbers.
+	 */
+	private int teamZeroOrOne;
 
 	/**
 	 * Sets this player's deck to be the deck it is dealt.
@@ -143,6 +147,8 @@ public class SpadesPlayerAI implements PlayerInterface {
 		}
 		this.hand = null;
 		this.myController = controller;
+		if (myController.getTeam(this)
+		this.teamZeroOrOne = 
 	}
 
 }
