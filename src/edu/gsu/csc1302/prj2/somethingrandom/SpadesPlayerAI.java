@@ -202,6 +202,7 @@ public class SpadesPlayerAI implements PlayerInterface{
 	public Card play() {
 		Deck comparisonDeck = new DeckImplementation();
 		Card playingCard = new Card(null, null);
+		if (myController.getPlayedCards().size() != 0) {
 		for (int i = 0; i < this.hand.size(); i++) {
 			if (myController.getPlayedCards().get(0).getSuit()
 				== hand.get(i).getSuit()) {
@@ -211,6 +212,7 @@ public class SpadesPlayerAI implements PlayerInterface{
 		if (comparisonDeck.size() == 0) {
 			comparisonDeck = hand;
 		}
+		
 		for (int i = 0; i < comparisonDeck.size(); i++) {
 			for (int j = 0; j < myController.getPlayedCards().size(); j++) {
 				this.aiComparator = new
@@ -227,6 +229,9 @@ public class SpadesPlayerAI implements PlayerInterface{
 			}
 		} if (playingCard.getSuit() == null) {
 			playingCard = comparisonDeck.get(0);
+			}
+		} else {
+			playingCard = hand.get(0);
 		}
 		hand.remove(playingCard);
 		return playingCard;
