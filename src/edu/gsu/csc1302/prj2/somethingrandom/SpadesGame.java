@@ -30,7 +30,7 @@ public final class SpadesGame {
 	 * @param args Console launch args.
 	 */
 	public static void main(final String[] args) {
-boolean playing = true;
+		boolean playing = true;
 		LinkedList<Card> fullDeck = new LinkedList<>();
 		LinkedList<Card> shuffledDeck = new LinkedList<>();
 		LinkedList<Card> deck1 = new LinkedList<>();
@@ -38,7 +38,7 @@ boolean playing = true;
 		LinkedList<Card> deck3 = new LinkedList<>();
 		LinkedList<Card> deck4 = new LinkedList<>();
 
-	
+
 			for (Suit s : Suit.values()) {
 			for (Rank r : Rank.values()) {
 				Card adder = new Card(s, r);
@@ -63,17 +63,24 @@ boolean playing = true;
 			deck4.add(shuffledDeck.get(0));
 			shuffledDeck.remove(0);
 		}
+		//making the player controller (????)
+		Controller controller = new Controller();
 
-		Controller controller = new Controller(null, null, null, null);
-		//	System.out.println("What play style would you like player Four to be?");
+		//starting the game and getting player behaviors
+		System.out.println("Welcome to Spades!");
+		System.out.println("What play style would you like player One to be?");
 		SpadesPlayer playerOne = new SpadesPlayer(1, controller);
-		//	System.out.println("What play style would you like player Two to be??");
+		System.out.println("What play style would you like player Two to be??");
 		SpadesPlayer playerTwo = new SpadesPlayer(1, controller);
-		// System.out.println("What play style would you like player Three to be?");
+		System.out.println("What play style would you like player Three to be?");
 		SpadesPlayer playerThree = new SpadesPlayer(1, controller);
-		//	System.out.println("What play style would you like player Four to be?");
+		System.out.println("What play style would you like player Four to be?");
 		SpadesPlayer playerFour = new SpadesPlayer(1, controller);
+
+		//making the games controller (??)
 		Controller gameController = new Controller(playerOne, playerTwo, playerThree, playerFour);
+
+		//making decks and giving them to the players
 		DeckImplementation deck11 = new DeckImplementation(deck1);
 		DeckImplementation deck22 = new DeckImplementation(deck2);
 		DeckImplementation deck33 = new DeckImplementation(deck3);
@@ -82,13 +89,14 @@ boolean playing = true;
 		playerTwo.setHand(deck22);
 		playerThree.setHand(deck33);
 		playerFour.setHand(deck44);
-	
-		while (playing) {
-			playerOne.bet();
-			playerTwo.bet();
-			playerThree.bet();
-			playerFour.bet();
 
+
+		while (playing) {
+			//start betting starting with dealers opponent
+			playerTwo.bet();
+			playerFour.bet();
+			playerOne.bet();
+			playerThree.bet();
 			//	System.out.println(fullDeck);
 		//	System.out.println(shuffledDeck);
 		System.out.println(deck11);

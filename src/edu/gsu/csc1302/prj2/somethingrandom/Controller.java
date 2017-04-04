@@ -50,8 +50,13 @@ public class Controller {
 		players.add(player3);
 		players.add(player4);
 		currentPlayer = player1;
-	}
 
+	}
+	/**Empty controller constructor.
+	 */
+public Controller() {
+
+}
 	/**
 	 * Get the given player's team mate from the controller's array of players.
 	 * @param player The player's team mate to get.
