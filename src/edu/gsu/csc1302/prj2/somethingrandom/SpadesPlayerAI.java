@@ -88,27 +88,16 @@ public class SpadesPlayerAI implements PlayerInterface{
 				}
 			}
 		} else if (this.playerType == 3) { //Intelligent last
-			//if statement comparing scores between the two teams
 			for (int i = 0; i < this.hand.size(); i++) {
 				if (this.hand.get(i).getSuit() == Suit.SPADE) {
 					bettingNumber++;
 				} else {
-				evaluationCard = new Card(hand.get(i).getSuit(), Rank.SIX);
+				evaluationCard = new Card(hand.get(i).getSuit(), Rank.EIGHT);
 				this.aiComparator = new
 						SpadesComparatorImplementation(this.hand.get(i).getSuit());
 				if (aiComparator.compare(evaluationCard, hand.get(i)) > 0) {
 					bettingNumber++;
 					}
-				}
-			}
-			//else statement calling the other option.
-			for (int i = 0; i < this.hand.size(); i++) {
-
-				evaluationCard = new Card(hand.get(i).getSuit(), Rank.TEN);
-				this.aiComparator = new
-						SpadesComparatorImplementation(this.hand.get(i).getSuit());
-				if (aiComparator.compare(evaluationCard, hand.get(i)) > 0) {
-					bettingNumber++;
 				}
 			}
 		}
@@ -167,12 +156,11 @@ public class SpadesPlayerAI implements PlayerInterface{
 				}
 			}
 		} else if (this.playerType == 3) { //Intelligent last
-			//if statement comparing scores between the two teams
 			for (int i = 0; i < this.hand.size(); i++) {
 				if (this.hand.get(i).getSuit() == Suit.SPADE) {
 					bettingNumber++;
 				} else {
-				evaluationCard = new Card(hand.get(i).getSuit(), Rank.FOUR);
+				evaluationCard = new Card(hand.get(i).getSuit(), Rank.SIX);
 				this.aiComparator = new
 						SpadesComparatorImplementation(this.hand.get(i).getSuit());
 				if (aiComparator.compare(evaluationCard, hand.get(i)) > 0) {
@@ -180,16 +168,7 @@ public class SpadesPlayerAI implements PlayerInterface{
 					}
 				}
 			}
-			//else statement calling the other option.
-			for (int i = 0; i < this.hand.size(); i++) {
 
-				evaluationCard = new Card(hand.get(i).getSuit(), Rank.TEN);
-				this.aiComparator = new
-						SpadesComparatorImplementation(this.hand.get(i).getSuit());
-				if (aiComparator.compare(evaluationCard, hand.get(i)) > 0) {
-					bettingNumber++;
-				}
-			}
 		}
 		return bettingNumber;
 	}
@@ -212,7 +191,6 @@ public class SpadesPlayerAI implements PlayerInterface{
 		if (comparisonDeck.size() == 0) {
 			comparisonDeck = hand;
 		}
-		
 		for (int i = 0; i < comparisonDeck.size(); i++) {
 			for (int j = 0; j < myController.getPlayedCards().size(); j++) {
 				this.aiComparator = new
