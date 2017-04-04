@@ -229,5 +229,4 @@ public class SpadesPlayerAI implements PlayerInterface{
 		this.myController = controller;
 		this.teamZeroOrOne = myController.getTeam(this);
 	}
-
 }
