@@ -26,20 +26,20 @@ public final class SpadesGame {
 	public static final Scanner IN = new Scanner(System.in);
 
 	/**
-	 * Main methpd.
+	 * Main method.
 	 * @param args Console launch args.
 	 */
 	public static void main(final String[] args) {
-
+boolean playing = true;
 		LinkedList<Card> fullDeck = new LinkedList<>();
 		LinkedList<Card> shuffledDeck = new LinkedList<>();
 		LinkedList<Card> deck1 = new LinkedList<>();
 		LinkedList<Card> deck2 = new LinkedList<>();
 		LinkedList<Card> deck3 = new LinkedList<>();
 		LinkedList<Card> deck4 = new LinkedList<>();
-		Controller controller = new Controller();
 
-		for (Suit s : Suit.values()) {
+	
+			for (Suit s : Suit.values()) {
 			for (Rank r : Rank.values()) {
 				Card adder = new Card(s, r);
 				fullDeck.add(adder);
@@ -64,6 +64,7 @@ public final class SpadesGame {
 			shuffledDeck.remove(0);
 		}
 
+		Controller controller = new Controller(null, null, null, null);
 		//	System.out.println("What play style would you like player Four to be?");
 		SpadesPlayer playerOne = new SpadesPlayer(1, controller);
 		//	System.out.println("What play style would you like player Two to be??");
@@ -72,23 +73,29 @@ public final class SpadesGame {
 		SpadesPlayer playerThree = new SpadesPlayer(1, controller);
 		//	System.out.println("What play style would you like player Four to be?");
 		SpadesPlayer playerFour = new SpadesPlayer(1, controller);
+		Controller gameController = new Controller(playerOne, playerTwo, playerThree, playerFour);
 		DeckImplementation deck11 = new DeckImplementation(deck1);
 		DeckImplementation deck22 = new DeckImplementation(deck2);
 		DeckImplementation deck33 = new DeckImplementation(deck3);
 		DeckImplementation deck44 = new DeckImplementation(deck4);
-
 		playerOne.setHand(deck11);
 		playerTwo.setHand(deck22);
 		playerThree.setHand(deck33);
 		playerFour.setHand(deck44);
+	
+		while (playing) {
+			playerOne.bet();
+			playerTwo.bet();
+			playerThree.bet();
+			playerFour.bet();
 
-		//	System.out.println(fullDeck);
+			//	System.out.println(fullDeck);
 		//	System.out.println(shuffledDeck);
 		System.out.println(deck11);
 		System.out.println(deck22);
 		System.out.println(deck33);
 		System.out.println(deck44);
-
+		}
 		IN.close();
 	}
 }
