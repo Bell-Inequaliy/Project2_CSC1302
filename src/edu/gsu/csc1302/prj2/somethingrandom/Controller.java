@@ -156,4 +156,11 @@ public Controller() {
 	public int getScore() {
 		return roundScore;
 	}
+	/**
+	 * Very crude method to return the player whose turn it currently is.
+	 * @return Returns the current player.
+	 */
+	public SpadesPlayer getWhoseTurn() {
+		return currentPlayer;
+	}
 }
