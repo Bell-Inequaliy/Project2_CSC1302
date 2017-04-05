@@ -8,6 +8,7 @@ import edu.gsu.csc1302.coll1.Deck;
 
 /**
  * Controller class. Handles each individual game's stuffs.
+ * @author jakep
  * @author J-Dierberger
  */
 public class Controller {
@@ -162,5 +163,18 @@ public Controller() {
 	 */
 	public SpadesPlayer getWhoseTurn() {
 		return currentPlayer;
+	}
+	/**
+	 * Runs a round of the game.
+	 * This should probably be done using a loop but whatever.
+	 */
+	public void runRound() {
+		playCard(currentPlayer.play());
+		nextTurn();
+		playCard(currentPlayer.play());
+		nextTurn();
+		playCard(currentPlayer.play());
+		nextTurn();
+		playCard(currentPlayer.play());
 	}
 }
