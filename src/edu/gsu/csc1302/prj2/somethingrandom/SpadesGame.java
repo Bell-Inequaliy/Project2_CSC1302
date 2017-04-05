@@ -79,7 +79,8 @@ public final class SpadesGame {
 		SpadesPlayer playerFour = new SpadesPlayer(1, controller);
 
 		//making the games controller (??)
-		Controller gameController = new Controller(playerOne, playerTwo, playerThree, playerFour);
+		Controller gameController = new Controller(playerOne, playerTwo,
+				playerThree, playerFour);
 
 		//making decks and giving them to the players
 		DeckImplementation deck11 = new DeckImplementation(deck1);
@@ -91,13 +92,14 @@ public final class SpadesGame {
 		playerThree.setHand(deck33);
 		playerFour.setHand(deck44);
 		gameController.playCard(playerOne.play());
-		System.out.println(playerOne.play());
-		
+		playerOne.play();
+
 			//start betting starting with dealers opponent
 			playerTwo.bet();
 			playerFour.bet();
 			playerOne.bet();
 			playerThree.bet();
+
 			//	System.out.println(fullDeck);
 		//	System.out.println(shuffledDeck);
 		System.out.println(deck11);
