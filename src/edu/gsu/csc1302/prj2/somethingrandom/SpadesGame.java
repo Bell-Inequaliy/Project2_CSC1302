@@ -67,6 +67,7 @@ public final class SpadesGame {
 		Controller controller = new Controller();
 
 		//starting the game and getting player behaviors
+		//TODO change the 1 to in.nextintbois
 		System.out.println("Welcome to Spades!");
 		System.out.println("What play style would you like player One to be?");
 		SpadesPlayer playerOne = new SpadesPlayer(1, controller);
@@ -89,9 +90,9 @@ public final class SpadesGame {
 		playerTwo.setHand(deck22);
 		playerThree.setHand(deck33);
 		playerFour.setHand(deck44);
-
-
-		while (playing) {
+		gameController.playCard(playerOne.play());
+		System.out.println(playerOne.play());
+		
 			//start betting starting with dealers opponent
 			playerTwo.bet();
 			playerFour.bet();
@@ -103,7 +104,6 @@ public final class SpadesGame {
 		System.out.println(deck22);
 		System.out.println(deck33);
 		System.out.println(deck44);
-		}
 		IN.close();
 	}
 }

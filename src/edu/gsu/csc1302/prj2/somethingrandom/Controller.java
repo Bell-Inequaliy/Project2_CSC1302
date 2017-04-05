@@ -1,5 +1,6 @@
 package edu.gsu.csc1302.prj2.somethingrandom;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import edu.gsu.csc1302.coll1.Card;
@@ -45,6 +46,7 @@ public class Controller {
 	 */
 	public Controller(final SpadesPlayer player1, final SpadesPlayer player2,
 			final SpadesPlayer player3, final SpadesPlayer player4) {
+		players = new ArrayList<SpadesPlayer>();
 		players.add(player1);
 		players.add(player2);
 		players.add(player3);
