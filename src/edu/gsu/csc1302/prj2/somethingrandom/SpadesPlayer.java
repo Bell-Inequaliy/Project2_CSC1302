@@ -86,6 +86,11 @@ public class SpadesPlayer implements PlayerInterface {
 		case TYPE_INTELLIGENT:
 			break;
 		case TYPE_USER:
+			System.out.println("Enter your bet:");
+			r = Integer.parseInt(SpadesGame.IN.nextLine());
+			if (r > 13) {
+				r = 13;
+			}
 			break;
 		default:
 			throw new RuntimeException(
