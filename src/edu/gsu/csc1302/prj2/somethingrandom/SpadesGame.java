@@ -78,7 +78,8 @@ public final class SpadesGame {
 		SpadesPlayer playerFour = new SpadesPlayer(1, controller);
 
 		//making the games controller (??)
-		Controller gameController = new Controller(playerOne, playerTwo, playerThree, playerFour);
+		Controller gameController = new Controller(playerOne, playerTwo,
+				playerThree, playerFour);
 
 		//making decks and giving them to the players
 		DeckImplementation deck11 = new DeckImplementation(deck1);
