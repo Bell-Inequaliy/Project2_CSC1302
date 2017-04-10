@@ -295,23 +295,19 @@ public class SpadesPlayer implements PlayerInterface {
 			String str = SpadesGame.IN.nextLine().toLowerCase();
 			String[] command;
 
-			try {
-				// The string will only contain () if the player is providing args.
-				if (str.contains("(") || str.contains(")")) {
-					command = str.split("("); // Separate the command from the () contents
-					command[1] = str.replace(")", ""); // Delete the closing parentheses.
-				} else {
-					/*
-					 * Otherwise just set the arguments to be the command.
-					 * That way we can just switch off the arguments (so that
-					 * if they player uses a command with args we won't need a
-					 * separate switch statement then if they use a command
-					 * without args).
-					 */
-					command = new String[]{str};
-				}
-			} catch (Exception e) {
-				System.out.println("It seems you formatted your command incorrectly.");
+			// The string will only contain () if the player is providing args.
+			if (str.contains("(") || str.contains(")")) {
+				// Separate the command from the () contents
+				str = str.replace("(", " ").replace(")", " ");
+				command = str.split(" ");
+			} else {
+				/*
+				 * Otherwise just set the arguments to be the command.
+				 * That way we can just switch off the arguments (so that
+				 * if they player uses a command with args we won't need a
+				 * separate switch statement then if they use a command
+				 * without args).
+				 */
 				command = new String[]{str};
 			}
 
