@@ -244,6 +244,11 @@ public class SpadesPlayer implements PlayerInterface {
 	private Card aiPlay() {
 		Deck comparisonDeck = new DeckImplementation();
 		Card playingCard = new Card(null, null);
+		if (SpadesGame.getTableCards().size() == 0) {
+			playingCard = hand.get(0);
+			hand.remove(playingCard);
+			return playingCard;
+		}
 		if (SpadesGame.getTableCards().size() != 0) {
 			for (int i = 0; i < this.hand.size(); i++) {
 				if (SpadesGame.getTableCards().get(0).getSuit()
