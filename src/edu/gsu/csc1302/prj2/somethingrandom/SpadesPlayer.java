@@ -340,11 +340,11 @@ public class SpadesPlayer implements PlayerInterface {
 				System.out.println(
 						"\"view_table\": View the cards on the table");
 				System.out.println(
-						"\"play(RANK SUIT)\": Play the card of the given RANK and SUIT.");
+						"\"play(NUM)\": Play the card at the given NUM in your hand.");
 				break;
 			case "talk":
 				System.out.println("Your team mate estimates they can win "
-						+ SpadesGame.getPlayerTeamMate(this).talk() + " books.");
+						+ SpadesGame.getPlayerTeamMate(this).talk() + "books.");
 				break;
 			case "view_hand":
 				System.out.println("Your hand:");
@@ -364,39 +364,10 @@ public class SpadesPlayer implements PlayerInterface {
 					System.out.println("Please try again.");
 					break;
 				}
-				if (!command[1].contains(" ")) {
-					System.out.println("This command doesn't contain a space!");
-					System.out.println("Should be: play(RANK SUIT)");
-					System.out.println("Please put a space between the rank and suit.");
-					break;
-				}
-				String[] args = command[1].split(" ");
-				if (args.length < 2) {
-					System.out.println("Not enough arguments provided!");
-					System.out.println("Please give the card's rank and suit.");
-				}
-				Rank rank;
 				try {
-					rank = Rank.valueOf(args[0].toUpperCase());
+					r = hand.get(Integer.parseInt(command[1]));
 				} catch (Exception e) {
-					System.out.println("Rank formatted incorrectly! Please try again.");
-					break;
-				}
-				Suit suit;
-				try {
-					suit = Suit.valueOf(args[0].toUpperCase());
-				} catch (Exception e) {
-					System.out.println("Rank formatted incorrectly! Please try again.");
-					break;
-				}
-				// If we have the cards...
-				if (hand.contains(CardConstants.getCard(args[0] + "." + args[1]))) {
-					// Remove the card the player has chosen.
-					r = hand.remove(hand.indexOf(
-							CardConstants.getCard(args[0] + "." + args[1])));
-				} else {
-					System.out.println(
-							"You do not have this card! Please enter a card you have");
+					System.out.println("You entered an invalid integer!");
 				}
 				break;
 			default:
