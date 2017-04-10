@@ -111,9 +111,6 @@ public final class SpadesGame {
 		playerTwo.setHand(deck22);
 		playerThree.setHand(deck33);
 		playerFour.setHand(deck44);
-		//The following needs to be updated to work again.
-		//gameController.playCard(playerOne.play());
-		playerOne.play();
 
 		while (playing) {
 			// TODO
