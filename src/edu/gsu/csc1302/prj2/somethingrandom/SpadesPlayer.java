@@ -145,9 +145,7 @@ public class SpadesPlayer implements PlayerInterface {
 			throw new RuntimeException(
 					"DEFAULT CASE IN SWITCH THAT SHOULDN'T DEFAULT");
 		}
-		if (myController.getTeamMate(this).bet() + r >= 10) {
-			r = 10 - myController.getTeamMate(this).bet();
-		}
+		r = bettingNumber;
 		return r;
 	}
 
@@ -169,7 +167,7 @@ public class SpadesPlayer implements PlayerInterface {
 						bettingNumber++;
 					}
 				}
-			}
+			} r = bettingNumber;
 			break;
 		case TYPE_CHICKEN:
 			for (int i = 0; i < this.hand.size(); i++) {
@@ -179,7 +177,7 @@ public class SpadesPlayer implements PlayerInterface {
 				if (aiComparator.compare(evaluationCard, hand.get(i)) > 0) {
 					bettingNumber++;
 				}
-			}
+			} r = bettingNumber;
 			break;
 		case TYPE_WILDCARD:
 			for (int i = 0; i < this.hand.size(); i++) {
@@ -190,7 +188,7 @@ public class SpadesPlayer implements PlayerInterface {
 						bettingNumber++; //Yes they might report different numbers each time
 					} // Not sure if that's a problem or not. If it is, can be changed.
 				}
-			}
+			} r = bettingNumber;
 			break;
 		case TYPE_INTELLIGENT:
 			for (int i = 0; i < this.hand.size(); i++) {
@@ -204,7 +202,7 @@ public class SpadesPlayer implements PlayerInterface {
 						bettingNumber++;
 					}
 				}
-			}
+			} r = bettingNumber;
 			break;
 		case TYPE_USER:
 			System.out.println("Enter how many books you think you can win:");

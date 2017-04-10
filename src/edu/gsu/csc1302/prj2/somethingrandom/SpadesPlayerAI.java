@@ -10,7 +10,7 @@ import edu.gsu.csc1302.coll1.Deck;
  * @author stgilbert
  *
  */
-public class SpadesPlayerAI implements PlayerInterface{
+public class SpadesPlayerAI implements PlayerInterface {
 	/**
 	 * Stores the behavior type of the given Player object.
 	 */
@@ -227,6 +227,6 @@ public class SpadesPlayerAI implements PlayerInterface{
 		}
 		this.hand = null;
 		this.myController = controller;
-		this.teamZeroOrOne = myController.getTeam(this);
+		//this.teamZeroOrOne = myController.getTeam(this);
 	}
 }
