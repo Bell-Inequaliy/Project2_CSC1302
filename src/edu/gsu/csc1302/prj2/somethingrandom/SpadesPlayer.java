@@ -50,11 +50,6 @@ public class SpadesPlayer implements PlayerInterface {
 	private Deck hand;
 
 	/**
-	 * The controller object.
-	 */
-	private final Controller myController;
-
-	/**
 	 * Comparator used for evaluating betting numbers.
 	 */
 	private SpadesComparatorImplementation aiComparator;
@@ -62,15 +57,13 @@ public class SpadesPlayer implements PlayerInterface {
 	/**
 	 * Player constructor.
 	 * @param type Player type to use.
-	 * @param controller Controller object for the game
 	 */
-	public SpadesPlayer(final int type, final Controller controller) {
+	public SpadesPlayer(final int type) {
 		playerType = type;
 		if (playerType > 4) {
 			playerType = 4;
 		}
 		hand = null;
-		myController = controller;
 	}
 
 	@Override
@@ -250,32 +243,32 @@ public class SpadesPlayer implements PlayerInterface {
 	private Card aiPlay() {
 		Deck comparisonDeck = new DeckImplementation();
 		Card playingCard = new Card(null, null);
-		if (myController.getPlayedCards().size() != 0) {
-		for (int i = 0; i < this.hand.size(); i++) {
-			if (myController.getPlayedCards().get(0).getSuit()
-				== hand.get(i).getSuit()) {
-			comparisonDeck.add(hand.get(i));
+		if (SpadesGame.getTableCards().size() != 0) {
+			for (int i = 0; i < this.hand.size(); i++) {
+				if (SpadesGame.getTableCards().get(0).getSuit()
+						== hand.get(i).getSuit()) {
+					comparisonDeck.add(hand.get(i));
+				}
 			}
-		}
-		if (comparisonDeck.size() == 0) {
-			comparisonDeck = hand;
-		}
-		for (int i = 0; i < comparisonDeck.size(); i++) {
-			for (int j = 0; j < myController.getPlayedCards().size(); j++) {
-				this.aiComparator = new
-						SpadesComparatorImplementation(myController.getPlayedCards()
-								.get(0).getSuit());
-				if (aiComparator.compare(myController.getPlayedCards().get(j),
-						comparisonDeck.get(i)) < 0) {
-					if (aiComparator.compare(playingCard, comparisonDeck.get(i))
-							< 0) {
+			if (comparisonDeck.size() == 0) {
+				comparisonDeck = hand;
+			}
+			for (int i = 0; i < comparisonDeck.size(); i++) {
+				for (int j = 0; j < SpadesGame.getTableCards().size(); j++) {
+					this.aiComparator = new
+							SpadesComparatorImplementation(SpadesGame.getTableCards()
+									.get(0).getSuit());
+					if (aiComparator.compare(SpadesGame.getTableCards().get(j),
+							comparisonDeck.get(i)) < 0) {
+						if (aiComparator.compare(playingCard, comparisonDeck.get(i))
+								< 0) {
 
-					playingCard = comparisonDeck.get(i);
+							playingCard = comparisonDeck.get(i);
+						}
+					}
 				}
-				}
-			}
-		} if (playingCard.getSuit() == null) {
-			playingCard = comparisonDeck.get(0);
+			} if (playingCard.getSuit() == null) {
+				playingCard = comparisonDeck.get(0);
 			}
 		} else {
 			playingCard = hand.get(0);
@@ -344,8 +337,8 @@ public class SpadesPlayer implements PlayerInterface {
 						"\"play(RANK SUIT)\": Play the card of the given RANK and SUIT.");
 				break;
 			case "talk":
-				System.out.println("Your team mate estimates he can win "
-						+ myController.getTeamMate(this).talk() + "books.");
+				System.out.println("Your team mate estimates they can win "
+						+ SpadesGame.getPlayerTeamMate(this).talk() + "books.");
 				break;
 			case "view_hand":
 				System.out.println("Your hand:");
@@ -354,7 +347,7 @@ public class SpadesPlayer implements PlayerInterface {
 			case "view_table":
 				System.out.println(
 						"Cards on the table (P1 -> P4; null means not played):");
-				System.out.println(myController.getPlayedCards());
+				System.out.println(SpadesGame.getTableCards());
 				break;
 			case "play":
 				// Make sure args are given and that they're correct

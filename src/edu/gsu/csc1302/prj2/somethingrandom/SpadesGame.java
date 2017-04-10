@@ -26,6 +26,31 @@ public final class SpadesGame {
 	public static final Scanner IN = new Scanner(System.in);
 
 	/**
+	 * Cards on the table.
+	 */
+	private static DeckImplementation table = new DeckImplementation();
+
+	/**
+	 * Player one variable.
+	 */
+	private static SpadesPlayer playerOne = new SpadesPlayer(1);
+
+	/**
+	 * Player two variable.
+	 */
+	private static SpadesPlayer playerTwo = new SpadesPlayer(1);
+
+	/**
+	 * Player three variable.
+	 */
+	private static SpadesPlayer playerThree = new SpadesPlayer(1);
+
+	/**
+	 * Player four variable.
+	 */
+	private static SpadesPlayer playerFour = new SpadesPlayer(1);
+
+	/**
 	 * Main method.
 	 * @param args Console launch args.
 	 */
@@ -39,7 +64,7 @@ public final class SpadesGame {
 		LinkedList<Card> deck4 = new LinkedList<>();
 
 
-			for (Suit s : Suit.values()) {
+		for (Suit s : Suit.values()) {
 			for (Rank r : Rank.values()) {
 				Card adder = new Card(s, r);
 				fullDeck.add(adder);
@@ -63,23 +88,17 @@ public final class SpadesGame {
 			deck4.add(shuffledDeck.get(0));
 			shuffledDeck.remove(0);
 		}
-		//making the player controller (????)
-		Controller controller = new Controller();
 
 		//starting the game and getting player behaviors
 		System.out.println("Welcome to Spades!");
 		System.out.println("What play style would you like player One to be?");
-		SpadesPlayer playerOne = new SpadesPlayer(1, controller);
+		playerOne = new SpadesPlayer(1);
 		System.out.println("What play style would you like player Two to be??");
-		SpadesPlayer playerTwo = new SpadesPlayer(1, controller);
+		playerTwo = new SpadesPlayer(1);
 		System.out.println("What play style would you like player Three to be?");
-		SpadesPlayer playerThree = new SpadesPlayer(1, controller);
+		playerThree = new SpadesPlayer(1);
 		System.out.println("What play style would you like player Four to be?");
-		SpadesPlayer playerFour = new SpadesPlayer(1, controller);
-
-		//making the games controller (??)
-		Controller gameController = new Controller(playerOne, playerTwo,
-				playerThree, playerFour);
+		playerFour = new SpadesPlayer(1);
 
 		//making decks and giving them to the players
 		DeckImplementation deck11 = new DeckImplementation(deck1);
@@ -93,20 +112,39 @@ public final class SpadesGame {
 
 
 		while (playing) {
-			//start betting starting with dealers opponent
-			playerTwo.bet();
-			playerFour.bet();
-			playerOne.bet();
-			playerThree.bet();
-			//	System.out.println(fullDeck);
-		//	System.out.println(shuffledDeck);
-		System.out.println(deck11);
-		System.out.println(deck22);
-		System.out.println(deck33);
-		System.out.println(deck44);
+			// TODO
+			Runtime.getRuntime();
 		}
 		IN.close();
 	}
+
+	/**
+	 * ass.
+	 * @return ass.
+	 */
+	public static DeckImplementation getTableCards() {
+		return table;
+	}
+
+	/**
+	 * ass.
+	 * @param player ass.
+	 * @return ass.
+	 */
+	public static SpadesPlayer getPlayerTeamMate(
+			final SpadesPlayer player) {
+		if (player.equals(playerOne)) {
+			return playerThree;
+		} else if (player.equals(playerTwo)) {
+			return playerFour;
+		} else if (player.equals(playerThree)) {
+			return playerOne;
+		} else if (player.equals(playerFour)) {
+			return playerTwo;
+		}
+		return null;
+	}
+
 }
 
 //get players
