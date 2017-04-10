@@ -119,17 +119,17 @@ public final class SpadesGame {
 	}
 
 	/**
-	 * ass.
-	 * @return ass.
+	 * This returns a deck of the cards on le table.
+	 * @return the cards on the table.
 	 */
 	public static DeckImplementation getTableCards() {
 		return table;
 	}
 
 	/**
-	 * ass.
-	 * @param player ass.
-	 * @return ass.
+	 * This method determines who a given player's teammate is.
+	 * @param player the player whose teammate you want to retrieve.
+	 * @return the input player's teammate.
 	 */
 	public static SpadesPlayer getPlayerTeamMate(
 			final SpadesPlayer player) {
