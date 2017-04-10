@@ -61,8 +61,11 @@ public final class SpadesGame {
 	 * The player whose turn it currently is.
 	 */
 	SpadesPlayer currentPlayer;
+	static Suit leadsuit;
 
-
+	static int teamOneScore;
+	static int teamTwoScore;
+	static Card highCard ;
 
 	private static int playerOneBet;
 	private static int playerTwoBet;
@@ -161,27 +164,57 @@ public final class SpadesGame {
 				+ ". Team Two has bet " + teamTwoBet + ".");
 
 		Card play = new Card(null, null);
-		for (int i = 0; i < 4; i++) {
+		int winnerBois;
+		for (int i = 0; i < 13; i++) {
 			play = playerOne.play();
 			System.out.println("Player One has played " + play);
 			table.add(play);
-			//	System.out.println(table);
+			leadsuit = play.getSuit();
+			SpadesComparatorImplementation comparer = new
+			SpadesComparatorImplementation(leadsuit);
+			winnerBois = 1;
+
 
 			play = playerTwo.play();
 			System.out.println("Player Two has played " + play);
 			table.add(play);
 			//System.out.println(table);
+			if (comparer.compare(table.get(0), table.get(1)) < 0) {
+				highCard = table.get(0);
+			} else {
+				highCard = table.get(1);
+				winnerBois = 2;
+			}
+
 
 			play = playerThree.play();
 			System.out.println("Player Three has played " + play);
 			table.add(play);
-			//System.out.println(table);
+			if (comparer.compare(highCard, play) > 0) {
+				highCard = play;
+				winnerBois = 3;
+			}
+
 
 			play = playerFour.play();
 			System.out.println("Player Four has played " + play);
 			table.add(play);
+			table.add(play);
+			if (comparer.compare(highCard, play) > 0) {
+				highCard = play;
+				winnerBois = 4;
+			}
 			table.clear();
-			
+			System.out.println(highCard);
+
+			if (winnerBois % 2 == 0) {
+				teamTwoScore++;
+			} else {
+				teamOneScore++;
+			}
+			System.out.println("WINNERBOIS = " + winnerBois);
+			System.out.println("Team One score: " + teamOneScore + ", "
+					+ "Team Two Score: " + teamTwoScore + ".");
 		}
 
 		in.close();
