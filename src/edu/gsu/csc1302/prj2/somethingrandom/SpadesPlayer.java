@@ -219,7 +219,7 @@ public class SpadesPlayer implements PlayerInterface {
 			r = aiPlay();
 			break;
 		case TYPE_CHICKEN:
-				r = aiPlay();
+			r = aiPlay();
 			break;
 		case TYPE_WILDCARD:
 			r = aiPlay();
@@ -266,7 +266,11 @@ public class SpadesPlayer implements PlayerInterface {
 									.get(0).getSuit());
 					if (aiComparator.compare(SpadesGame.getTableCards().get(j),
 							comparisonDeck.get(i)) < 0) {
-						if (aiComparator.compare(playingCard, comparisonDeck.get(i))
+						//	System.out.println(playingCard);
+						//	System.out.println(comparisonDeck);
+						if (playingCard.getSuit() == null) {
+							playingCard = comparisonDeck.get(i);
+						} else if (aiComparator.compare(playingCard, comparisonDeck.get(i))
 								< 0) {
 
 							playingCard = comparisonDeck.get(i);

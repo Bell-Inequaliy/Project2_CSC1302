@@ -63,6 +63,7 @@ public final class SpadesGame {
 	SpadesPlayer currentPlayer;
 
 
+
 	private static int playerOneBet;
 	private static int playerTwoBet;
 	private static int playerThreeBet;
@@ -120,9 +121,14 @@ public final class SpadesGame {
 		System.out.println("What play style would you like player Four to be?");
 		playerFour = new SpadesPlayer(in.nextInt());
 
+		/**		playerOne = new SpadesPlayer(1);
+		playerTwo = new SpadesPlayer(1);
+		playerThree = new SpadesPlayer(1);
+		playerFour = new SpadesPlayer(1);
+		 **/	
 
-//		List<SpadesPlayer> players = Arrays.asList(playerOne, playerTwo,
-//			playerThree, playerFour);
+		//		List<SpadesPlayer> players = Arrays.asList(playerOne, playerTwo,
+		//			playerThree, playerFour);
 
 		//making decks and giving them to the players
 		DeckImplementation deck11 = new DeckImplementation(deck1);
@@ -134,44 +140,51 @@ public final class SpadesGame {
 		playerThree.setHand(deck33);
 		playerFour.setHand(deck44);
 
-			// TODO
-			playerOneBet = playerOne.bet();
-			System.out.println("Player One has bet " + playerOneBet + ".");
-			playerTwoBet = playerTwo.bet();
-			System.out.println("Player Two has bet " + playerTwoBet + ".");
-			playerThreeBet = playerThree.bet();
-			System.out.println("Player Three has bet " + playerThreeBet + ".");
-			playerFourBet = playerFour.bet();
-			System.out.println("Player Four has bet " + playerFourBet + ".");
-			int teamOneBet = (playerOneBet + playerThreeBet);
-			if (teamOneBet > 10) {
-				teamOneBet = 10;
-			}
-			int teamTwoBet = (playerTwoBet + playerFourBet);
-			if (teamTwoBet > 10) {
-				teamTwoBet = 10;
-			}
-			System.out.println("Team One has bet " + teamOneBet
-					+ ". Team Two has bet " + teamTwoBet + ".");
+		// TODO
+		playerOneBet = playerOne.bet();
+		System.out.println("Player One has bet " + playerOneBet + ".");
+		playerTwoBet = playerTwo.bet();
+		System.out.println("Player Two has bet " + playerTwoBet + ".");
+		playerThreeBet = playerThree.bet();
+		System.out.println("Player Three has bet " + playerThreeBet + ".");
+		playerFourBet = playerFour.bet();
+		System.out.println("Player Four has bet " + playerFourBet + ".");
+		int teamOneBet = (playerOneBet + playerThreeBet);
+		if (teamOneBet > 10) {
+			teamOneBet = 10;
+		}
+		int teamTwoBet = (playerTwoBet + playerFourBet);
+		if (teamTwoBet > 10) {
+			teamTwoBet = 10;
+		}
+		System.out.println("Team One has bet " + teamOneBet
+				+ ". Team Two has bet " + teamTwoBet + ".");
 
-			Card play = new Card(null, null);
-			for (int i = 0; i < 4; i++) {
-	play = playerOne.play();
-	System.out.println("Player One has played " + play);
-	table.add(play);
-	play = playerTwo.play();
-	System.out.println("Player Two has played " + play);
-	play = playerThree.play();
-	table.add(play);
-	System.out.println("Player Three has played " + play);
-	play = playerThree.play();
-	table.add(play);
-	play = playerOne.play();
-	System.out.println("Player Four has played " + play);
-	table.add(play);
-			}
-		System.out.println("Player One has played " + play);
-	in.close();
+		Card play = new Card(null, null);
+		for (int i = 0; i < 4; i++) {
+			play = playerOne.play();
+			System.out.println("Player One has played " + play);
+			table.add(play);
+			//	System.out.println(table);
+
+			play = playerTwo.play();
+			System.out.println("Player Two has played " + play);
+			table.add(play);
+			//System.out.println(table);
+
+			play = playerThree.play();
+			System.out.println("Player Three has played " + play);
+			table.add(play);
+			//System.out.println(table);
+
+			play = playerFour.play();
+			System.out.println("Player Four has played " + play);
+			table.add(play);
+			table.clear();
+			
+		}
+
+		in.close();
 	}
 
 	/** test.
