@@ -128,6 +128,7 @@ public class SpadesPlayer implements PlayerInterface {
 			}
 			break;
 		case TYPE_USER:
+			System.out.println(hand);
 			System.out.println("Enter your bet:");
 			r = Integer.parseInt(SpadesGame.IN.nextLine());
 			if (r > 13) {
@@ -218,7 +219,7 @@ public class SpadesPlayer implements PlayerInterface {
 			r = aiPlay();
 			break;
 		case TYPE_CHICKEN:
-			r = aiPlay();
+				r = aiPlay();
 			break;
 		case TYPE_WILDCARD:
 			r = aiPlay();
@@ -338,7 +339,7 @@ public class SpadesPlayer implements PlayerInterface {
 				break;
 			case "talk":
 				System.out.println("Your team mate estimates they can win "
-						+ SpadesGame.getPlayerTeamMate(this).talk() + "books.");
+						+ SpadesGame.getPlayerTeamMate(this).talk() + " books.");
 				break;
 			case "view_hand":
 				System.out.println("Your hand:");
