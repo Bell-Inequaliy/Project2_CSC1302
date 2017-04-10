@@ -365,9 +365,11 @@ public class SpadesPlayer implements PlayerInterface {
 					break;
 				}
 				try {
-					r = hand.get(Integer.parseInt(command[1]));
+					r = hand.get(Integer.parseInt(command[1]) + 1);
 				} catch (Exception e) {
-					System.out.println("You entered an invalid integer!");
+					System.out.println("You entered an invalid integer! Please make sure "
+							+ "it isn't larger than your hand and that it is a whole number."
+							);
 				}
 				break;
 			default:
