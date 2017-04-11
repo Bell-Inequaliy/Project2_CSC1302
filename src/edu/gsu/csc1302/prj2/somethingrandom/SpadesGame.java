@@ -1,8 +1,6 @@
 package edu.gsu.csc1302.prj2.somethingrandom;
 
-import java.util.Arrays;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Scanner;
 
 import edu.gsu.csc1302.coll1.Card;
@@ -67,7 +65,6 @@ public final class SpadesGame {
 	 */
 	private static int teamOneTricks;
 
-
 	/**
 	 * Team two's tricks that they won.
 	 */
@@ -92,28 +89,29 @@ public final class SpadesGame {
 	/**
 	 * Player one's bet.
 	 */
-	private static int playerOneBet;
+	private static int teamOneBet;
 
 	/**
 	 * Player two's bet.
 	 */
-	private static int playerTwoBet;
-
-	/**
-	 * Player three's bet.
-	 */
-	private static int playerThreeBet;
-
-	/**
-	 * Player four's bet.
-	 */
-	private static int playerFourBet;
+	private static int teamTwoBet;
 
 	/**
 	 * Main method.
 	 * @param args Console launch args.
 	 */
 	public static void main(final String[] args) {
+
+		// Start the game and get the desired player configurations.
+		System.out.println("Welcome to Spades!");
+		System.out.println("What play style would you like player One to be?");
+		playerOne = new SpadesPlayer(IN.nextInt());
+		System.out.println("What play style would you like player Two to be?");
+		playerTwo = new SpadesPlayer(IN.nextInt());
+		System.out.println("What play style would you like player Three to be?");
+		playerThree = new SpadesPlayer(IN.nextInt());
+		System.out.println("What play style would you like player Four to be?");
+		playerFour = new SpadesPlayer(IN.nextInt());
 
 		// Set up the decks and the hands the players will have.
 		LinkedList<Card> fullDeck = new LinkedList<>();
@@ -153,17 +151,6 @@ public final class SpadesGame {
 			shuffledDeck.remove(0);
 		}
 
-		// Start the game and get the desired player configurations.
-		System.out.println("Welcome to Spades!");
-		System.out.println("What play style would you like player One to be?");
-		playerOne = new SpadesPlayer(IN.nextInt());
-		System.out.println("What play style would you like player Two to be?");
-		playerTwo = new SpadesPlayer(IN.nextInt());
-		System.out.println("What play style would you like player Three to be?");
-		playerThree = new SpadesPlayer(IN.nextInt());
-		System.out.println("What play style would you like player Four to be?");
-		playerFour = new SpadesPlayer(IN.nextInt());
-
 		/*
 		 * Create the DeckImplementations from the lists
 		 * and give them to the players.
@@ -177,32 +164,64 @@ public final class SpadesGame {
 		playerThree.setHand(deck33);
 		playerFour.setHand(deck44);
 
+		makeBets();
+
+		playRound();
+
+		// After the loop concludes, determine the scores for each team.
+		if (teamOneTricks - teamOneBet > 0 && teamOneTricks - teamOneBet < 4) {
+			teamOneScore += teamOneBet * 10;
+		} else {
+			teamOneScore -= teamOneBet * 10;
+		}
+		if (teamTwoTricks - teamTwoBet > 0 && teamTwoTricks - teamTwoBet < 4) {
+			teamTwoScore += teamTwoBet * 10;
+		} else {
+			teamTwoScore -= teamTwoBet * 10;
+		}
+		// Print the updated scores.
+		System.out.println("Team One score: " + teamOneScore + ", "
+				+ "Team Two Score: " + teamTwoScore + ".");
+
+		// Close the input stream.
+		IN.close();
+	}
+
+	/**
+	 * Have the players make bets.
+	 */
+	private static void makeBets() {
 		// Call on the players to bet.
-		playerOneBet = playerOne.bet();
-		System.out.println("Player One has bet " + playerOneBet + ".");
-		playerTwoBet = playerTwo.bet();
-		System.out.println("Player Two has bet " + playerTwoBet + ".");
-		playerThreeBet = playerThree.bet();
-		System.out.println("Player Three has bet " + playerThreeBet + ".");
-		playerFourBet = playerFour.bet();
-		System.out.println("Player Four has bet " + playerFourBet + ".");
+				int playerOneBet = playerOne.bet();
+				System.out.println("Player One has bet " + playerOneBet + ".");
+				int playerTwoBet = playerTwo.bet();
+				System.out.println("Player Two has bet " + playerTwoBet + ".");
+				int playerThreeBet = playerThree.bet();
+				System.out.println("Player Three has bet " + playerThreeBet + ".");
+				int playerFourBet = playerFour.bet();
+				System.out.println("Player Four has bet " + playerFourBet + ".");
 
-		// Make sure the bets don't go overboard.
-		int teamOneBet = (playerOneBet + playerThreeBet);
-		if (teamOneBet > 10) {
-			teamOneBet = 10;
-		}
+				// Make sure the bets don't go overboard.
+				teamOneBet = (playerOneBet + playerThreeBet);
+				if (teamOneBet > 10) {
+					teamOneBet = 10;
+				}
 
-		// Ditto.
-		int teamTwoBet = (playerTwoBet + playerFourBet);
-		if (teamTwoBet > 10) {
-			teamTwoBet = 10;
-		}
+				// Ditto.
+				teamTwoBet = (playerTwoBet + playerFourBet);
+				if (teamTwoBet > 10) {
+					teamTwoBet = 10;
+				}
 
-		// Print the bets.
-		System.out.println("Team One has bet " + teamOneBet
-				+ ". Team Two has bet " + teamTwoBet + ".");
+				// Print the bets.
+				System.out.println("Team One has bet " + teamOneBet
+						+ ". Team Two has bet " + teamTwoBet + ".");
+	}
 
+	/**
+	 * Code that runs through a round of the game (1 round is 13 tricks).
+	 */
+	private static void playRound() {
 		// Temporary variable that stores which card has been played.
 		Card play = new Card(null, null);
 
@@ -278,24 +297,6 @@ public final class SpadesGame {
 			System.out.println("Team One tricks: " + teamOneTricks + ", "
 					+ "Team Two tricks: " + teamTwoTricks + ".");
 		} // Continue looping...
-
-		// After the loop concludes, determine the scores for each team.
-		if (teamOneTricks - teamOneBet > 0 && teamOneTricks - teamOneBet < 4) {
-			teamOneScore += teamOneBet * 10;
-		} else {
-			teamOneScore -= teamOneBet * 10;
-		}
-		if (teamTwoTricks - teamTwoBet > 0 && teamTwoTricks - teamTwoBet < 4) {
-			teamTwoScore += teamTwoBet * 10;
-		} else {
-			teamTwoScore -= teamTwoBet * 10;
-		}
-		// Print the updated scores.
-		System.out.println("Team One score: " + teamOneScore + ", "
-				+ "Team Two Score: " + teamTwoScore + ".");
-
-		// Close the input stream.
-		IN.close();
 	}
 
 	/**
@@ -326,18 +327,3 @@ public final class SpadesGame {
 	}
 
 }
-
-//get players
-//set player turns
-//get inputs
-//static
-//set random dealers
-//create deck
-//pass array of players into controller object
-//move dealer
-//get gamestate in between turns
-//what to do each turn
-
-//game 13 cards x 4 dealers
-//round 13 cards each
-//book 1 card
