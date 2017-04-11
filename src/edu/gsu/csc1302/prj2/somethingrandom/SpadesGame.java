@@ -115,6 +115,66 @@ public final class SpadesGame {
 		System.out.println("What play style would you like player Four to be?");
 		playerFour = new SpadesPlayer(IN.nextInt());
 
+		while (true) {
+			shuffleAndDeal();
+
+			if (Math.abs(teamOneScore - teamTwoScore) < 100) {
+				makeBets();
+			}
+			playRound();
+
+			// Handle Bostons. (Bet 10, win 13).
+			if ((teamOneTricks == 13 && teamOneBet == 10)
+					&& !(teamTwoTricks == 13 && teamTwoBet == 10)) {
+				System.out.println("Team one got a Boston and won the game!");
+				break;
+			} else if (!(teamOneTricks == 13 && teamOneBet == 10)
+					&& (teamTwoTricks == 13 && teamTwoBet == 10)) {
+				System.out.println("Team two got a Boston and won the game!");
+				break;
+			}
+
+			// After the loop concludes, determine the scores for each team.
+			if (teamOneTricks - teamOneBet > 0 && teamOneTricks - teamOneBet < 4) {
+				teamOneScore += teamOneBet * 10;
+			} else {
+				teamOneScore -= teamOneBet * 10;
+			}
+			if (teamTwoTricks - teamTwoBet > 0 && teamTwoTricks - teamTwoBet < 4) {
+				teamTwoScore += teamTwoBet * 10;
+			} else {
+				teamTwoScore -= teamTwoBet * 10;
+			}
+
+			// Print the updated scores.
+			System.out.println("Team One score: " + teamOneScore + ", "
+					+ "Team Two Score: " + teamTwoScore + ".");
+
+			// Get if the player wants to go again.
+			System.out.println("Do you want to play again? (y.../n...)");
+			BufferedReader blockingReader =
+					new BufferedReader(new InputStreamReader(System.in));
+			try {
+				String response = blockingReader.readLine();
+				if (response.toLowerCase().toCharArray()[0] == 'n') {
+					blockingReader.close();
+					break;
+				} else {
+					continue;
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
+		// Close the input stream.
+		IN.close();
+	}
+
+	/**
+	 * Shuffle and deal the deck of cards.
+	 */
+	private static void shuffleAndDeal() {
 		// Set up the decks and the hands the players will have.
 		LinkedList<Card> fullDeck = new LinkedList<>();
 		LinkedList<Card> shuffledDeck = new LinkedList<>();
@@ -170,58 +230,6 @@ public final class SpadesGame {
 		playerTwo.setHand(deck22);
 		playerThree.setHand(deck33);
 		playerFour.setHand(deck44);
-
-		while (true) {
-			if (Math.abs(teamOneScore - teamTwoScore) < 100) {
-			makeBets();
-			}
-			playRound();
-
-			// Handle Bostons. (Bet 10, win 13).
-			if ((teamOneTricks == 13 && teamOneBet == 10)
-					&& !(teamTwoTricks == 13 && teamTwoBet == 10)) {
-				System.out.println("Team one got a Boston and won the game!");
-				break;
-			} else if (!(teamOneTricks == 13 && teamOneBet == 10)
-					&& (teamTwoTricks == 13 && teamTwoBet == 10)) {
-				System.out.println("Team two got a Boston and won the game!");
-				break;
-			}
-
-			// After the loop concludes, determine the scores for each team.
-			if (teamOneTricks - teamOneBet > 0 && teamOneTricks - teamOneBet < 4) {
-				teamOneScore += teamOneBet * 10;
-			} else {
-				teamOneScore -= teamOneBet * 10;
-			}
-			if (teamTwoTricks - teamTwoBet > 0 && teamTwoTricks - teamTwoBet < 4) {
-				teamTwoScore += teamTwoBet * 10;
-			} else {
-				teamTwoScore -= teamTwoBet * 10;
-			}
-			// Print the updated scores.
-			System.out.println("Team One score: " + teamOneScore + ", "
-					+ "Team Two Score: " + teamTwoScore + ".");
-
-			// Get if the player wants to go again.
-			System.out.println("Do you want to play again? (y.../n...)");
-			BufferedReader blockingReader =
-					new BufferedReader(new InputStreamReader(System.in));
-			try {
-				String response = blockingReader.readLine();
-				if (response.toLowerCase().toCharArray()[0] == 'n') {
-					blockingReader.close();
-					break;
-				} else {
-					continue;
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-
-		// Close the input stream.
-		IN.close();
 	}
 
 	/**
