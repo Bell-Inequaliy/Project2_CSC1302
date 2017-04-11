@@ -3,25 +3,10 @@ package edu.gsu.csc1302.prj2.somethingrandom;
 /**
  * Dr. Seuss watches over our spades game, and gives it his blessing.
  * @author Jake P
- * @author DrSeuss.java
+ * @author Dr Seuss
+ *
  */
-public abstract class DrSeuss {
-
-	/**
-	 * If our eggs are verbose or not.
-	 */
-	protected static boolean verbose = false;
-
-	/**
-	 * And thus the dark lord himself was born...
-	 */
-	protected DrSeuss() {
-		if (verbose) {
-			System.out.println(
-				"And then the dark lord of the SpadesGame emerged... and his name was "
-				+ toSeuss());
-		}
-	}
+public final class DrSeuss {
 
 	/**
 	 * One fish.
@@ -46,13 +31,10 @@ public abstract class DrSeuss {
 	static {
 		color = "BLUE";
 	}
-
 	/**
-	 * Returns this object's representation as a Seuss.
-	 * @return this object's representation as a Seuss.
+	 * Public constructor because C H E C K S T Y L E S.
 	 */
-	public String toSeuss() {
-		return "Dr." + toString() + "Seuss";
+	private DrSeuss() {
+		// Onefish Twofish
 	}
-
 }
