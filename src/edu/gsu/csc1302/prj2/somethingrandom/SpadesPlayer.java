@@ -66,12 +66,18 @@ public class SpadesPlayer implements PlayerInterface {
 		hand = null;
 	}
 
-	@Override
+	/**
+	 * Set the player's hand equal to the given deck.
+	 * @param deck Deck
+	 */
 	public final void setHand(final Deck deck) {
 		hand = deck;
 	}
 
-	@Override
+	/**
+	 * Return the number the player or AI thinks they can win this round.
+	 * @return int
+	 */
 	public final int bet() {
 		int r = 0;
 		Card evaluationCard = null;
@@ -143,7 +149,10 @@ public class SpadesPlayer implements PlayerInterface {
 		return r;
 	}
 
-	@Override
+	/**
+	 * Return the number of cards the player (AI) thinks it can win with.
+	 * @return int
+	 */
 	public final int talk() {
 		int r = 0;
 		Card evaluationCard = null;
@@ -209,7 +218,10 @@ public class SpadesPlayer implements PlayerInterface {
 		return r;
 	}
 
-	@Override
+	/**
+	 * Play a card from the player's hand to the board.
+	 * @return card
+	 */
 	public final Card play() {
 		Card r = null;
 		Deck comparisonDeck = new DeckImplementation();
