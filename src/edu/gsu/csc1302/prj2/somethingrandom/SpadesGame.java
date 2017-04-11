@@ -114,7 +114,8 @@ public final class SpadesGame {
 	 * @param args Console launch args.
 	 */
 	public static void main(final String[] args) {
-		boolean playing = true;
+
+		// Set up the decks and the hands the players will have.
 		LinkedList<Card> fullDeck = new LinkedList<>();
 		LinkedList<Card> shuffledDeck = new LinkedList<>();
 		LinkedList<Card> deck1 = new LinkedList<>();
@@ -122,21 +123,25 @@ public final class SpadesGame {
 		LinkedList<Card> deck3 = new LinkedList<>();
 		LinkedList<Card> deck4 = new LinkedList<>();
 
-
+		// Populate the full deck.
 		for (Suit s : Suit.values()) {
 			for (Rank r : Rank.values()) {
 				Card adder = new Card(s, r);
 				fullDeck.add(adder);
-
 			}
 		}
 
+		/*
+		 * Shuffle the deck by randomly removing a card from
+		 * the full deck and adding it to the shuffled deck.
+		 */
 		for (int shuffleNum = 52; shuffleNum != 0; shuffleNum--) {
 			int cardNum = (int) (Math.random() * shuffleNum);
 			shuffledDeck.add(fullDeck.get(cardNum));
 			fullDeck.remove(cardNum);
 		}
 
+		//  Deal to the players.
 		for (int deal = 0; deal < 13; deal++) {
 			deck1.add(shuffledDeck.get(0));
 			shuffledDeck.remove(0);
@@ -147,8 +152,8 @@ public final class SpadesGame {
 			deck4.add(shuffledDeck.get(0));
 			shuffledDeck.remove(0);
 		}
-		//starting the game and getting player behaviors
-		//TODO change the 1 to IN.nextintbois
+
+		// Start the game and get the desired player configurations.
 		System.out.println("Welcome to Spades!");
 		System.out.println("What play style would you like player One to be?");
 		playerOne = new SpadesPlayer(IN.nextInt());
@@ -159,16 +164,10 @@ public final class SpadesGame {
 		System.out.println("What play style would you like player Four to be?");
 		playerFour = new SpadesPlayer(IN.nextInt());
 
-		/**		playerOne = new SpadesPlayer(1);
-		playerTwo = new SpadesPlayer(1);
-		playerThree = new SpadesPlayer(1);
-		playerFour = new SpadesPlayer(1);
-		 **/
-
-		//		List<SpadesPlayer> players = Arrays.asList(playerOne, playerTwo,
-		//			playerThree, playerFour);
-
-		//making decks and giving them to the players
+		/*
+		 * Create the DeckImplementations from the lists
+		 * and give them to the players.
+		 */
 		DeckImplementation deck11 = new DeckImplementation(deck1);
 		DeckImplementation deck22 = new DeckImplementation(deck2);
 		DeckImplementation deck33 = new DeckImplementation(deck3);
@@ -178,7 +177,7 @@ public final class SpadesGame {
 		playerThree.setHand(deck33);
 		playerFour.setHand(deck44);
 
-		// TODO
+		// Call on the players to bet.
 		playerOneBet = playerOne.bet();
 		System.out.println("Player One has bet " + playerOneBet + ".");
 		playerTwoBet = playerTwo.bet();
@@ -187,41 +186,63 @@ public final class SpadesGame {
 		System.out.println("Player Three has bet " + playerThreeBet + ".");
 		playerFourBet = playerFour.bet();
 		System.out.println("Player Four has bet " + playerFourBet + ".");
+
+		// Make sure the bets don't go overboard.
 		int teamOneBet = (playerOneBet + playerThreeBet);
 		if (teamOneBet > 10) {
 			teamOneBet = 10;
 		}
+
+		// Ditto.
 		int teamTwoBet = (playerTwoBet + playerFourBet);
 		if (teamTwoBet > 10) {
 			teamTwoBet = 10;
 		}
+
+		// Print the bets.
 		System.out.println("Team One has bet " + teamOneBet
 				+ ". Team Two has bet " + teamTwoBet + ".");
 
+		// Temporary variable that stores which card has been played.
 		Card play = new Card(null, null);
+
+		// The player number who won the trick (1, 2, 3, 4).
 		int winnerBois;
+
+		// Loop 13 times (since each player has 13 cards to play)
 		for (int i = 0; i < 13; i++) {
+			// Get player one's play.
 			play = playerOne.play();
+			// Print out what they played.
 			System.out.println("Player One has played " + play);
+			// Add it to the list of cards currently on the table.
 			table.add(play);
+			// Set the lead suit to whatever they played.
 			leadsuit = play.getSuit();
+			// Create a comparator for future use, based on the lead suit.
 			SpadesComparatorImplementation comparer = new
 					SpadesComparatorImplementation(leadsuit);
+			/*
+			 * At this point in time player one is the only one who played.
+			 * Therefore, he won.
+			 */
 			winnerBois = 1;
+			highCard = play;
 
-
+			// Repeat the above code but for player two.
 			play = playerTwo.play();
 			System.out.println("Player Two has played " + play);
 			table.add(play);
-			//System.out.println(table);
-			if (comparer.compare(table.get(0), table.get(1)) < 0) {
-				highCard = table.get(0);
-			} else {
-				highCard = table.get(1);
+
+			// Now, if the card we just played beats the card on the table...
+			if (comparer.compare(highCard, play) > 0) {
+				// Set the new high card and winning player.
+				highCard = play;
 				winnerBois = 2;
 			}
+			// Otherwise do nothing.
 
-
+			// Repeat above code for player three.
 			play = playerThree.play();
 			System.out.println("Player Three has played " + play);
 			table.add(play);
@@ -230,7 +251,7 @@ public final class SpadesGame {
 				winnerBois = 3;
 			}
 
-
+			// Repeat above code for player four.
 			play = playerFour.play();
 			System.out.println("Player Four has played " + play);
 			table.add(play);
@@ -239,19 +260,26 @@ public final class SpadesGame {
 				highCard = play;
 				winnerBois = 4;
 			}
-			table.clear();
-			System.out.println(highCard);
 
+			// Clear the table
+			table.clear();
+
+			// If the winner is an even number...
 			if (winnerBois % 2 == 0) {
+				// Team two won
 				teamTwoTricks++;
 			} else {
+				// Otherwise team one won.
 				teamOneTricks++;
 			}
+
+			// Print the winning player and the number of tricks each team has won.
 			System.out.println("WINNERBOIS = " + winnerBois);
 			System.out.println("Team One tricks: " + teamOneTricks + ", "
 					+ "Team Two tricks: " + teamTwoTricks + ".");
-		}
+		} // Continue looping...
 
+		// After the loop concludes, determine the scores for each team.
 		if (teamOneTricks - teamOneBet > 0 && teamOneTricks - teamOneBet < 4) {
 			teamOneScore += teamOneBet * 10;
 		} else {
@@ -262,23 +290,26 @@ public final class SpadesGame {
 		} else {
 			teamTwoScore -= teamTwoBet * 10;
 		}
+		// Print the updated scores.
 		System.out.println("Team One score: " + teamOneScore + ", "
 				+ "Team Two Score: " + teamTwoScore + ".");
 
+		// Close the input stream.
 		IN.close();
 	}
 
-	/** test.
-	 * @return ass.
+	/**
+	 * Get the cards currently on the table.
+	 * @return The cards currently on the table.
 	 */
 	public static DeckImplementation getTableCards() {
 		return table;
 	}
 
 	/**
-	 * ass.
-	 * @param player ass.
-	 * @return ass.
+	 * Get the player's team mate.
+	 * @param player The player to find the team mate of.
+	 * @return The player's team mate.
 	 */
 	public static SpadesPlayer getPlayerTeamMate(
 			final SpadesPlayer player) {
