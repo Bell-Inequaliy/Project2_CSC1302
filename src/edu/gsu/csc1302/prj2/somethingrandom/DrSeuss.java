@@ -37,5 +37,4 @@ public final class DrSeuss {
 	private DrSeuss() {
 		// Onefish Twofish
 	}
-
 }
