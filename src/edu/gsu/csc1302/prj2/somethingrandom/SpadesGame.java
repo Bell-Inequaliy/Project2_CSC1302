@@ -13,6 +13,10 @@ import edu.gsu.csc1302.coll1.Card.Suit;
  * Spades Player to manage the generic game stuff.
  *
  * @author Wesley
+ * @author J-Dierberger
+ * @author stgilbert
+ * @author Jake P
+ * @author DrSeuss.java
  *
  */
 public final class SpadesGame {
@@ -24,7 +28,7 @@ public final class SpadesGame {
 	}
 
 	/**
-	 * Now we don't have to reinstantiate the scanner every time we need it.
+	 * Universal input scanner.
 	 */
 	public static final Scanner IN = new Scanner(System.in);
 
@@ -52,31 +56,58 @@ public final class SpadesGame {
 	 * Player four variable.
 	 */
 	private static SpadesPlayer playerFour = new SpadesPlayer(1);
-	/**
-	 * This is where the players are kept.
-	 * Let's hope they don't figure out how to get out.
-	 */
-	static List<SpadesPlayer> players;
-	/**
-	 * The player whose turn it currently is.
-	 */
-	SpadesPlayer currentPlayer;
-	static Suit leadsuit;
 
-	static int teamOneTricks;
-	static int teamTwoTricks;
-	
-	static int teamOneScore;
-	static int teamTwoScore;
-	
-	static Card highCard ;
+	/**
+	 * Leading suit of the round.
+	 */
+	private static Suit leadsuit;
 
+	/**
+	 * Team one's tricks that they won.
+	 */
+	private static int teamOneTricks;
+
+
+	/**
+	 * Team two's tricks that they won.
+	 */
+	private static int teamTwoTricks;
+
+
+	/**
+	 * Team one's score.
+	 */
+	private static int teamOneScore;
+
+	/**
+	 * Team two's score.
+	 */
+	private static int teamTwoScore;
+
+	/**
+	 * Highest card of a trick.
+	 */
+	private static Card highCard;
+
+	/**
+	 * Player one's bet.
+	 */
 	private static int playerOneBet;
-	private static int playerTwoBet;
-	private static int playerThreeBet;
-	private static int playerFourBet;
 
-	static Scanner in = new Scanner(System.in);
+	/**
+	 * Player two's bet.
+	 */
+	private static int playerTwoBet;
+
+	/**
+	 * Player three's bet.
+	 */
+	private static int playerThreeBet;
+
+	/**
+	 * Player four's bet.
+	 */
+	private static int playerFourBet;
 
 	/**
 	 * Main method.
@@ -117,16 +148,16 @@ public final class SpadesGame {
 			shuffledDeck.remove(0);
 		}
 		//starting the game and getting player behaviors
-		//TODO change the 1 to in.nextintbois
+		//TODO change the 1 to IN.nextintbois
 		System.out.println("Welcome to Spades!");
 		System.out.println("What play style would you like player One to be?");
-		playerOne = new SpadesPlayer(in.nextInt());
+		playerOne = new SpadesPlayer(IN.nextInt());
 		System.out.println("What play style would you like player Two to be?");
-		playerTwo = new SpadesPlayer(in.nextInt());
+		playerTwo = new SpadesPlayer(IN.nextInt());
 		System.out.println("What play style would you like player Three to be?");
-		playerThree = new SpadesPlayer(in.nextInt());
+		playerThree = new SpadesPlayer(IN.nextInt());
 		System.out.println("What play style would you like player Four to be?");
-		playerFour = new SpadesPlayer(in.nextInt());
+		playerFour = new SpadesPlayer(IN.nextInt());
 
 		/**		playerOne = new SpadesPlayer(1);
 		playerTwo = new SpadesPlayer(1);
@@ -234,7 +265,7 @@ public final class SpadesGame {
 		System.out.println("Team One score: " + teamOneScore + ", "
 				+ "Team Two Score: " + teamTwoScore + ".");
 
-		in.close();
+		IN.close();
 	}
 
 	/** test.
