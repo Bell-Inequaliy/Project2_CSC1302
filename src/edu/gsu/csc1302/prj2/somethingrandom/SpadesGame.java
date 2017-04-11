@@ -63,8 +63,12 @@ public final class SpadesGame {
 	SpadesPlayer currentPlayer;
 	static Suit leadsuit;
 
+	static int teamOneTricks;
+	static int teamTwoTricks;
+	
 	static int teamOneScore;
 	static int teamTwoScore;
+	
 	static Card highCard ;
 
 	private static int playerOneBet;
@@ -128,7 +132,7 @@ public final class SpadesGame {
 		playerTwo = new SpadesPlayer(1);
 		playerThree = new SpadesPlayer(1);
 		playerFour = new SpadesPlayer(1);
-		 **/	
+		 **/
 
 		//		List<SpadesPlayer> players = Arrays.asList(playerOne, playerTwo,
 		//			playerThree, playerFour);
@@ -171,7 +175,7 @@ public final class SpadesGame {
 			table.add(play);
 			leadsuit = play.getSuit();
 			SpadesComparatorImplementation comparer = new
-			SpadesComparatorImplementation(leadsuit);
+					SpadesComparatorImplementation(leadsuit);
 			winnerBois = 1;
 
 
@@ -208,14 +212,27 @@ public final class SpadesGame {
 			System.out.println(highCard);
 
 			if (winnerBois % 2 == 0) {
-				teamTwoScore++;
+				teamTwoTricks++;
 			} else {
-				teamOneScore++;
+				teamOneTricks++;
 			}
 			System.out.println("WINNERBOIS = " + winnerBois);
-			System.out.println("Team One score: " + teamOneScore + ", "
-					+ "Team Two Score: " + teamTwoScore + ".");
+			System.out.println("Team One tricks: " + teamOneTricks + ", "
+					+ "Team Two tricks: " + teamTwoTricks + ".");
 		}
+
+		if (teamOneTricks - teamOneBet > 0 && teamOneTricks - teamOneBet < 4) {
+			teamOneScore += teamOneBet * 10;
+		} else {
+			teamOneScore -= teamOneBet * 10;
+		}
+		if (teamTwoTricks - teamTwoBet > 0 && teamTwoTricks - teamTwoBet < 4) {
+			teamTwoScore += teamTwoBet * 10;
+		} else {
+			teamTwoScore -= teamTwoBet * 10;
+		}
+		System.out.println("Team One score: " + teamOneScore + ", "
+				+ "Team Two Score: " + teamTwoScore + ".");
 
 		in.close();
 	}
