@@ -222,7 +222,7 @@ public class SpadesPlayer {
 	 * Play a card from the player's hand to the board.
 	 * @return card
 	 */
-	public final Card play() { //AI plays to win every round.
+	public Card play() { //AI plays to win every round.
 		Card r = null;
 		switch (playerType) {
 		case TYPE_AGGRESSIVE:
