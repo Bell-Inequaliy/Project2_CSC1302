@@ -84,8 +84,8 @@ public class SpadesPlayer implements PlayerInterface {
 		int bettingNumber = 0;
 
 		switch (playerType) {
-		case TYPE_AGGRESSIVE:
-			for (int i = 0; i < this.hand.size(); i++) {
+		case TYPE_AGGRESSIVE: // This player type bets on any card stronger than a
+			for (int i = 0; i < this.hand.size(); i++) { // six, and all Spades.
 				if (this.hand.get(i).getSuit() == Suit.SPADE) {
 					bettingNumber++;
 				} else {
@@ -98,7 +98,7 @@ public class SpadesPlayer implements PlayerInterface {
 				}
 			}
 			break;
-		case TYPE_CHICKEN:
+		case TYPE_CHICKEN: //This player only bets on face cards.
 			for (int i = 0; i < this.hand.size(); i++) {
 				evaluationCard = new Card(hand.get(i).getSuit(), Rank.TEN);
 				this.aiComparator = new
@@ -108,7 +108,7 @@ public class SpadesPlayer implements PlayerInterface {
 				}
 			}
 			break;
-		case TYPE_WILDCARD:
+		case TYPE_WILDCARD: //This player bets randomly.
 			for (int i = 0; i < this.hand.size(); i++) {
 				if (this.hand.get(i).getSuit() == Suit.SPADE) {
 					bettingNumber++;
@@ -119,8 +119,8 @@ public class SpadesPlayer implements PlayerInterface {
 				}
 			}
 			break;
-		case TYPE_INTELLIGENT:
-			for (int i = 0; i < this.hand.size(); i++) {
+		case TYPE_INTELLIGENT: //This player bets on cards higher than 8,
+			for (int i = 0; i < this.hand.size(); i++) { // and spades.
 				if (this.hand.get(i).getSuit() == Suit.SPADE) {
 					bettingNumber++;
 				} else {
@@ -133,7 +133,7 @@ public class SpadesPlayer implements PlayerInterface {
 				}
 			}
 			break;
-		case TYPE_USER:
+		case TYPE_USER: //User makes their own bet.
 			System.out.println(hand);
 			System.out.println("Enter your bet:");
 			r = Integer.parseInt(SpadesGame.IN.nextLine());
@@ -142,7 +142,7 @@ public class SpadesPlayer implements PlayerInterface {
 			}
 			return r;
 		default:
-			throw new RuntimeException(
+			throw new RuntimeException(//HOW DID WE GET HERE?!?
 					"DEFAULT CASE IN SWITCH THAT SHOULDN'T DEFAULT");
 		}
 		r = bettingNumber;
@@ -158,7 +158,7 @@ public class SpadesPlayer implements PlayerInterface {
 		Card evaluationCard = null;
 		int bettingNumber = 0;
 		switch (playerType) {
-		case TYPE_AGGRESSIVE:
+		case TYPE_AGGRESSIVE: //Thinks it can win anything better than 4.
 			for (int i = 0; i < this.hand.size(); i++) {
 				if (this.hand.get(i).getSuit() == Suit.SPADE) {
 					bettingNumber++;
@@ -172,7 +172,7 @@ public class SpadesPlayer implements PlayerInterface {
 				}
 			} r = bettingNumber;
 			break;
-		case TYPE_CHICKEN:
+		case TYPE_CHICKEN: //Thinks it can win on things better than 7.
 			for (int i = 0; i < this.hand.size(); i++) {
 				evaluationCard = new Card(hand.get(i).getSuit(), Rank.SEVEN);
 				this.aiComparator = new
@@ -183,7 +183,7 @@ public class SpadesPlayer implements PlayerInterface {
 			} r = bettingNumber;
 			break;
 		case TYPE_WILDCARD:
-			for (int i = 0; i < this.hand.size(); i++) {
+			for (int i = 0; i < this.hand.size(); i++) { //Thinks it can win randomly.
 				if (this.hand.get(i).getSuit() == Suit.SPADE) {
 					bettingNumber++;
 				} else {
@@ -193,7 +193,7 @@ public class SpadesPlayer implements PlayerInterface {
 				}
 			} r = bettingNumber;
 			break;
-		case TYPE_INTELLIGENT:
+		case TYPE_INTELLIGENT: //Thinks it can win on cards higher than 6.
 			for (int i = 0; i < this.hand.size(); i++) {
 				if (this.hand.get(i).getSuit() == Suit.SPADE) {
 					bettingNumber++;
@@ -207,7 +207,7 @@ public class SpadesPlayer implements PlayerInterface {
 				}
 			} r = bettingNumber;
 			break;
-		case TYPE_USER:
+		case TYPE_USER: //Player talks to themselves.
 			System.out.println("Enter how many books you think you can win:");
 			r = Integer.parseInt(SpadesGame.IN.nextLine());
 			break;
@@ -222,7 +222,7 @@ public class SpadesPlayer implements PlayerInterface {
 	 * Play a card from the player's hand to the board.
 	 * @return card
 	 */
-	public final Card play() {
+	public final Card play() { //AI plays to win every round.
 		Card r = null;
 		Deck comparisonDeck = new DeckImplementation();
 		Card playingCard = new Card(null, null);
@@ -270,7 +270,8 @@ public class SpadesPlayer implements PlayerInterface {
 			}
 			if (comparisonDeck.size() == 0) {
 				comparisonDeck = hand;
-			}
+			} //TLDR: It looks for any card that beats the board that's legal.
+			//Failing that, or given any edge case, it plays its first card.
 			for (int i = 0; i < comparisonDeck.size(); i++) {
 				for (int j = 0; j < SpadesGame.getTableCards().size(); j++) {
 					this.aiComparator = new
