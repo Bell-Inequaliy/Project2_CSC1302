@@ -152,6 +152,11 @@ public final class SpadesGame {
 		}
 
 		/*
+		 * Handle blind betting/ghost hands.
+		 */
+		DeckImplementation ghostDeck = new DeckImplementation();
+		
+		/*
 		 * Create the DeckImplementations from the lists
 		 * and give them to the players.
 		 */
@@ -163,9 +168,9 @@ public final class SpadesGame {
 		playerTwo.setHand(deck22);
 		playerThree.setHand(deck33);
 		playerFour.setHand(deck44);
-
+		if (Math.abs(teamOneScore - teamTwoScore) < 100) {
 		makeBets();
-
+		}
 		playRound();
 
 		// After the loop concludes, determine the scores for each team.
@@ -192,30 +197,31 @@ public final class SpadesGame {
 	 */
 	private static void makeBets() {
 		// Call on the players to bet.
-				int playerOneBet = playerOne.bet();
-				System.out.println("Player One has bet " + playerOneBet + ".");
-				int playerTwoBet = playerTwo.bet();
-				System.out.println("Player Two has bet " + playerTwoBet + ".");
-				int playerThreeBet = playerThree.bet();
-				System.out.println("Player Three has bet " + playerThreeBet + ".");
-				int playerFourBet = playerFour.bet();
-				System.out.println("Player Four has bet " + playerFourBet + ".");
+		int playerOneBet = playerOne.bet();
+		System.out.println("Player One has bet " + playerOneBet + ".");
+		int playerTwoBet = playerTwo.bet();
+		System.out.println("Player Two has bet " + playerTwoBet + ".");
+		int playerThreeBet = playerThree.bet();
+		System.out.println("Player Three has bet " + playerThreeBet + ".");
+		int playerFourBet = playerFour.bet();
+		System.out.println("Player Four has bet " + playerFourBet + ".");
 
-				// Make sure the bets don't go overboard.
-				teamOneBet = (playerOneBet + playerThreeBet);
-				if (teamOneBet > 10) {
-					teamOneBet = 10;
-				}
+		// Make sure the bets don't go overboard.
+		teamOneBet = (playerOneBet + playerThreeBet);
+		if (teamOneBet > 10) {
+			teamOneBet = 10;
+		}
 
-				// Ditto.
-				teamTwoBet = (playerTwoBet + playerFourBet);
-				if (teamTwoBet > 10) {
-					teamTwoBet = 10;
-				}
+		// Ditto.
+		teamTwoBet = (playerTwoBet + playerFourBet);
+		if (teamTwoBet > 10) {
+			teamTwoBet = 10;
+		}
 
-				// Print the bets.
-				System.out.println("Team One has bet " + teamOneBet
-						+ ". Team Two has bet " + teamTwoBet + ".");
+		// Print the bets.
+		System.out.println("Team One has bet " + teamOneBet
+				+ ". Team Two has bet " + teamTwoBet + ".");
+
 	}
 
 	/**
