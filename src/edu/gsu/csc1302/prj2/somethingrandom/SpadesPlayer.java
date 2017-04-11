@@ -6,13 +6,13 @@ import edu.gsu.csc1302.coll1.Card.Suit;
 import edu.gsu.csc1302.coll1.Deck;
 
 /**
- * Spades Player to manage the four AI player types.
+ * Spades Player to manage the four AI player types and the user player.
  *
  * @author stgilbert
  * @author J-Dierberger
  *
  */
-public class SpadesPlayer implements PlayerInterface {
+public class SpadesPlayer {
 
 	/**
 	 * Aggressive player type constant.
@@ -70,7 +70,7 @@ public class SpadesPlayer implements PlayerInterface {
 	 * Set the player's hand equal to the given deck.
 	 * @param deck Deck
 	 */
-	public final void setHand(final Deck deck) {
+	public void setHand(final Deck deck) {
 		hand = deck;
 	}
 
@@ -78,7 +78,7 @@ public class SpadesPlayer implements PlayerInterface {
 	 * Return the number the player or AI thinks they can win this round.
 	 * @return int
 	 */
-	public final int bet() {
+	public int bet() {
 		int r = 0;
 		Card evaluationCard = null;
 		int bettingNumber = 0;
@@ -153,7 +153,7 @@ public class SpadesPlayer implements PlayerInterface {
 	 * Return the number of cards the player (AI) thinks it can win with.
 	 * @return int
 	 */
-	public final int talk() {
+	public int talk() {
 		int r = 0;
 		Card evaluationCard = null;
 		int bettingNumber = 0;
@@ -222,10 +222,8 @@ public class SpadesPlayer implements PlayerInterface {
 	 * Play a card from the player's hand to the board.
 	 * @return card
 	 */
-	public final Card play() {
+	public Card play() {
 		Card r = null;
-		Deck comparisonDeck = new DeckImplementation();
-		Card playingCard = new Card(null, null);
 		switch (playerType) {
 		case TYPE_AGGRESSIVE:
 			r = aiPlay();
