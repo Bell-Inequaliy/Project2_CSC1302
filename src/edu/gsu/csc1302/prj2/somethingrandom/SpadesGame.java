@@ -225,6 +225,10 @@ public final class SpadesGame {
 				break;
 			}
 
+			// Reset the trick count.
+			teamOneTricks = 0;
+			teamTwoTricks = 0;
+
 			// Print the updated scores.
 			System.out.println("Team One score: " + teamOneScore + ", "
 					+ "Team Two Score: " + teamTwoScore + ".");
