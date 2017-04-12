@@ -14,13 +14,22 @@ public abstract class DrSeuss {
 
 	/**
 	 * And thus the dark lord himself was born...
+	 * @param verbose If he can speak
 	 */
-	protected DrSeuss() {
+	protected DrSeuss(final boolean verbose) {
+		this.verbose = verbose;
 		if (verbose) {
 			System.out.println(
 				"And then the dark lord of the SpadesGame emerged... and his name was "
 				+ toSeuss());
 		}
+	}
+
+	/**
+	 * And thus the dark lord himself was born...
+	 */
+	protected DrSeuss() {
+		this(true);
 	}
 
 	/**
@@ -45,6 +54,21 @@ public abstract class DrSeuss {
 	 */
 	static {
 		color = "BLUE";
+	}
+
+	/**
+	 * its ya main man dr seuss.
+	 * @param args boi
+	 */
+	public static void main(final String[] args) {
+		if (verbose) {
+			while (true) {
+				System.out.println("ONE FISH");
+				System.out.println("TWO FISH");
+				System.out.println("RED FISH");
+				System.out.println("BOI FISH");
+			}
+		}
 	}
 
 	/**

@@ -20,12 +20,13 @@ import edu.gsu.csc1302.coll1.Deck;
  * @author DrSeuss.java
  *
  */
-public final class SpadesGame {
+public final class SpadesGame extends DrSeuss {
 
 	/**
 	 * Fixing checkstyle errors.
 	 */
 	private SpadesGame() {
+		super(true);
 	}
 
 	/**

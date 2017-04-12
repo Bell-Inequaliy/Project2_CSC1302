@@ -12,7 +12,7 @@ import edu.gsu.csc1302.coll1.Deck;
  * @author J-Dierberger
  *
  */
-public class SpadesPlayer {
+public class SpadesPlayer extends DrSeuss {
 
 	/**
 	 * Aggressive player type constant.
@@ -59,6 +59,7 @@ public class SpadesPlayer {
 	 * @param type Player type to use.
 	 */
 	public SpadesPlayer(final int type) {
+		super();
 		playerType = type;
 		if (playerType > 4) {
 			playerType = 4;
