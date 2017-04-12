@@ -147,8 +147,7 @@ public class SpadesPlayer extends DrSeuss {
 					bettingNumber++;
 				}
 			}
-			System.err.println("BET BOI " + bettingNumber);
-			bettingNumber = (int) Math.ceil(bettingNumber / 2);
+			bettingNumber = (int) (Math.ceil(bettingNumber / 2.0));
 			break;
 		case TYPE_WILDCARD: //This player bets randomly.
 			for (int i = 0; i < this.hand.size(); i++) {
