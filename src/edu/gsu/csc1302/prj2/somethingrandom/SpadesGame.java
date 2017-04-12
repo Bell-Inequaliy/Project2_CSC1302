@@ -1,7 +1,6 @@
 package edu.gsu.csc1302.prj2.somethingrandom;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -130,6 +129,9 @@ public final class SpadesGame {
 		teamTwoScore += teamTwoTricks * 10;
 		System.out.println("Team One score: " + teamOneScore + ", "
 				+ "Team Two Score: " + teamTwoScore + ".");
+
+		int teamOneSet = 0;
+		int teamTwoSet = 0;
 		while (true) {
 			shuffleAndDeal();
 
@@ -148,6 +150,8 @@ public final class SpadesGame {
 				break;
 			}
 
+			boolean teamOneDidSet = false;
+			boolean teamTwoDidSet = false;
 			// After the loop concludes, determine the scores for each team.
 			if (teamOneTricks - teamOneBet > 0 && teamOneTricks - teamOneBet < 4) {
 				if (teamOneBlind) { //handle blind-bet bonus.
@@ -155,8 +159,14 @@ public final class SpadesGame {
 				} else {
 					teamOneScore += teamOneBet * 10;
 				}
+				// We won, reset our set either way.
+				teamTwoSet = 0;
 			} else {
 				teamOneScore -= teamOneBet * 10;
+				// We lost, increment our set.
+				teamOneSet++;
+				// Set that we lost to true.
+				teamOneDidSet = true;
 			}
 			if (teamTwoTricks - teamTwoBet > 0 && teamTwoTricks - teamTwoBet < 4) {
 				if (teamTwoBlind) { //handle blind-bet bonus.
@@ -164,8 +174,31 @@ public final class SpadesGame {
 				} else {
 					teamTwoScore += teamTwoBet * 10;
 				}
+				// We won, reset our set either way.
+				teamTwoSet = 0;
 			} else {
 				teamTwoScore -= teamTwoBet * 10;
+				// We lost, incremement the set.
+				teamTwoSet++;
+				// Set that we lost to true.
+				teamTwoDidSet = true;
+			}
+
+			// If they both lose, reset the set count.
+			if (teamOneDidSet && teamTwoDidSet) {
+				teamOneSet = 0;
+				teamTwoSet = 0;
+			}
+
+			if (teamOneSet == 2 && teamTwoSet < 2) {
+				System.out.println("Team one lost twice in a row and lost!");
+				System.out.println("Team two won!");
+			} else if (teamOneSet == 2 && teamTwoSet < 2) {
+				System.out.println("Team two lost twice in a row and lost!");
+				System.out.println("Team one won!");
+			} else if (teamOneSet > 2 || teamTwoSet > 2) {
+				throw new RuntimeException("ERROR WHERE THERE SHOULDN'T BE: \n"
+						+ "TEAM ONE SET: " + teamOneSet + "\nTEAM TWO SET: " + teamTwoSet);
 			}
 
 			// Handle win conditions
@@ -208,7 +241,7 @@ public final class SpadesGame {
 				} else {
 					continue;
 				}
-			} catch (IOException e) {
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
