@@ -129,7 +129,7 @@ public class SpadesPlayer {
 				if (this.hand.get(i).getSuit() == Suit.SPADE) {
 					bettingNumber++;
 				} else {
-					evaluationCard = new Card(hand.get(i).getSuit(), Rank.SIX);
+					evaluationCard = new Card(hand.get(i).getSuit(), Rank.NINE);
 					this.aiComparator = new
 							SpadesComparatorImplementation(this.hand.get(i).getSuit());
 					if (aiComparator.compare(evaluationCard, hand.get(i)) > 0) {
