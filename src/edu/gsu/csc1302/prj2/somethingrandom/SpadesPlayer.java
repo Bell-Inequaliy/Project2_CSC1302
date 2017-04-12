@@ -111,7 +111,6 @@ public class SpadesPlayer {
 					"DEFAULT CASE IN SWITCH THAT SHOULDN'T DEFAULT");
 		}
 
-
 	}
 
 	/**
