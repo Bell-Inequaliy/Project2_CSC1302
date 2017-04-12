@@ -146,6 +146,9 @@ public class SpadesPlayer {
 					bettingNumber++;
 				}
 			}
+			System.err.println("BET BOI " + bettingNumber);
+			bettingNumber = (int) Math.ceil(bettingNumber / 2);
+			bettingNumber = (int) (bettingNumber * (Math.random() * .5 + .5));
 			break;
 		case TYPE_WILDCARD: //This player bets randomly.
 			for (int i = 0; i < this.hand.size(); i++) {
@@ -171,6 +174,7 @@ public class SpadesPlayer {
 					}
 				}
 			}
+			bettingNumber = (int) (bettingNumber * (Math.random() * .5 + .5));
 			break;
 		case TYPE_USER: //User makes their own bet.
 			System.out.println(hand);
@@ -209,7 +213,8 @@ public class SpadesPlayer {
 						bettingNumber++;
 					}
 				}
-			} r = bettingNumber;
+			}
+			r = bettingNumber;
 			break;
 		case TYPE_CHICKEN: //Thinks it can win on things better than 7.
 			for (int i = 0; i < this.hand.size(); i++) {
@@ -219,7 +224,9 @@ public class SpadesPlayer {
 				if (aiComparator.compare(evaluationCard, hand.get(i)) > 0) {
 					bettingNumber++;
 				}
-			} r = bettingNumber;
+			}
+			bettingNumber = bettingNumber / 2;
+			r = bettingNumber;
 			break;
 		case TYPE_WILDCARD:
 			for (int i = 0; i < this.hand.size(); i++) { //Thinks it can win randomly.
@@ -244,7 +251,9 @@ public class SpadesPlayer {
 						bettingNumber++;
 					}
 				}
-			} r = bettingNumber;
+			}
+			bettingNumber = (int) (bettingNumber * (Math.random() * .5 + .5));
+			r = bettingNumber;
 			break;
 		case TYPE_USER: //Player talks to themselves.
 			System.out.println("Enter how many books you think you can win:");

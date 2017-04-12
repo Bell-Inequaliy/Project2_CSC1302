@@ -130,6 +130,9 @@ public final class SpadesGame {
 		System.out.println("Team One score: " + teamOneScore + ", "
 				+ "Team Two Score: " + teamTwoScore + ".");
 
+		teamOneTricks = 0;
+		teamTwoTricks = 0;
+
 		int teamOneSet = 0;
 		int teamTwoSet = 0;
 		while (true) {
