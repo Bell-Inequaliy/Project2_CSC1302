@@ -140,7 +140,7 @@ public class SpadesPlayer {
 			break;
 		case TYPE_CHICKEN: //This player only bets on face cards.
 			for (int i = 0; i < this.hand.size(); i++) {
-				evaluationCard = new Card(hand.get(i).getSuit(), Rank.TEN);
+				evaluationCard = new Card(hand.get(i).getSuit(), Rank.JACK);
 				this.aiComparator = new
 						SpadesComparatorImplementation(this.hand.get(i).getSuit());
 				if (aiComparator.compare(evaluationCard, hand.get(i)) > 0) {
@@ -164,7 +164,7 @@ public class SpadesPlayer {
 				if (this.hand.get(i).getSuit() == Suit.SPADE) {
 					bettingNumber++;
 				} else {
-					evaluationCard = new Card(hand.get(i).getSuit(), Rank.EIGHT);
+					evaluationCard = new Card(hand.get(i).getSuit(), Rank.JACK);
 					this.aiComparator = new
 							SpadesComparatorImplementation(this.hand.get(i).getSuit());
 					if (aiComparator.compare(evaluationCard, hand.get(i)) > 0) {
