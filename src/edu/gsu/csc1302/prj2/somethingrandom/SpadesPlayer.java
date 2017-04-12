@@ -128,7 +128,7 @@ public class SpadesPlayer {
 				if (this.hand.get(i).getSuit() == Suit.SPADE) {
 					bettingNumber++;
 				} else {
-					evaluationCard = new Card(hand.get(i).getSuit(), Rank.NINE);
+					evaluationCard = new Card(hand.get(i).getSuit(), Rank.JACK);
 					this.aiComparator = new
 							SpadesComparatorImplementation(this.hand.get(i).getSuit());
 					if (aiComparator.compare(evaluationCard, hand.get(i)) > 0) {
@@ -139,7 +139,7 @@ public class SpadesPlayer {
 			break;
 		case TYPE_CHICKEN: //This player only bets on face cards.
 			for (int i = 0; i < this.hand.size(); i++) {
-				evaluationCard = new Card(hand.get(i).getSuit(), Rank.JACK);
+				evaluationCard = new Card(hand.get(i).getSuit(), Rank.KING);
 				this.aiComparator = new
 						SpadesComparatorImplementation(this.hand.get(i).getSuit());
 				if (aiComparator.compare(evaluationCard, hand.get(i)) > 0) {
@@ -152,7 +152,7 @@ public class SpadesPlayer {
 				if (this.hand.get(i).getSuit() == Suit.SPADE) {
 					bettingNumber++;
 				} else {
-					if (Math.random() < .05) { //Yes this is almost a coin flip.
+					if (Math.random() < .03) { //Yes this is almost a coin flip.
 						bettingNumber++;
 					}
 				}
@@ -163,7 +163,7 @@ public class SpadesPlayer {
 				if (this.hand.get(i).getSuit() == Suit.SPADE) {
 					bettingNumber++;
 				} else {
-					evaluationCard = new Card(hand.get(i).getSuit(), Rank.JACK);
+					evaluationCard = new Card(hand.get(i).getSuit(), Rank.KING);
 					this.aiComparator = new
 							SpadesComparatorImplementation(this.hand.get(i).getSuit());
 					if (aiComparator.compare(evaluationCard, hand.get(i)) > 0) {
@@ -202,7 +202,7 @@ public class SpadesPlayer {
 				if (this.hand.get(i).getSuit() == Suit.SPADE) {
 					bettingNumber++;
 				} else {
-					evaluationCard = new Card(hand.get(i).getSuit(), Rank.FOUR);
+					evaluationCard = new Card(hand.get(i).getSuit(), Rank.NINE);
 					this.aiComparator = new
 							SpadesComparatorImplementation(this.hand.get(i).getSuit());
 					if (aiComparator.compare(evaluationCard, hand.get(i)) > 0) {
@@ -213,7 +213,7 @@ public class SpadesPlayer {
 			break;
 		case TYPE_CHICKEN: //Thinks it can win on things better than 7.
 			for (int i = 0; i < this.hand.size(); i++) {
-				evaluationCard = new Card(hand.get(i).getSuit(), Rank.SEVEN);
+				evaluationCard = new Card(hand.get(i).getSuit(), Rank.JACK);
 				this.aiComparator = new
 						SpadesComparatorImplementation(this.hand.get(i).getSuit());
 				if (aiComparator.compare(evaluationCard, hand.get(i)) > 0) {
@@ -226,7 +226,7 @@ public class SpadesPlayer {
 				if (this.hand.get(i).getSuit() == Suit.SPADE) {
 					bettingNumber++;
 				} else {
-					if (Math.random() < .08) { //Yes this is almost a coin flip.
+					if (Math.random() < .05) { //Yes this is almost a coin flip.
 						bettingNumber++; //Yes they might report different numbers each time
 					} // Not sure if that's a problem or not. If it is, can be changed.
 				}
@@ -237,7 +237,7 @@ public class SpadesPlayer {
 				if (this.hand.get(i).getSuit() == Suit.SPADE) {
 					bettingNumber++;
 				} else {
-					evaluationCard = new Card(hand.get(i).getSuit(), Rank.SIX);
+					evaluationCard = new Card(hand.get(i).getSuit(), Rank.JACK);
 					this.aiComparator = new
 							SpadesComparatorImplementation(this.hand.get(i).getSuit());
 					if (aiComparator.compare(evaluationCard, hand.get(i)) > 0) {
