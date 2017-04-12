@@ -123,10 +123,13 @@ public final class SpadesGame {
 		playerThree = new SpadesPlayer(IN.nextInt());
 		System.out.println("What play style would you like player Four to be?");
 		playerFour = new SpadesPlayer(IN.nextInt());
-		
+
 		shuffleAndDeal();
 		playRound();
-		
+		teamOneScore += teamOneTricks * 10;
+		teamTwoScore += teamTwoTricks * 10;
+		System.out.println("Team One score: " + teamOneScore + ", "
+				+ "Team Two Score: " + teamTwoScore + ".");
 		while (true) {
 			shuffleAndDeal();
 
@@ -134,8 +137,7 @@ public final class SpadesGame {
 			makeBets();
 
 			playRound();
-			teamOneScore += teamOneTricks * 10;
-			teamTwoScore += teamTwoTricks * 10
+
 
 			// Handle Bostons. (Bet 10, win 13).
 			if ((teamOneTricks == 13 && teamOneBet == 10 && !teamOneBlind)
