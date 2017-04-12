@@ -133,11 +133,9 @@ public final class SpadesGame {
 		while (true) {
 			shuffleAndDeal();
 
-
 			makeBets();
 
 			playRound();
-
 
 			// Handle Bostons. (Bet 10, win 13).
 			if ((teamOneTricks == 13 && teamOneBet == 10 && !teamOneBlind)
@@ -155,7 +153,7 @@ public final class SpadesGame {
 				if (teamOneBlind) { //handle blind-bet bonus.
 					teamOneScore += teamOneBet * 20;
 				} else {
-				teamOneScore += teamOneBet * 10;
+					teamOneScore += teamOneBet * 10;
 				}
 			} else {
 				teamOneScore -= teamOneBet * 10;
@@ -164,10 +162,34 @@ public final class SpadesGame {
 				if (teamTwoBlind) { //handle blind-bet bonus.
 					teamTwoScore += teamTwoBet * 20;
 				} else {
-				teamTwoScore += teamTwoBet * 10;
+					teamTwoScore += teamTwoBet * 10;
 				}
 			} else {
 				teamTwoScore -= teamTwoBet * 10;
+			}
+
+			// Handle win conditions
+			if (teamOneScore >= 500 && teamTwoScore < 500) {
+				System.out.println("Team one got to 500 points and won the game!");
+				break;
+			} else if (teamOneScore < 500 && teamTwoScore >= 500) {
+				System.out.println("Team two got to 500 points and won the game!");
+				break;
+			} else if ((teamOneScore >= 500 && teamTwoScore >= 500)
+					&& teamOneScore == teamTwoScore) {
+				System.out.println("Team one and two have tied to play another round!");
+			} else if ((teamOneScore >= 500 && teamTwoScore >= 500)
+					&& teamOneScore > teamTwoScore) {
+				System.out.println("Team one and two have both got to 500 points, "
+						+ "but team one has more!");
+				System.out.println("Team one has won the game!");
+				break;
+			} else if ((teamOneScore >= 500 && teamTwoScore >= 500)
+					&& teamTwoScore > teamOneScore) {
+				System.out.println("Team one and two have both got to 500 points, "
+						+ "but team two has more!");
+				System.out.println("Team two has won the game!");
+				break;
 			}
 
 			// Print the updated scores.
@@ -342,7 +364,8 @@ public final class SpadesGame {
 		teamOneBet = (playerOneBet + playerThreeBet);
 		if (teamOneBet > 10) {
 			teamOneBet = 10;
-		} if (teamOneBet < 6 && teamOneBlind) {
+		}
+		if (teamOneBet < 6 && teamOneBlind) {
 			teamOneBet = 6;
 		}
 
@@ -350,7 +373,8 @@ public final class SpadesGame {
 		teamTwoBet = (playerTwoBet + playerFourBet);
 		if (teamTwoBet > 10) {
 			teamTwoBet = 10;
-		} if (teamTwoBet < 6 && teamTwoBlind) {
+		}
+		if (teamTwoBet < 6 && teamTwoBlind) {
 			teamTwoBet = 6;
 		}
 
