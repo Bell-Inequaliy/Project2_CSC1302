@@ -73,6 +73,46 @@ public class SpadesPlayer {
 	public void setHand(final Deck deck) {
 		hand = deck;
 	}
+	/**
+	 * Return a player's hand.
+	 * @return deck Deck
+	 */
+	public Deck getHand() {
+		return hand;
+	}
+	/**
+	 * This method returns if the Player wishes to bet blind or not.
+	 * @return boolean
+	 */
+	public boolean betBlind() {
+		switch (playerType) {
+		case TYPE_AGGRESSIVE:
+			return true;
+		case TYPE_CHICKEN:
+			return false;
+		case TYPE_WILDCARD:
+			return Math.random() < .05;
+		case TYPE_INTELLIGENT:
+			return true;
+		case TYPE_USER:
+			System.out.println("Do you want to bet blind? Y/N");
+			while (true) { //loop till we get a valid response
+			char r = SpadesGame.IN.next().charAt(0);
+			if (r == 'Y') {
+				return true;
+			} else if (r == 'N') {
+				return false;
+			}
+			System.out.println("Invalid input, please return Y or N");
+			}
+
+		default:
+			throw new RuntimeException(//HOW DID WE GET HERE?!?
+					"DEFAULT CASE IN SWITCH THAT SHOULDN'T DEFAULT");
+		}
+
+
+	}
 
 	/**
 	 * Return the number the player or AI thinks they can win this round.

@@ -9,6 +9,7 @@ import java.util.Scanner;
 import edu.gsu.csc1302.coll1.Card;
 import edu.gsu.csc1302.coll1.Card.Rank;
 import edu.gsu.csc1302.coll1.Card.Suit;
+import edu.gsu.csc1302.coll1.Deck;
 
 /**
  * Spades Player to manage the generic game stuff.
@@ -99,11 +100,19 @@ public final class SpadesGame {
 	private static int teamTwoBet;
 
 	/**
+	 * Track if team one bet Blind.
+	 */
+	private static boolean teamOneBlind = false;
+	/**
+	 * Track if team two bet Blind.
+	 */
+	private static boolean teamTwoBlind = false;
+
+	/**
 	 * Main method.
 	 * @param args Console launch args.
 	 */
 	public static void main(final String[] args) {
-
 		// Start the game and get the desired player configurations.
 		System.out.println("Welcome to Spades!");
 		System.out.println("What play style would you like player One to be?");
@@ -118,30 +127,38 @@ public final class SpadesGame {
 		while (true) {
 			shuffleAndDeal();
 
-			if (Math.abs(teamOneScore - teamTwoScore) < 100) {
-				makeBets();
-			}
+
+			makeBets();
+
 			playRound();
 
 			// Handle Bostons. (Bet 10, win 13).
-			if ((teamOneTricks == 13 && teamOneBet == 10)
+			if ((teamOneTricks == 13 && teamOneBet == 10 && !teamOneBlind)
 					&& !(teamTwoTricks == 13 && teamTwoBet == 10)) {
 				System.out.println("Team one got a Boston and won the game!");
 				break;
 			} else if (!(teamOneTricks == 13 && teamOneBet == 10)
-					&& (teamTwoTricks == 13 && teamTwoBet == 10)) {
+					&& (teamTwoTricks == 13 && teamTwoBet == 10 && !teamTwoBlind)) {
 				System.out.println("Team two got a Boston and won the game!");
 				break;
 			}
 
 			// After the loop concludes, determine the scores for each team.
 			if (teamOneTricks - teamOneBet > 0 && teamOneTricks - teamOneBet < 4) {
+				if (teamOneBlind) { //handle blind-bet bonus.
+					teamOneScore += teamOneBet * 20;
+				} else {
 				teamOneScore += teamOneBet * 10;
+				}
 			} else {
 				teamOneScore -= teamOneBet * 10;
 			}
 			if (teamTwoTricks - teamTwoBet > 0 && teamTwoTricks - teamTwoBet < 4) {
+				if (teamTwoBlind) { //handle blind-bet bonus.
+					teamTwoScore += teamTwoBet * 20;
+				} else {
 				teamTwoScore += teamTwoBet * 10;
+				}
 			} else {
 				teamTwoScore -= teamTwoBet * 10;
 			}
@@ -214,11 +231,6 @@ public final class SpadesGame {
 		}
 
 		/*
-		 * Handle blind betting/ghost hands.
-		 */
-		DeckImplementation ghostDeck = new DeckImplementation();
-
-		/*
 		 * Create the DeckImplementations from the lists
 		 * and give them to the players.
 		 */
@@ -236,26 +248,103 @@ public final class SpadesGame {
 	 * Have the players make bets.
 	 */
 	private static void makeBets() {
-		// Call on the players to bet.
-		int playerOneBet = playerOne.bet();
-		System.out.println("Player One has bet " + playerOneBet + ".");
-		int playerTwoBet = playerTwo.bet();
-		System.out.println("Player Two has bet " + playerTwoBet + ".");
-		int playerThreeBet = playerThree.bet();
-		System.out.println("Player Three has bet " + playerThreeBet + ".");
-		int playerFourBet = playerFour.bet();
-		System.out.println("Player Four has bet " + playerFourBet + ".");
+		/*
+		 * Preemptive setup of ghost-deck.
+		 */
+		DeckImplementation ghostDeck = new DeckImplementation();
+		for (Rank r : Rank.values()) {
+			Card adder = new Card(Suit.HEART, r);
+			ghostDeck.add(adder);
+		}
+		//setup of default values
+		int playerOneBet = 0;
+		int playerTwoBet = 0;
+		int playerThreeBet = 0;
+		int playerFourBet = 0;
+		teamOneBlind = false;
+		teamTwoBlind = false;
+		//default case
+		if (Math.abs(teamOneScore - teamTwoScore) < 100) {
+			// Call on the players to bet.
+			playerOneBet = playerOne.bet();
+			System.out.println("Player One has bet " + playerOneBet + ".");
+			playerTwoBet = playerTwo.bet();
+			System.out.println("Player Two has bet " + playerTwoBet + ".");
+			playerThreeBet = playerThree.bet();
+			System.out.println("Player Three has bet " + playerThreeBet + ".");
+			playerFourBet = playerFour.bet();
+			System.out.println("Player Four has bet " + playerFourBet + ".");
+		} else if (teamOneScore - teamTwoScore > 100) { //if team 1 is way ahead
+			playerOneBet = playerOne.bet();
+			System.out.println("Player One has bet " + playerOneBet + ".");
+			if (playerTwo.betBlind()) {
+				System.out.println("Player Two has bet blind.");
+				Deck storageDeck = playerTwo.getHand();
+				playerTwo.setHand(ghostDeck);
+				playerTwoBet = playerTwo.bet();
+				playerTwo.setHand(storageDeck);
+				teamTwoBlind = true;
+			} else {
+				playerTwoBet = playerTwo.bet();
+			}
+			System.out.println("Player Two has bet " + playerTwoBet + ".");
+			playerThreeBet = playerThree.bet();
+			System.out.println("Player Three has bet " + playerThreeBet + ".");
+			if (playerFour.betBlind()) {
+				System.out.println("Player Four has bet blind.");
+				Deck storageDeck = playerFour.getHand();
+				playerFour.setHand(ghostDeck);
+				playerFourBet = playerFour.bet();
+				playerFour.setHand(storageDeck);
+				teamTwoBlind = true;
+			} else {
+				playerTwoBet = playerFour.bet();
+			}
+			System.out.println("Player Four has bet " + playerFourBet + ".");
+		} else if (teamTwoScore - teamOneScore > 100) { // if team 2 is way ahead
+			// Call on the players to bet.
+			if (playerOne.betBlind()) {
+				System.out.println("Player One has bet blind.");
+				Deck storageDeck = playerOne.getHand();
+				playerOne.setHand(ghostDeck);
+				playerOneBet = playerOne.bet();
+				playerOne.setHand(storageDeck);
+				teamOneBlind = true;
+			} else {
+				playerOneBet = playerTwo.bet();
+			}
+			System.out.println("Player One has bet " + playerOneBet + ".");
+			playerTwoBet = playerTwo.bet();
+			System.out.println("Player Two has bet " + playerTwoBet + ".");
+			if (playerThree.betBlind()) {
+				System.out.println("Player Three has bet blind.");
+				Deck storageDeck = playerThree.getHand();
+				playerThree.setHand(ghostDeck);
+				playerThreeBet = playerThree.bet();
+				playerThree.setHand(storageDeck);
+				teamOneBlind = true;
+			} else {
+				playerOneBet = playerTwo.bet();
+			}
+			System.out.println("Player Three has bet " + playerThreeBet + ".");
+			playerFourBet = playerFour.bet();
+			System.out.println("Player Four has bet " + playerFourBet + ".");
+		}
 
-		// Make sure the bets don't go overboard.
+		// Make sure the bets don't go overboard. Or underboard.
 		teamOneBet = (playerOneBet + playerThreeBet);
 		if (teamOneBet > 10) {
 			teamOneBet = 10;
+		} if (teamOneBet < 6 && teamOneBlind) {
+			teamOneBet = 6;
 		}
 
 		// Ditto.
 		teamTwoBet = (playerTwoBet + playerFourBet);
 		if (teamTwoBet > 10) {
 			teamTwoBet = 10;
+		} if (teamTwoBet < 6 && teamTwoBlind) {
+			teamTwoBet = 6;
 		}
 
 		// Print the bets.
