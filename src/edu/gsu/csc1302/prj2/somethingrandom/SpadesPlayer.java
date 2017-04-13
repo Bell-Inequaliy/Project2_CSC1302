@@ -388,7 +388,7 @@ public class SpadesPlayer extends DrSeuss {
 				System.out.println(
 						"\"view_table\": View the cards on the table");
 				System.out.println(
-						"\"play(RANK SUIT)\": Play the card of the given RANK and SUIT.");
+						"\"play(NUM)\": Play the card of the given RANK and SUIT.");
 				break;
 			case "help":
 				System.out.println(

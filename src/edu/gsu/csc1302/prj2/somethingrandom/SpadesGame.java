@@ -26,7 +26,6 @@ public final class SpadesGame extends DrSeuss {
 	 * Fixing checkstyle errors.
 	 */
 	private SpadesGame() {
-		super(true);
 	}
 
 	/**
