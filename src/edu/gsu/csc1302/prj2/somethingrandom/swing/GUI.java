@@ -3,6 +3,9 @@ package edu.gsu.csc1302.prj2.somethingrandom.swing;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import javax.swing.JRadioButton;
 
 public class GUI {
 
@@ -36,8 +39,6 @@ public class GUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
 	}
-
 }
