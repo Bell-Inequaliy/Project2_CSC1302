@@ -9,6 +9,12 @@ import edu.gsu.csc1302.coll1.Card;
 import edu.gsu.csc1302.coll1.Card.Rank;
 import edu.gsu.csc1302.coll1.Card.Suit;
 import edu.gsu.csc1302.coll1.Deck;
+import edu.gsu.csc1302.prj2.somethingrandom.player.SpadesPlayerAggressive;
+import edu.gsu.csc1302.prj2.somethingrandom.player.SpadesPlayerBase;
+import edu.gsu.csc1302.prj2.somethingrandom.player.SpadesPlayerChicken;
+import edu.gsu.csc1302.prj2.somethingrandom.player.SpadesPlayerIntelligent;
+import edu.gsu.csc1302.prj2.somethingrandom.player.SpadesPlayerUser;
+import edu.gsu.csc1302.prj2.somethingrandom.player.SpadesPlayerWildcard;
 
 /**
  * Spades Player to manage the generic game stuff.
@@ -41,22 +47,22 @@ public final class SpadesGame extends DrSeuss {
 	/**
 	 * Player one variable.
 	 */
-	private static SpadesPlayer playerOne = new SpadesPlayer(1);
+	private static SpadesPlayerBase playerOne;
 
 	/**
 	 * Player two variable.
 	 */
-	private static SpadesPlayer playerTwo = new SpadesPlayer(1);
+	private static SpadesPlayerBase playerTwo;
 
 	/**
 	 * Player three variable.
 	 */
-	private static SpadesPlayer playerThree = new SpadesPlayer(1);
+	private static SpadesPlayerBase playerThree;
 
 	/**
 	 * Player four variable.
 	 */
-	private static SpadesPlayer playerFour = new SpadesPlayer(1);
+	private static SpadesPlayerBase playerFour;
 
 	/**
 	 * Leading suit of the round.
@@ -115,13 +121,13 @@ public final class SpadesGame extends DrSeuss {
 		// Start the game and get the desired player configurations.
 		System.out.println("Welcome to Spades!");
 		System.out.println("What play style would you like player One to be?");
-		playerOne = new SpadesPlayer(IN.nextInt());
+		playerOne = new SpadesPlayerAggressive();
 		System.out.println("What play style would you like player Two to be?");
-		playerTwo = new SpadesPlayer(IN.nextInt());
+		playerTwo = new SpadesPlayerChicken();
 		System.out.println("What play style would you like player Three to be?");
-		playerThree = new SpadesPlayer(IN.nextInt());
+		playerThree = new SpadesPlayerWildcard();
 		System.out.println("What play style would you like player Four to be?");
-		playerFour = new SpadesPlayer(IN.nextInt());
+		playerFour = new SpadesPlayerUser();
 
 		shuffleAndDeal();
 		playRound();
@@ -141,7 +147,6 @@ public final class SpadesGame extends DrSeuss {
 			makeBets();
 
 			playRound();
-
 			// Handle Bostons. (Bet 10, win 13).
 			if ((teamOneTricks == 13 && teamOneBet == 10 && !teamOneBlind)
 					&& !(teamTwoTricks == 13 && teamTwoBet == 10)) {
@@ -518,8 +523,8 @@ public final class SpadesGame extends DrSeuss {
 	 * @param player The player to find the team mate of.
 	 * @return The player's team mate.
 	 */
-	public static SpadesPlayer getPlayerTeamMate(
-			final SpadesPlayer player) {
+	public static SpadesPlayerBase getPlayerTeamMate(
+			final SpadesPlayerBase player) {
 		if (player.equals(playerOne)) {
 			return playerThree;
 		} else if (player.equals(playerTwo)) {

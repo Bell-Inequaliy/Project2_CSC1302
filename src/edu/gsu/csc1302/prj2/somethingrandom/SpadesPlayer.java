@@ -4,6 +4,7 @@ import edu.gsu.csc1302.coll1.Card;
 import edu.gsu.csc1302.coll1.Card.Rank;
 import edu.gsu.csc1302.coll1.Card.Suit;
 import edu.gsu.csc1302.coll1.Deck;
+import edu.gsu.csc1302.prj2.somethingrandom.player.SpadesPlayerBase;
 
 /**
  * Spades Player to manage the four AI player types and the user player.
@@ -12,7 +13,7 @@ import edu.gsu.csc1302.coll1.Deck;
  * @author J-Dierberger
  *
  */
-public class SpadesPlayer extends DrSeuss {
+public class SpadesPlayer extends SpadesPlayerBase {
 
 	/**
 	 * Aggressive player type constant.
