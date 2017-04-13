@@ -121,14 +121,61 @@ public final class SpadesGame extends DrSeuss {
 		// Start the game and get the desired player configurations.
 		System.out.println("Welcome to Spades!");
 		System.out.println("What play style would you like player One to be?");
-		playerOne = new SpadesPlayerAggressive();
+		int behavior = IN.nextInt();
+		switch (behavior) {
+		case 0: playerOne = new SpadesPlayerChicken();
+			break;
+		case 1: playerOne = new SpadesPlayerAggressive();
+			break;
+		case 2: playerOne = new SpadesPlayerWildcard();
+		break;
+		case 3: playerOne = new SpadesPlayerIntelligent();
+		break;
+		case 4: playerOne = new SpadesPlayerUser();
+		default:
+		}
 		System.out.println("What play style would you like player Two to be?");
-		playerTwo = new SpadesPlayerChicken();
+		int behavior2 = IN.nextInt();
+		switch (behavior2) {
+		case 0: playerTwo = new SpadesPlayerChicken();
+			break;
+		case 1: playerTwo = new SpadesPlayerAggressive();
+			break;
+		case 2: playerTwo = new SpadesPlayerWildcard();
+		break;
+		case 3: playerTwo = new SpadesPlayerIntelligent();
+		break;
+		case 4: playerTwo = new SpadesPlayerUser();
+		default:
+		}
 		System.out.println("What play style would you like player Three to be?");
-		playerThree = new SpadesPlayerWildcard();
+		int behavior3 = IN.nextInt();
+		switch (behavior3) {
+		case 0: playerThree = new SpadesPlayerChicken();
+			break;
+		case 1: playerThree = new SpadesPlayerAggressive();
+			break;
+		case 2: playerThree = new SpadesPlayerWildcard();
+		break;
+		case 3: playerThree = new SpadesPlayerIntelligent();
+		break;
+		case 4: playerThree = new SpadesPlayerUser();
+		default:
+		}
 		System.out.println("What play style would you like player Four to be?");
-		playerFour = new SpadesPlayerUser();
-
+		int behavior4 = IN.nextInt();
+		switch (behavior4) {
+		case 0: playerFour = new SpadesPlayerChicken();
+			break;
+		case 1: playerFour = new SpadesPlayerAggressive();
+			break;
+		case 2: playerFour = new SpadesPlayerWildcard();
+		break;
+		case 3: playerFour = new SpadesPlayerIntelligent();
+		break;
+		case 4: playerFour = new SpadesPlayerUser();
+		default:
+		}
 		shuffleAndDeal();
 		playRound();
 		teamOneScore += teamOneTricks * 10;
