@@ -10,12 +10,18 @@ import edu.gsu.csc1302.coll1.Card.Suit;
  */
 public class SpadesPlayerWildcard extends SpadesPlayerBase {
 
-	@Override
+	/**
+	 * returns the blind betting response for this player type.
+	 * @return random
+	 */
 	public final boolean betBlind() {
 		return Math.random() < 0.05;
 	}
 
-	@Override
+	/**
+	 * Returns the betting number for this player.
+	 * @return bettingNumber
+	 */
 	public final int bet() {
 		int bettingNumber = 0;
 		for (int i = 0; i < this.hand.size(); i++) {

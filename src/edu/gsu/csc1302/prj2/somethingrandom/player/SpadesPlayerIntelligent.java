@@ -13,12 +13,18 @@ import edu.gsu.csc1302.prj2.somethingrandom.SpadesComparatorImplementation;
  */
 public class SpadesPlayerIntelligent extends SpadesPlayerBase {
 
-	@Override
+	/**
+	 * returns the blind betting response for this player type.
+	 * @return true
+	 */
 	public final boolean betBlind() {
 		return true;
 	}
 
-	@Override
+	/**
+	 * Returns the betting number for this player.
+	 * @return bettingNumber
+	 */
 	public final int bet() {
 		int bettingNumber = 0;
 		Card evaluationCard = null;

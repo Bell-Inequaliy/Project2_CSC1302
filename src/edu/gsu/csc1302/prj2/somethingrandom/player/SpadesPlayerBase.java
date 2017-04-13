@@ -3,6 +3,7 @@ package edu.gsu.csc1302.prj2.somethingrandom.player;
 import edu.gsu.csc1302.coll1.Card;
 import edu.gsu.csc1302.coll1.Deck;
 import edu.gsu.csc1302.prj2.somethingrandom.DeckImplementation;
+import edu.gsu.csc1302.prj2.somethingrandom.DrSeuss;
 import edu.gsu.csc1302.prj2.somethingrandom.SpadesComparatorImplementation;
 import edu.gsu.csc1302.prj2.somethingrandom.SpadesGame;
 
@@ -11,7 +12,7 @@ import edu.gsu.csc1302.prj2.somethingrandom.SpadesGame;
  * @author J-Dierberger
  *
  */
-public abstract class SpadesPlayerBase {
+public abstract class SpadesPlayerBase extends DrSeuss {
 
 	/**
 	 * The hand of the player.
