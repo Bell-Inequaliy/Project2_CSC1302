@@ -4,14 +4,25 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
+/**
+ * This is the GUI.
+ * It is not very gooey.
+ * Hopefully.
+ * @author jakep
+ * I did not make the class, just the comments and some changes.
+ */
 public class GUI {
 
+	/**
+	 * This is a JFrame. Obviously.
+	 */
 	private JFrame frame;
 
 	/**
 	 * Launch the application.
+	 * @param args The arguments for the watchamacallit.
 	 */
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -36,7 +47,7 @@ public class GUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 640, 400);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
