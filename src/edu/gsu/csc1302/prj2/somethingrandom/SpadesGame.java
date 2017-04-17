@@ -566,9 +566,9 @@ public final class SpadesGame extends DrSeuss {
 	}
 
 	/**
-	 * Get the player's team mate.
-	 * @param player The player to find the team mate of.
-	 * @return The player's team mate.
+	 * This method determines who a given player's teammate is.
+	 * @param player the player whose teammate you want to retrieve.
+	 * @return the input player's teammate.
 	 */
 	public static SpadesPlayerBase getPlayerTeamMate(
 			final SpadesPlayerBase player) {
