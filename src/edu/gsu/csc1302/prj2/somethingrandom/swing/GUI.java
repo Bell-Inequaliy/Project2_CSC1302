@@ -5,6 +5,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.Image;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -43,6 +45,9 @@ public class GUI {
 	 * This is a JFrame. Obviously.
 	 */
 	private JFrame frmSpades;
+	/**
+	 * The table of things for the stuff and whatnot.
+	 */
 	private JTable table;
 
 	/**
@@ -77,6 +82,9 @@ public class GUI {
 		frmSpades.setTitle("Spades");
 		frmSpades.getContentPane().setBackground(new Color(34, 139, 34));
 		frmSpades.getContentPane().setLayout(null);
+		
+		Panel backPanel = new BackgroundPanel();
+		frmSpades.getContentPane().add(backPanel);
 		
 		Panel panel1 = new Panel();
 		panel1.setPreferredSize(new Dimension(64, 80));
