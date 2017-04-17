@@ -122,60 +122,18 @@ public final class SpadesGame extends DrSeuss {
 		System.out.println("Welcome to Spades!");
 		System.out.println("What play style would you like player One to be?");
 		int behavior = IN.nextInt();
-		switch (behavior) {
-		case 0: playerOne = new SpadesPlayerChicken();
-			break;
-		case 1: playerOne = new SpadesPlayerAggressive();
-			break;
-		case 2: playerOne = new SpadesPlayerWildcard();
-		break;
-		case 3: playerOne = new SpadesPlayerIntelligent();
-		break;
-		case 4: playerOne = new SpadesPlayerUser();
-		default:
-		}
+	playerOne = makePlayer(behavior);
+
 		System.out.println("What play style would you like player Two to be?");
 		int behavior2 = IN.nextInt();
-		switch (behavior2) {
-		case 0: playerTwo = new SpadesPlayerChicken();
-			break;
-		case 1: playerTwo = new SpadesPlayerAggressive();
-			break;
-		case 2: playerTwo = new SpadesPlayerWildcard();
-		break;
-		case 3: playerTwo = new SpadesPlayerIntelligent();
-		break;
-		case 4: playerTwo = new SpadesPlayerUser();
-		default:
-		}
+		playerTwo = makePlayer(behavior2);
 		System.out.println("What play style would you like player Three to be?");
 		int behavior3 = IN.nextInt();
-		switch (behavior3) {
-		case 0: playerThree = new SpadesPlayerChicken();
-			break;
-		case 1: playerThree = new SpadesPlayerAggressive();
-			break;
-		case 2: playerThree = new SpadesPlayerWildcard();
-		break;
-		case 3: playerThree = new SpadesPlayerIntelligent();
-		break;
-		case 4: playerThree = new SpadesPlayerUser();
-		default:
-		}
+		playerThree = makePlayer(behavior3);
 		System.out.println("What play style would you like player Four to be?");
 		int behavior4 = IN.nextInt();
-		switch (behavior4) {
-		case 0: playerFour = new SpadesPlayerChicken();
-			break;
-		case 1: playerFour = new SpadesPlayerAggressive();
-			break;
-		case 2: playerFour = new SpadesPlayerWildcard();
-		break;
-		case 3: playerFour = new SpadesPlayerIntelligent();
-		break;
-		case 4: playerFour = new SpadesPlayerUser();
-		default:
-		}
+		playerFour = makePlayer(behavior4);
+
 		shuffleAndDeal();
 		playRound();
 		teamOneScore += teamOneTricks * 10;
@@ -308,6 +266,28 @@ public final class SpadesGame extends DrSeuss {
 		// Close the input stream.
 		IN.close();
 	}
+
+	/** Method for making players.
+	 * @param playerType what kind of player is beind made.
+	 * @return newly made player.
+	 */
+	private static SpadesPlayerBase makePlayer(final int playerType) {
+		int switcheroo = playerType;
+		SpadesPlayerBase newlyMadePlayer = null;
+		switch (switcheroo) {
+	case 0: playerFour = new SpadesPlayerChicken();
+	break;
+	case 1: newlyMadePlayer = new SpadesPlayerAggressive();
+	break;
+	case 2: newlyMadePlayer = new SpadesPlayerWildcard();
+	break;
+	case 3: newlyMadePlayer = new SpadesPlayerIntelligent();
+	break;
+	case 4: newlyMadePlayer = new SpadesPlayerUser();
+	default:
+	}
+	return newlyMadePlayer;
+}
 
 	/**
 	 * Shuffle and deal the deck of cards.
