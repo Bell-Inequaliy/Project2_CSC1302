@@ -43,8 +43,9 @@ public abstract class SpadesPlayerBase extends DrSeuss {
 	/**
 	 * This method returns if the Player wishes to bet blind or not.
 	 * @return boolean
+	 * @throws Exception When things happen
 	 */
-	public abstract boolean betBlind();
+	public abstract boolean betBlind() throws Exception;
 
 	/**
 	 * Return the number the player or AI thinks they can win this round.
@@ -61,8 +62,9 @@ public abstract class SpadesPlayerBase extends DrSeuss {
 	/**
 	 * Play a card from the player's hand to the board.
 	 * @return card
+	 * @throws Exception When various things happen
 	 */
-	public Card play() {
+	public Card play() throws Exception {
 		Deck comparisonDeck = new DeckImplementation();
 		Card playingCard = new Card(null, null);
 		if (SpadesGame.getTableCards().size() == 0) {

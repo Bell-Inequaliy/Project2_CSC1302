@@ -1,7 +1,9 @@
 package edu.gsu.csc1302.prj2.somethingrandom;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.StringReader;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -42,7 +44,8 @@ public final class SpadesGame extends DrSeuss {
 	/**
 	 * Universal input scanner.
 	 */
-	public static final Scanner IN = new Scanner(input);
+	public static final BufferedReader IN =
+			new BufferedReader(new StringReader(input));
 
 	/**
 	 * Cards on the table.
@@ -121,23 +124,21 @@ public final class SpadesGame extends DrSeuss {
 	/**
 	 * Main method.
 	 * @param args Console launch args.
+	 * @throws Exception When various unaccounted for things occur.
 	 */
-	public static void main(final String[] args) {
+	public static void main(final String[] args) throws Exception {
 		// Start the game and get the desired player configurations.
 		System.out.println("Welcome to Spades!");
 		System.out.println("What play style would you like player One to be?");
 
-		int behavior = IN.nextInt();
-		playerOne = makePlayer(behavior);
-
 		System.out.println("What play style would you like player Two to be?");
-		int behavior2 = IN.nextInt();
+		int behavior2 = Integer.parseInt(IN.readLine());
 		playerTwo = makePlayer(behavior2);
 		System.out.println("What play style would you like player Three to be?");
-		int behavior3 = IN.nextInt();
+		int behavior3 = Integer.parseInt(IN.readLine());
 		playerThree = makePlayer(behavior3);
 		System.out.println("What play style would you like player Four to be?");
-		int behavior4 = IN.nextInt();
+		int behavior4 = Integer.parseInt(IN.readLine());
 		playerFour = makePlayer(behavior4);
 
 		shuffleAndDeal();
@@ -353,8 +354,9 @@ public final class SpadesGame extends DrSeuss {
 
 	/**
 	 * Have the players make bets.
+	 * @throws Exception When various unaccounted for things occur.
 	 */
-	private static void makeBets() {
+	private static void makeBets() throws Exception {
 		/*
 		 * Preemptive setup of ghost-deck.
 		 */
@@ -464,8 +466,9 @@ public final class SpadesGame extends DrSeuss {
 
 	/**
 	 * Code that runs through a round of the game (1 round is 13 tricks).
+	 * @throws Exception When various unaccounted for things occur.s
 	 */
-	private static void playRound() {
+	private static void playRound() throws Exception {
 		// Temporary variable that stores which card has been played.
 		Card play = new Card(null, null);
 

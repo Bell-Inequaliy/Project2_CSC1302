@@ -13,10 +13,10 @@ import edu.gsu.csc1302.prj2.somethingrandom.SpadesGame;
 public class SpadesPlayerUser extends SpadesPlayerBase {
 
 	@Override
-	public final boolean betBlind() {
+	public final boolean betBlind() throws Exception{
 		System.out.println("Do you want to bet blind? Y/N");
 		while (true) { //loop till we get a valid response
-			char r = SpadesGame.IN.next().charAt(0);
+			char r = SpadesGame.IN.readLine().charAt(0);
 			if (r == 'Y') {
 				return true;
 			} else if (r == 'N') {
@@ -34,7 +34,7 @@ public class SpadesPlayerUser extends SpadesPlayerBase {
 		while (r == -1) {
 			try {
 				System.out.println("Enter your bet:");
-				r = (int) Math.abs(Integer.parseInt(SpadesGame.IN.nextLine()));
+				r = (int) Math.abs(Integer.parseInt(SpadesGame.IN.readLine()));
 			} catch (Exception e) {
 				System.out.println("Please enter a number.");
 			}
@@ -52,7 +52,7 @@ public class SpadesPlayerUser extends SpadesPlayerBase {
 		while (r == -1) {
 			try {
 				System.out.println("Enter how many books you think you can win:");
-				r = (int) Math.abs(Integer.parseInt(SpadesGame.IN.nextLine()));
+				r = (int) Math.abs(Integer.parseInt(SpadesGame.IN.readLine()));
 			} catch (Exception e) {
 				System.out.println("Please enter a number.");
 			}
@@ -61,13 +61,13 @@ public class SpadesPlayerUser extends SpadesPlayerBase {
 	}
 
 	@Override
-	public final Card play() {
+	public final Card play() throws Exception {
 		Card r = null;
 		// Loop till we break (when we get a card)
 		while (true) {
 			// Get user input and parse it for the switch statement.
 			System.out.println("What would you like to do? (type \"?\" for help)");
-			String str = SpadesGame.IN.nextLine().toLowerCase();
+			String str = SpadesGame.IN.readLine().toLowerCase();
 			String[] command;
 
 			// The string will only contain () if the player is providing args.
