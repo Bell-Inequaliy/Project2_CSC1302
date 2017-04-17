@@ -35,9 +35,14 @@ public final class SpadesGame extends DrSeuss {
 	}
 
 	/**
+	 * GUI input.
+	 */
+	private static String input = "";
+
+	/**
 	 * Universal input scanner.
 	 */
-	public static final Scanner IN = new Scanner(System.in);
+	public static final Scanner IN = new Scanner(input);
 
 	/**
 	 * Cards on the table.
@@ -121,8 +126,9 @@ public final class SpadesGame extends DrSeuss {
 		// Start the game and get the desired player configurations.
 		System.out.println("Welcome to Spades!");
 		System.out.println("What play style would you like player One to be?");
+
 		int behavior = IN.nextInt();
-	playerOne = makePlayer(behavior);
+		playerOne = makePlayer(behavior);
 
 		System.out.println("What play style would you like player Two to be?");
 		int behavior2 = IN.nextInt();
@@ -275,19 +281,19 @@ public final class SpadesGame extends DrSeuss {
 		int switcheroo = playerType;
 		SpadesPlayerBase newlyMadePlayer = null;
 		switch (switcheroo) {
-	case 0: playerFour = new SpadesPlayerChicken();
-	break;
-	case 1: newlyMadePlayer = new SpadesPlayerAggressive();
-	break;
-	case 2: newlyMadePlayer = new SpadesPlayerWildcard();
-	break;
-	case 3: newlyMadePlayer = new SpadesPlayerIntelligent();
-	break;
-	case 4: newlyMadePlayer = new SpadesPlayerUser();
-	default:
+		case 0: playerFour = new SpadesPlayerChicken();
+		break;
+		case 1: newlyMadePlayer = new SpadesPlayerAggressive();
+		break;
+		case 2: newlyMadePlayer = new SpadesPlayerWildcard();
+		break;
+		case 3: newlyMadePlayer = new SpadesPlayerIntelligent();
+		break;
+		case 4: newlyMadePlayer = new SpadesPlayerUser();
+		default:
+		}
+		return newlyMadePlayer;
 	}
-	return newlyMadePlayer;
-}
 
 	/**
 	 * Shuffle and deal the deck of cards.
@@ -564,4 +570,10 @@ public final class SpadesGame extends DrSeuss {
 		return null;
 	}
 
+	/** Input for gui console.
+	 * @param guiinput input to set.
+	 */
+	public static void setInput(final String guiinput) {
+		input = guiinput;
+	}
 }
