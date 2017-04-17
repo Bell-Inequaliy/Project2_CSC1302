@@ -13,7 +13,7 @@ import edu.gsu.csc1302.prj2.somethingrandom.SpadesGame;
 public class SpadesPlayerUser extends SpadesPlayerBase {
 
 	@Override
-	public final boolean betBlind() throws Exception{
+	public final boolean betBlind() throws Exception {
 		System.out.println("Do you want to bet blind? Y/N");
 		while (true) { //loop till we get a valid response
 			char r = SpadesGame.IN.readLine().charAt(0);
