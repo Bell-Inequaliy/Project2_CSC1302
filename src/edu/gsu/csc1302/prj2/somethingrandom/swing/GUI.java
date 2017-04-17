@@ -28,6 +28,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.SystemColor;
 import javax.swing.JTextPane;
 import javax.swing.border.EtchedBorder;
+import java.awt.Font;
 
 /**
  * This is the GUI.
@@ -330,6 +331,7 @@ public class GUI {
 		frmSpades.getContentPane().add(table);
 		
 		JTextPane txtpnSpades = new JTextPane();
+		txtpnSpades.setFont(new Font("Tahoma", Font.BOLD, 36));
 		txtpnSpades.setCaretColor(new Color(255, 255, 255));
 		txtpnSpades.setForeground(SystemColor.text);
 		txtpnSpades.setOpaque(false);
