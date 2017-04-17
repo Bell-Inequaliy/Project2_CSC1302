@@ -39,7 +39,7 @@ public final class SpadesGame extends DrSeuss {
 	/**
 	 * GUI input.
 	 */
-	private static String input = "";
+	private static String input = " ";
 
 	/**
 	 * Universal input scanner.
@@ -130,7 +130,7 @@ public final class SpadesGame extends DrSeuss {
 		// Start the game and get the desired player configurations.
 		System.out.println("Welcome to Spades!");
 		System.out.println("What play style would you like player One to be?");
-
+		int behavior1 = Integer.parseInt(IN.readLine());
 		System.out.println("What play style would you like player Two to be?");
 		int behavior2 = Integer.parseInt(IN.readLine());
 		playerTwo = makePlayer(behavior2);
