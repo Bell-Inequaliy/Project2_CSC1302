@@ -10,6 +10,10 @@ import java.awt.Panel;
 import java.awt.FlowLayout;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import edu.gsu.csc1302.prj2.somethingrandom.player.SpadesPlayerUser;
+import edu.gsu.csc1302.prj2.somethingrandom.swing.dialogs.GenericMessagePopup;
+
 import java.awt.SystemColor;
 import javax.swing.JTextPane;
 import java.awt.Font;
@@ -17,6 +21,8 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import java.awt.Toolkit;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 /**
  * This is the GUI.
@@ -63,8 +69,7 @@ public class GUI {
 	public GUI() {
 		initialize();
 	}
-	
-	
+
 
 	/**
 	 * Initialize the contents of the frame.
@@ -72,7 +77,9 @@ public class GUI {
 	private void initialize() {
 		frmSpades = new JFrame();
 		frmSpades.setResizable(false);
-		frmSpades.setIconImage(Toolkit.getDefaultToolkit().getImage(GUI.class.getResource("/edu/gsu/csc1302/prj2/somethingrandom/swing/graphics/Spade_Ace.png")));
+		frmSpades.setIconImage(Toolkit.getDefaultToolkit().getImage(GUI.class.
+				getResource(
+				"/edu/gsu/csc1302/prj2/somethingrandom/swing/graphics/Spade_Ace.png")));
 		frmSpades.setTitle("Spades");
 		frmSpades.getContentPane().setBackground(new Color(34, 139, 34));
 		frmSpades.getContentPane().setLayout(null);
@@ -144,6 +151,16 @@ public class GUI {
 		frmSpades.getContentPane().add(panel5);
 
 		JButton handcard1 = new JButton("HandCard1");
+		handcard1.addActionListener(new ActionListener() {
+			public void actionPerformed(final ActionEvent e) {
+				if (SpadesPlayerUser.setPlayCard(1)) {
+					SpadesPlayerUser.setBlock(false);
+				} else {
+					GenericMessagePopup.main(new String[]{
+							"Notice", "You cannot play this card without reneging!"});
+				}
+			}
+		});
 		panel5.add(handcard1);
 
 		Panel panel6 = new Panel();
