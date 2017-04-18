@@ -175,6 +175,16 @@ public class GUI {
 
 
 		JButton handcard2 = new JButton("HandCard2");
+		handcard2.addActionListener(new ActionListener() {
+			public void actionPerformed(final ActionEvent e) {
+				if (SpadesPlayerUser.setPlayCard(2)) {
+					SpadesPlayerUser.setBlock(false);
+				} else {
+					GenericMessagePopup.main(new String[]{
+							"Notice", "You cannot play this card without reneging!"});
+				}
+			}
+		});
 		panel6.add(handcard2);
 
 		Panel panel7 = new Panel();
@@ -188,6 +198,16 @@ public class GUI {
 		frmSpades.getContentPane().add(panel7);
 
 		JButton handcard3 = new JButton("HandCard3");
+		handcard3.addActionListener(new ActionListener() {
+			public void actionPerformed(final ActionEvent e) {
+				if (SpadesPlayerUser.setPlayCard(3)) {
+					SpadesPlayerUser.setBlock(false);
+				} else {
+					GenericMessagePopup.main(new String[]{
+							"Notice", "You cannot play this card without reneging!"});
+				}
+			}
+		});
 		panel7.add(handcard3);
 
 		Panel panel8 = new Panel();
@@ -201,6 +221,16 @@ public class GUI {
 		frmSpades.getContentPane().add(panel8);
 
 		JButton handcard4 = new JButton("HandCard4");
+		handcard4.addActionListener(new ActionListener() {
+			public void actionPerformed(final ActionEvent e) {
+				if (SpadesPlayerUser.setPlayCard(1)) {
+					SpadesPlayerUser.setBlock(false);
+				} else {
+					GenericMessagePopup.main(new String[]{
+							"Notice", "You cannot play this card without reneging!"});
+				}
+			}
+		});
 		panel8.add(handcard4);
 		initialize1();
 	}
@@ -219,6 +249,16 @@ public class GUI {
 		panel9.setBounds(384, 200, 64, 80);
 		frmSpades.getContentPane().add(panel9);
 		JButton handcard5 = new JButton("HandCard5");
+		handcard5.addActionListener(new ActionListener() {
+			public void actionPerformed(final ActionEvent e) {
+				if (SpadesPlayerUser.setPlayCard(5)) {
+					SpadesPlayerUser.setBlock(false);
+				} else {
+					GenericMessagePopup.main(new String[]{
+							"Notice", "You cannot play this card without reneging!"});
+				}
+			}
+		});
 		panel9.add(handcard5);
 		Panel panel10 = new Panel();
 		FlowLayout flowLayout = (FlowLayout) panel10.getLayout();
@@ -230,6 +270,16 @@ public class GUI {
 		panel10.setBounds(448, 200, 64, 80);
 		frmSpades.getContentPane().add(panel10);
 		JButton handcard6 = new JButton("HandCard6");
+		handcard6.addActionListener(new ActionListener() {
+			public void actionPerformed(final ActionEvent e) {
+				if (SpadesPlayerUser.setPlayCard(6)) {
+					SpadesPlayerUser.setBlock(false);
+				} else {
+					GenericMessagePopup.main(new String[]{
+							"Notice", "You cannot play this card without reneging!"});
+				}
+			}
+		});
 		panel10.add(handcard6);
 		Panel panel11 = new Panel();
 		FlowLayout flpanel11 = (FlowLayout) panel11.getLayout();
@@ -241,6 +291,16 @@ public class GUI {
 		panel11.setBounds(96, 280, 64, 80);
 		frmSpades.getContentPane().add(panel11);
 		JButton handcard7 = new JButton("HandCard7");
+		handcard7.addActionListener(new ActionListener() {
+			public void actionPerformed(final ActionEvent e) {
+				if (SpadesPlayerUser.setPlayCard(7)) {
+					SpadesPlayerUser.setBlock(false);
+				} else {
+					GenericMessagePopup.main(new String[]{
+							"Notice", "You cannot play this card without reneging!"});
+				}
+			}
+		});
 		panel11.add(handcard7);
 		Panel panel12 = new Panel();
 		FlowLayout flowLayout3 = (FlowLayout) panel12.getLayout();
@@ -252,6 +312,16 @@ public class GUI {
 		panel12.setBounds(160, 280, 64, 80);
 		frmSpades.getContentPane().add(panel12);
 		JButton handcard8 = new JButton("HandCard8");
+		handcard8.addActionListener(new ActionListener() {
+			public void actionPerformed(final ActionEvent e) {
+				if (SpadesPlayerUser.setPlayCard(8)) {
+					SpadesPlayerUser.setBlock(false);
+				} else {
+					GenericMessagePopup.main(new String[]{
+							"Notice", "You cannot play this card without reneging!"});
+				}
+			}
+		});
 		panel12.add(handcard8);
 		Panel panel13 = new Panel();
 		FlowLayout flowLayout4 = (FlowLayout) panel13.getLayout();
@@ -263,6 +333,16 @@ public class GUI {
 		panel13.setBounds(224, 280, 64, 80);
 		frmSpades.getContentPane().add(panel13);
 		JButton handcard9 = new JButton("HandCard9");
+		handcard9.addActionListener(new ActionListener() {
+			public void actionPerformed(final ActionEvent e) {
+				if (SpadesPlayerUser.setPlayCard(9)) {
+					SpadesPlayerUser.setBlock(false);
+				} else {
+					GenericMessagePopup.main(new String[]{
+							"Notice", "You cannot play this card without reneging!"});
+				}
+			}
+		});
 		panel13.add(handcard9);
 		Panel panel14 = new Panel();
 		FlowLayout flowLayout5 = (FlowLayout) panel14.getLayout();
@@ -274,6 +354,16 @@ public class GUI {
 		panel14.setBounds(288, 280, 64, 80);
 		frmSpades.getContentPane().add(panel14);
 		JButton handcard10 = new JButton("HandCard10");
+		handcard10.addActionListener(new ActionListener() {
+			public void actionPerformed(final ActionEvent e) {
+				if (SpadesPlayerUser.setPlayCard(10)) {
+					SpadesPlayerUser.setBlock(false);
+				} else {
+					GenericMessagePopup.main(new String[]{
+							"Notice", "You cannot play this card without reneging!"});
+				}
+			}
+		});
 		panel14.add(handcard10);
 		Panel panel15 = new Panel();
 		FlowLayout flowLayout6 = (FlowLayout) panel15.getLayout();
@@ -286,6 +376,16 @@ public class GUI {
 		frmSpades.getContentPane().add(panel15);
 
 		JButton handcard11 = new JButton("HandCard11");
+		handcard11.addActionListener(new ActionListener() {
+			public void actionPerformed(final ActionEvent e) {
+				if (SpadesPlayerUser.setPlayCard(11)) {
+					SpadesPlayerUser.setBlock(false);
+				} else {
+					GenericMessagePopup.main(new String[]{
+							"Notice", "You cannot play this card without reneging!"});
+				}
+			}
+		});
 		panel15.add(handcard11);
 
 		Panel panel16 = new Panel();
@@ -299,6 +399,16 @@ public class GUI {
 		frmSpades.getContentPane().add(panel16);
 
 		JButton handcard12 = new JButton("HandCard12");
+		handcard12.addActionListener(new ActionListener() {
+			public void actionPerformed(final ActionEvent e) {
+				if (SpadesPlayerUser.setPlayCard(12)) {
+					SpadesPlayerUser.setBlock(false);
+				} else {
+					GenericMessagePopup.main(new String[]{
+							"Notice", "You cannot play this card without reneging!"});
+				}
+			}
+		});
 		panel16.add(handcard12);
 
 		Panel panel17 = new Panel();
@@ -312,6 +422,16 @@ public class GUI {
 		frmSpades.getContentPane().add(panel17);
 
 		JButton handcard13 = new JButton("HandCard13");
+		handcard13.addActionListener(new ActionListener() {
+			public void actionPerformed(final ActionEvent e) {
+				if (SpadesPlayerUser.setPlayCard(13)) {
+					SpadesPlayerUser.setBlock(false);
+				} else {
+					GenericMessagePopup.main(new String[]{
+							"Notice", "You cannot play this card without reneging!"});
+				}
+			}
+		});
 		panel17.add(handcard13);
 
 		Panel panel = new Panel();

@@ -79,7 +79,7 @@ public class SpadesPlayerUser extends SpadesPlayerBase {
 			}
 		}
 		if (comparisonDeck.size() != 0
-				&& hand.get(cardNum).getSuit()
+				&& hand.get(cardNum - 1).getSuit()
 				!= SpadesGame.getTableCards().get(0).getSuit()) {
 			return false;
 			}
