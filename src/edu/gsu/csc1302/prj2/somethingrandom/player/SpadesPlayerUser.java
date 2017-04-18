@@ -32,6 +32,7 @@ public class SpadesPlayerUser extends SpadesPlayerBase {
 	private static Card rCard;
 
 	/**
+	 * Set the player's bet.
 	 * @param bet int
 	 */
 	public static void setPlayerBet(final int bet) {
@@ -45,16 +46,21 @@ public class SpadesPlayerUser extends SpadesPlayerBase {
 		return playerBet;
 	}
 	@Override
-	public final boolean betBlind() throws Exception{
+	public final boolean betBlind() throws Exception {
 		return false;
 	}
 
 	@Override
 	public final int bet() {
-		PlayerBetPopup.main(new String[]{"Enter your bet:",	"Enter your bet:", "1"});
+		PlayerBetPopup.main(new String[]{"Enter your bet:",
+				"Enter your bet:", "1"});
 		return playerBet;
-	} 
-	 
+	}
+	/**
+	 * * Set the player's play number.
+	 * @param cardNum The index of the card to play.
+	 * @return If the card is a legal play.
+	 */
 	public static boolean setPlayCard(final int cardNum) {
 		// TO DO: Add a check so the player can't reneg or whatever the damn word is.
 		// If the player can play the card legally, return true. Otherwise return false.
@@ -67,14 +73,6 @@ public class SpadesPlayerUser extends SpadesPlayerBase {
 	public static void setBlock(final boolean doBlock) {
 		block = doBlock;
 	}
-	/**
-	 * * Set the player's bet number.
-	 * @param cardNum The index of the card to play.
-	 * @return If the card is a legal play.
-	 */
-	 
-
-				
 
 	@Override
 	public final int talk() {
@@ -83,6 +81,11 @@ public class SpadesPlayerUser extends SpadesPlayerBase {
 
 	@Override
 	public final Card play() throws Exception {
+		block = true;
+		while (block) {
+			Runtime.getRuntime().freeMemory();
+		}
+		return rCard;
 	}
 
 }
