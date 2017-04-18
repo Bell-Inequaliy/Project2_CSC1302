@@ -17,6 +17,9 @@ import java.awt.GridBagLayout;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
+
+import edu.gsu.csc1302.prj2.somethingrandom.SpadesGame;
+
 import java.awt.GridBagConstraints;
 import javax.swing.JToggleButton;
 import java.awt.Dimension;
@@ -153,7 +156,14 @@ public class GUI {
 
 		JButton handcard1 = new JButton("HandCard1");
 		panel5.add(handcard1);
-
+		JButton Handcard1 = new JButton("HandCard1");
+		Handcard1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SpadesGame.setInput("play(1)");
+			}
+		});
+		panel5.add(Handcard1);
+		
 		Panel panel6 = new Panel();
 		FlowLayout flpanel6 = (FlowLayout) panel6.getLayout();
 		flpanel6.setVgap(0);
@@ -164,8 +174,16 @@ public class GUI {
 		panel6.setBounds(192, 208, 64, 80);
 		frmSpades.getContentPane().add(panel6);
 
+
 		JButton handcard2 = new JButton("HandCard2");
 		panel6.add(handcard2);
+		JButton Handcard2 = new JButton("HandCard2");
+		Handcard2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SpadesGame.setInput("play(2)");
+			}
+		});
+		panel6.add(Handcard2);
 
 		Panel panel7 = new Panel();
 		FlowLayout flpanel7 = (FlowLayout) panel7.getLayout();
@@ -177,8 +195,16 @@ public class GUI {
 		panel7.setBounds(256, 208, 64, 80);
 		frmSpades.getContentPane().add(panel7);
 
+
 		JButton handcard3 = new JButton("HandCard3");
 		panel7.add(handcard3);
+		JButton Handcard3 = new JButton("HandCard3");
+		Handcard3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				SpadesGame.setInput("play(3)");
+			}
+		});
+		panel7.add(Handcard3);
 
 		Panel panel8 = new Panel();
 		FlowLayout flpanel8 = (FlowLayout) panel8.getLayout();
@@ -192,6 +218,13 @@ public class GUI {
 
 		JButton handcard4 = new JButton("HandCard4");
 		panel8.add(handcard4);
+		JButton Handcard4 = new JButton("HandCard4");
+		Handcard4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SpadesGame.setInput("play(4)");
+			}
+		});
+		panel8.add(Handcard4);
 
 		Panel panel9 = new Panel();
 		FlowLayout flowLayout2 = (FlowLayout) panel9.getLayout();
@@ -203,13 +236,14 @@ public class GUI {
 		panel9.setMaximumSize(new Dimension(64, 80));
 		panel9.setBounds(384, 208, 64, 80);
 		frmSpades.getContentPane().add(panel9);
-
-		JButton handcard5 = new JButton("HandCard5");
-		handcard5.addActionListener(new ActionListener() {
-			public void actionPerformed(final ActionEvent e) {
+		
+		JButton Handcard5 = new JButton("HandCard5");
+		Handcard5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SpadesGame.setInput("play(5)");
 			}
 		});
-		panel9.add(handcard5);
+		panel9.add(Handcard5);
 
 		Panel panel10 = new Panel();
 		FlowLayout flowLayout = (FlowLayout) panel10.getLayout();
@@ -223,6 +257,13 @@ public class GUI {
 
 		JButton handcard6 = new JButton("HandCard6");
 		panel10.add(handcard6);
+		JButton Handcard6 = new JButton("HandCard6");
+		Handcard6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SpadesGame.setInput("play(6)");
+			}
+		});
+		panel10.add(Handcard6);
 
 		Panel panel11 = new Panel();
 		FlowLayout flpanel11 = (FlowLayout) panel11.getLayout();
@@ -236,6 +277,13 @@ public class GUI {
 
 		JButton handcard7 = new JButton("HandCard7");
 		panel11.add(handcard7);
+		JButton Handcard7 = new JButton("HandCard7");
+		Handcard7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SpadesGame.setInput("play(7)");
+			}
+		});
+		panel11.add(Handcard7);
 
 		Panel panel12 = new Panel();
 		FlowLayout flowLayout3 = (FlowLayout) panel12.getLayout();
@@ -249,7 +297,14 @@ public class GUI {
 
 		JButton handcard8 = new JButton("HandCard8");
 		panel12.add(handcard8);
-
+		JButton Handcard8 = new JButton("HandCard8");
+		Handcard8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SpadesGame.setInput("play(8)");
+			}
+		});
+		panel12.add(Handcard8);
+		
 		Panel panel13 = new Panel();
 		FlowLayout flowLayout4 = (FlowLayout) panel13.getLayout();
 		flowLayout4.setHgap(0);
@@ -262,6 +317,13 @@ public class GUI {
 
 		JButton handcard9 = new JButton("HandCard9");
 		panel13.add(handcard9);
+		JButton Handcard9 = new JButton("HandCard9");
+		Handcard9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SpadesGame.setInput("play(9)");
+			}
+		});
+		panel13.add(Handcard9);
 
 		Panel panel14 = new Panel();
 		FlowLayout flowLayout5 = (FlowLayout) panel14.getLayout();
@@ -275,6 +337,13 @@ public class GUI {
 
 		JButton handcard10 = new JButton("HandCard10");
 		panel14.add(handcard10);
+		JButton Handcard10 = new JButton("HandCard10");
+		Handcard10.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SpadesGame.setInput("play(10)");
+			}
+		});
+		panel14.add(Handcard10);
 
 		Panel panel15 = new Panel();
 		FlowLayout flowLayout6 = (FlowLayout) panel15.getLayout();
@@ -288,6 +357,13 @@ public class GUI {
 
 		JButton handcard11 = new JButton("HandCard11");
 		panel15.add(handcard11);
+		JButton Handcard11 = new JButton("HandCard11");
+		Handcard11.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SpadesGame.setInput("play(11)");
+			}
+		});
+		panel15.add(Handcard11);
 
 		Panel panel16 = new Panel();
 		FlowLayout flowLayout7 = (FlowLayout) panel16.getLayout();
@@ -301,6 +377,13 @@ public class GUI {
 
 		JButton handcard12 = new JButton("HandCard12");
 		panel16.add(handcard12);
+		JButton Handcard12 = new JButton("HandCard12");
+		Handcard12.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SpadesGame.setInput("play(12)");
+			}
+		});
+		panel16.add(Handcard12);
 
 		Panel panel17 = new Panel();
 		FlowLayout flowLayout8 = (FlowLayout) panel17.getLayout();
@@ -314,6 +397,13 @@ public class GUI {
 
 		JButton handcard13 = new JButton("HandCard13");
 		panel17.add(handcard13);
+		JButton Handcard13 = new JButton("HandCard13");
+		Handcard13.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SpadesGame.setInput("play(13)");
+			}
+		});
+		panel17.add(Handcard13);
 
 		Panel panel = new Panel();
 		panel.setBounds(224, 80, 176, 80);
