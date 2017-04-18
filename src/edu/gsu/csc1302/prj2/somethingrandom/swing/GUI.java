@@ -13,6 +13,8 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.SystemColor;
 import javax.swing.JTextPane;
 import java.awt.Font;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 
 /**
  * This is the GUI.
@@ -31,6 +33,10 @@ public class GUI {
 	 * The table of things for the stuff and whatnot.
 	 */
 	private JTable table;
+	/**
+	 * background image.
+	 */
+	private final JLabel background = new JLabel("background");
 
 	/**
 	 * Launch the application.
@@ -55,6 +61,8 @@ public class GUI {
 	public GUI() {
 		initialize();
 	}
+	
+	
 
 	/**
 	 * Initialize the contents of the frame.
@@ -324,6 +332,9 @@ public class GUI {
 		txtpnSpades.setText("Spades");
 		txtpnSpades.setBounds(240, 16, 144, 48);
 		frmSpades.getContentPane().add(txtpnSpades);
+		background.setIcon(new ImageIcon(GUI.class.getResource("/edu/gsu/csc1302/prj2/somethingrandom/swing/graphics/Layout.png")));
+		background.setBounds(0, 0, 654, 385);
+		frmSpades.getContentPane().add(background);
 		frmSpades.setBounds(100, 100, 672, 432);
 		frmSpades.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
