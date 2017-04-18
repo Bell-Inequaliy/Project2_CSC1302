@@ -1,4 +1,4 @@
-package edu.gsu.csc1302.prj2.somethingrandom.swing;
+package edu.gsu.csc1302.prj2.somethingrandom.swing.dialogs;
 
 import java.awt.EventQueue;
 

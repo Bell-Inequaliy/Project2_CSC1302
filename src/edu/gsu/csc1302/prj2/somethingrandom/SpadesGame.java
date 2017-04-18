@@ -10,7 +10,7 @@ import edu.gsu.csc1302.coll1.Card.Suit;
 import edu.gsu.csc1302.coll1.Deck;
 import edu.gsu.csc1302.prj2.somethingrandom.player.SpadesPlayerBase;
 import edu.gsu.csc1302.prj2.somethingrandom.swing.GUI;
-import edu.gsu.csc1302.prj2.somethingrandom.swing.PlayerTypePopup;
+import edu.gsu.csc1302.prj2.somethingrandom.swing.dialogs.PlayerTypePopup;
 
 /**
  * Spades Player to manage the generic game stuff.
