@@ -78,7 +78,6 @@ public class PlayerTypePopup {
 			final String defaultText) {
 		initialize(titleAndQuestion, defaultText);
 	}
-
 	/**
 	 * Initialize the contents of the frame.
 	 * @param titleAndQuestion String
@@ -120,7 +119,12 @@ public class PlayerTypePopup {
 					newlyMadePlayer = new SpadesPlayerIntelligent();
 					break;
 				case 4:
+					if (SpadesGame.isUserPlayer()) {
+						newlyMadePlayer = new SpadesPlayerIntelligent();
+					} else {
 					newlyMadePlayer = new SpadesPlayerUser();
+					SpadesGame.setUserPlayer();
+					}
 					break;
 				default:
 					break;
