@@ -3,39 +3,15 @@ package edu.gsu.csc1302.prj2.somethingrandom.swing;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import java.awt.BorderLayout;
-import javax.swing.JRadioButton;
 import java.awt.Color;
-import java.awt.GridLayout;
-import java.awt.Image;
-
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.GridBagLayout;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.RowSpec;
-
-import edu.gsu.csc1302.prj2.somethingrandom.SpadesGame;
-
-import java.awt.GridBagConstraints;
-import javax.swing.JToggleButton;
 import java.awt.Dimension;
-import javax.swing.ImageIcon;
 import java.awt.Panel;
 import java.awt.FlowLayout;
-import java.awt.Canvas;
-import java.awt.Toolkit;
-import java.awt.ComponentOrientation;
-import java.awt.Button;
-import javax.swing.SwingConstants;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.awt.SystemColor;
 import javax.swing.JTextPane;
-import javax.swing.border.EtchedBorder;
 import java.awt.Font;
 
 /**
@@ -156,7 +132,7 @@ public class GUI {
 
 		JButton handcard1 = new JButton("HandCard1");
 		panel5.add(handcard1);
-		
+
 		Panel panel6 = new Panel();
 		FlowLayout flpanel6 = (FlowLayout) panel6.getLayout();
 		flpanel6.setVgap(0);
@@ -181,7 +157,6 @@ public class GUI {
 		panel7.setBounds(256, 208, 64, 80);
 		frmSpades.getContentPane().add(panel7);
 
-
 		JButton handcard3 = new JButton("HandCard3");
 		panel7.add(handcard3);
 
@@ -197,7 +172,12 @@ public class GUI {
 
 		JButton handcard4 = new JButton("HandCard4");
 		panel8.add(handcard4);
-
+		initialize1();
+	}
+/**
+ * Extends the initialize method.
+ */
+	private void initialize1() {
 		Panel panel9 = new Panel();
 		FlowLayout flowLayout2 = (FlowLayout) panel9.getLayout();
 		flowLayout2.setHgap(0);
@@ -208,10 +188,8 @@ public class GUI {
 		panel9.setMaximumSize(new Dimension(64, 80));
 		panel9.setBounds(384, 208, 64, 80);
 		frmSpades.getContentPane().add(panel9);
-
 		JButton handcard5 = new JButton("HandCard5");
 		panel9.add(handcard5);
-
 		Panel panel10 = new Panel();
 		FlowLayout flowLayout = (FlowLayout) panel10.getLayout();
 		flowLayout.setVgap(0);
@@ -221,10 +199,8 @@ public class GUI {
 		panel10.setMaximumSize(new Dimension(64, 80));
 		panel10.setBounds(448, 208, 64, 80);
 		frmSpades.getContentPane().add(panel10);
-
 		JButton handcard6 = new JButton("HandCard6");
 		panel10.add(handcard6);
-
 		Panel panel11 = new Panel();
 		FlowLayout flpanel11 = (FlowLayout) panel11.getLayout();
 		flpanel11.setHgap(0);
@@ -234,7 +210,6 @@ public class GUI {
 		panel11.setMaximumSize(new Dimension(64, 80));
 		panel11.setBounds(96, 288, 64, 80);
 		frmSpades.getContentPane().add(panel11);
-
 		JButton handcard7 = new JButton("HandCard7");
 		panel11.add(handcard7);
 
@@ -247,10 +222,9 @@ public class GUI {
 		panel12.setMaximumSize(new Dimension(64, 80));
 		panel12.setBounds(160, 288, 64, 80);
 		frmSpades.getContentPane().add(panel12);
-
 		JButton handcard8 = new JButton("HandCard8");
 		panel12.add(handcard8);
-		
+
 		Panel panel13 = new Panel();
 		FlowLayout flowLayout4 = (FlowLayout) panel13.getLayout();
 		flowLayout4.setHgap(0);
