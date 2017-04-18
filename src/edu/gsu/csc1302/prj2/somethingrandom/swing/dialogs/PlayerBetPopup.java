@@ -5,15 +5,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
-import edu.gsu.csc1302.prj2.somethingrandom.SpadesGame;
-import edu.gsu.csc1302.prj2.somethingrandom.player.SpadesPlayerAggressive;
-import edu.gsu.csc1302.prj2.somethingrandom.player.SpadesPlayerBase;
-import edu.gsu.csc1302.prj2.somethingrandom.player.SpadesPlayerChicken;
-import edu.gsu.csc1302.prj2.somethingrandom.player.SpadesPlayerIntelligent;
 import edu.gsu.csc1302.prj2.somethingrandom.player.SpadesPlayerUser;
-import edu.gsu.csc1302.prj2.somethingrandom.player.SpadesPlayerWildcard;
-
-
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -105,29 +97,8 @@ public class PlayerBetPopup {
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent arg0) {
 				int switcheroo = Integer.parseInt(txtBox.getText());
-				SpadesPlayerBase newlyMadePlayer = null;
-				switch (switcheroo) {
-				case 0:
-					newlyMadePlayer = new SpadesPlayerAggressive();
-					break;
-				case 1:
-					newlyMadePlayer = new SpadesPlayerChicken();
-					break;
-				case 2:
-					newlyMadePlayer = new SpadesPlayerWildcard();
-					break;
-				case 3:
-					newlyMadePlayer = new SpadesPlayerIntelligent();
-					break;
-				case 4:
-					newlyMadePlayer = new SpadesPlayerUser();
-					break;
-				default:
-					break;
-				}
-
-				System.out.println(newlyMadePlayer);
-				SpadesGame.setPlayerByNumber(playerNum, newlyMadePlayer);
+				System.out.println(switcheroo);
+				SpadesPlayerUser.setPlayerBet(switcheroo);
 				block = false;
 				frame.dispose();
 			}
