@@ -67,7 +67,7 @@ public class SpadesPlayerUser extends SpadesPlayerBase {
 	 * @return If the card is a legal play.
 	 */
 	public static boolean setPlayCard(final int cardNum) {
-		// TO DO: Add a check so the player can't reneg.
+		// TO DONE: Add a check so the player can't reneg.
 		// If the player can play the card legally, return true.
 		// Otherwise return false.
 		Deck comparisonDeck = new DeckImplementation();

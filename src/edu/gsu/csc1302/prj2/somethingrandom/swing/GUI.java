@@ -242,7 +242,6 @@ public class GUI {
 		frmSpades.getContentPane().add(panel11);
 		JButton handcard7 = new JButton("HandCard7");
 		panel11.add(handcard7);
-
 		Panel panel12 = new Panel();
 		FlowLayout flowLayout3 = (FlowLayout) panel12.getLayout();
 		flowLayout3.setVgap(0);
@@ -254,7 +253,6 @@ public class GUI {
 		frmSpades.getContentPane().add(panel12);
 		JButton handcard8 = new JButton("HandCard8");
 		panel12.add(handcard8);
-
 		Panel panel13 = new Panel();
 		FlowLayout flowLayout4 = (FlowLayout) panel13.getLayout();
 		flowLayout4.setHgap(0);
@@ -264,10 +262,8 @@ public class GUI {
 		panel13.setMaximumSize(new Dimension(64, 80));
 		panel13.setBounds(224, 280, 64, 80);
 		frmSpades.getContentPane().add(panel13);
-
 		JButton handcard9 = new JButton("HandCard9");
 		panel13.add(handcard9);
-
 		Panel panel14 = new Panel();
 		FlowLayout flowLayout5 = (FlowLayout) panel14.getLayout();
 		flowLayout5.setVgap(0);
@@ -277,10 +273,8 @@ public class GUI {
 		panel14.setMaximumSize(new Dimension(64, 80));
 		panel14.setBounds(288, 280, 64, 80);
 		frmSpades.getContentPane().add(panel14);
-
 		JButton handcard10 = new JButton("HandCard10");
 		panel14.add(handcard10);
-
 		Panel panel15 = new Panel();
 		FlowLayout flowLayout6 = (FlowLayout) panel15.getLayout();
 		flowLayout6.setVgap(0);
@@ -356,7 +350,8 @@ public class GUI {
 				));
 		table.setBounds(33, 41, 176, 96);
 		frmSpades.getContentPane().add(table);
-		background.setIcon(new ImageIcon(GUI.class.getResource("/edu/gsu/csc1302/prj2/somethingrandom/swing/graphics/Layout.png")));
+		background.setIcon(new ImageIcon(GUI.class.getResource(
+				"/edu/gsu/csc1302/prj2/somethingrandom/swing/graphics/Layout.png")));
 		background.setBounds(0, 0, 654, 385);
 		frmSpades.getContentPane().add(background);
 		frmSpades.setBounds(100, 100, 643, 412);
