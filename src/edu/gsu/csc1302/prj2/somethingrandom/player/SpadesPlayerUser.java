@@ -46,6 +46,7 @@ public class SpadesPlayerUser extends SpadesPlayerBase {
 		// TO DO: Add a check so the player can't reneg or whatever the damn word is.
 		// If the player can play the card legally, return true. Otherwise return false.
 		return true;
+		
 	}
 	/**
 	 * Set if the player should continue blocking or not.
