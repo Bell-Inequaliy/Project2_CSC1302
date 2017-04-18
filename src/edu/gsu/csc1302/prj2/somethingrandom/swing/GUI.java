@@ -71,6 +71,7 @@ public class GUI {
 	 */
 	private void initialize() {
 		frmSpades = new JFrame();
+		frmSpades.setResizable(false);
 		frmSpades.setIconImage(Toolkit.getDefaultToolkit().getImage(GUI.class.getResource("/edu/gsu/csc1302/prj2/somethingrandom/swing/graphics/Spade_Ace.png")));
 		frmSpades.setTitle("Spades");
 		frmSpades.getContentPane().setBackground(new Color(34, 139, 34));
@@ -308,7 +309,7 @@ public class GUI {
 				panel.setLayout(null);
 
 				JButton btnTalk = new JButton("");
-				btnTalk.setBounds(-16, -4, 209, 89);
+				btnTalk.setBounds(-16, -5, 209, 89);
 				panel.add(btnTalk);
 				btnTalk.setContentAreaFilled(false);
 				btnTalk.setVerticalAlignment(SwingConstants.TOP);
@@ -341,7 +342,7 @@ public class GUI {
 		background.setIcon(new ImageIcon(GUI.class.getResource("/edu/gsu/csc1302/prj2/somethingrandom/swing/graphics/Layout.png")));
 		background.setBounds(0, 0, 654, 385);
 		frmSpades.getContentPane().add(background);
-		frmSpades.setBounds(100, 100, 672, 432);
+		frmSpades.setBounds(100, 100, 643, 412);
 		frmSpades.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }
