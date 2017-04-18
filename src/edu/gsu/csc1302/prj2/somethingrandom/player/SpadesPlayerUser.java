@@ -23,7 +23,13 @@ public class SpadesPlayerUser extends SpadesPlayerBase {
 	 * Int to track the player's bet.
 	 */
 	private static int playerBet = 0;
-
+	/**
+	 * Set the player's static hand.
+	 * @param deck Deck
+	 */
+	public void setHand(final Deck deck) {
+		hand = deck;
+	}
 	/**
 	 * Set the player's bet number.
 	 	 * Should we halt further execution?
@@ -58,7 +64,7 @@ public class SpadesPlayerUser extends SpadesPlayerBase {
 	@Override
 	public final int bet() {
 		PlayerBetPopup.main(new String[]{"Enter your bet:",
-				"Enter your bet:", "1"});
+				"", "1"});
 		return playerBet;
 	}
 	/**
@@ -71,6 +77,9 @@ public class SpadesPlayerUser extends SpadesPlayerBase {
 		// If the player can play the card legally, return true.
 		// Otherwise return false.
 		Deck comparisonDeck = new DeckImplementation();
+		if (hand.size() < cardNum) {
+			return false;
+		}
 		if (SpadesGame.getTableCards().size() != 0) {
 		for (int i = 0; i < hand.size(); i++) {
 			if (SpadesGame.getTableCards().get(0).getSuit()
@@ -84,6 +93,7 @@ public class SpadesPlayerUser extends SpadesPlayerBase {
 			return false;
 			}
 		}
+		rCard = hand.get(cardNum - 1);
 		return true;
 	}
 	/**
@@ -105,6 +115,7 @@ public class SpadesPlayerUser extends SpadesPlayerBase {
 		while (block) {
 			Runtime.getRuntime().freeMemory();
 		}
+		hand.remove(hand.indexOf(rCard));
 		return rCard;
 	}
 
