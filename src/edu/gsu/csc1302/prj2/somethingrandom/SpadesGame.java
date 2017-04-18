@@ -113,7 +113,14 @@ public final class SpadesGame extends DrSeuss {
 		GUI.main(args);
 		// Start the game and get the desired player configurations.
 		System.out.println("Welcome to Spades!");
-		PlayerTypePopup.main(new String[]{"ass", "1", "1"});
+		PlayerTypePopup.main(new String[]{"What type do you want Player One to be?",
+				"1", "1"});
+		PlayerTypePopup.main(new String[]{"What type do you want Player Two to be?",
+				"1", "2"});
+		PlayerTypePopup.main(new String[]{
+				"What type do you want Player Three to be?", "1", "3"});
+		PlayerTypePopup.main(new String[]{
+				"What type do you want Player Four to be?", "1", "4"});
 
 		shuffleAndDeal();
 		playRound();
@@ -529,6 +536,7 @@ public final class SpadesGame extends DrSeuss {
  */
 	public static void setPlayerByNumber(final int playerNum,
 			final SpadesPlayerBase player) {
+		System.out.println(playerNum);
 		switch (playerNum) {
 		case 1: playerOne = player; break;
 		case 2: playerTwo = player; break;

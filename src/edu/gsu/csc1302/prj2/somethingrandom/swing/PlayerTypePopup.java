@@ -39,11 +39,16 @@ public class PlayerTypePopup {
 	private static int playerNum;
 
 	/**
+	 * If we should block progress. Used to wait for button presses.
+	 */
+	private static boolean block = true;
+
+	/**
 	 * Launch the application.
 	 * @param args unused.
 	 */
 	public static void main(final String[] args) {
-
+		block = true;
 		String titleAndQuestion = args[0];
 		String defaultText = args[1];
 		playerNum = Integer.parseInt(args[2]);
@@ -59,6 +64,9 @@ public class PlayerTypePopup {
 				}
 			}
 		});
+		while (PlayerTypePopup.block) {
+			Runtime.getRuntime().freeMemory();
+		}
 	}
 
 	/**
@@ -84,7 +92,7 @@ public class PlayerTypePopup {
 		frame.getContentPane().setLayout(null);
 
 		JLabel lblQuestion = new JLabel(titleAndQuestion);
-		lblQuestion.setBounds(169, 11, 86, 14);
+		lblQuestion.setBounds(31, 11, 403, 58);
 		frame.getContentPane().add(lblQuestion);
 
 		txtBox = new JTextField();
@@ -99,19 +107,29 @@ public class PlayerTypePopup {
 				int switcheroo = Integer.parseInt(txtBox.getText());
 				SpadesPlayerBase newlyMadePlayer = null;
 				switch (switcheroo) {
-				case 0: newlyMadePlayer = new SpadesPlayerAggressive();
-				break;
-				case 1: newlyMadePlayer = new SpadesPlayerChicken();
-				break;
-				case 2: newlyMadePlayer = new SpadesPlayerWildcard();
-				break;
-				case 3: newlyMadePlayer = new SpadesPlayerIntelligent();
-				break;
-				case 4: newlyMadePlayer = new SpadesPlayerUser();
+				case 0:
+					newlyMadePlayer = new SpadesPlayerAggressive();
+					break;
+				case 1:
+					newlyMadePlayer = new SpadesPlayerChicken();
+					break;
+				case 2:
+					newlyMadePlayer = new SpadesPlayerWildcard();
+					break;
+				case 3:
+					newlyMadePlayer = new SpadesPlayerIntelligent();
+					break;
+				case 4:
+					newlyMadePlayer = new SpadesPlayerUser();
+					break;
 				default:
+					break;
 				}
 
+				System.out.println(newlyMadePlayer);
 				SpadesGame.setPlayerByNumber(playerNum, newlyMadePlayer);
+				block = false;
+				frame.dispose();
 			}
 		});
 		btnSubmit.setBounds(169, 150, 86, 23);
