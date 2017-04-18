@@ -13,20 +13,34 @@ import edu.gsu.csc1302.prj2.somethingrandom.player.SpadesPlayerIntelligent;
 import edu.gsu.csc1302.prj2.somethingrandom.player.SpadesPlayerUser;
 import edu.gsu.csc1302.prj2.somethingrandom.player.SpadesPlayerWildcard;
 
-import java.awt.BorderLayout;
+
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
+/**
+ * This program handles the popups for the player.
+ * @author stgilbert & Joshua
+ *
+ */
 public class PlayerTypePopup {
 
+	/**
+	 * This is a J frame.
+	 */
 	private JFrame frame;
+	/**
+	 * Jtextfield that will be used for a text box.
+	 */
 	private JTextField txtBox;
+	/**
+	 * PlayerNum to keep track of player number.
+	 */
 	private static int playerNum;
 
 	/**
 	 * Launch the application.
+	 * @param args unused.
 	 */
 	public static void main(final String[] args) {
 
@@ -37,7 +51,8 @@ public class PlayerTypePopup {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PlayerTypePopup window = new PlayerTypePopup(titleAndQuestion, defaultText);
+					PlayerTypePopup window = new
+							PlayerTypePopup(titleAndQuestion, defaultText);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -48,13 +63,18 @@ public class PlayerTypePopup {
 
 	/**
 	 * Create the application.
+	 * @param titleAndQuestion String
+	 * @param defaultText String
 	 */
-	public PlayerTypePopup(final String titleAndQuestion, final String defaultText) {
+	public PlayerTypePopup(final String titleAndQuestion,
+			final String defaultText) {
 		initialize(titleAndQuestion, defaultText);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
+	 * @param titleAndQuestion String
+	 * @param defaultText String
 	 */
 	private void initialize(final String titleAndQuestion,
 			final String defaultText) {
@@ -75,7 +95,7 @@ public class PlayerTypePopup {
 
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(final ActionEvent arg0) {
 				int switcheroo = Integer.parseInt(txtBox.getText());
 				SpadesPlayerBase newlyMadePlayer = null;
 				switch (switcheroo) {

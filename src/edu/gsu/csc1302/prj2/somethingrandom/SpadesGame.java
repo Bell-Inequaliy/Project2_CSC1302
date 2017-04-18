@@ -8,12 +8,7 @@ import edu.gsu.csc1302.coll1.Card;
 import edu.gsu.csc1302.coll1.Card.Rank;
 import edu.gsu.csc1302.coll1.Card.Suit;
 import edu.gsu.csc1302.coll1.Deck;
-import edu.gsu.csc1302.prj2.somethingrandom.player.SpadesPlayerAggressive;
 import edu.gsu.csc1302.prj2.somethingrandom.player.SpadesPlayerBase;
-import edu.gsu.csc1302.prj2.somethingrandom.player.SpadesPlayerChicken;
-import edu.gsu.csc1302.prj2.somethingrandom.player.SpadesPlayerIntelligent;
-import edu.gsu.csc1302.prj2.somethingrandom.player.SpadesPlayerUser;
-import edu.gsu.csc1302.prj2.somethingrandom.player.SpadesPlayerWildcard;
 import edu.gsu.csc1302.prj2.somethingrandom.swing.GUI;
 import edu.gsu.csc1302.prj2.somethingrandom.swing.PlayerTypePopup;
 
@@ -527,14 +522,19 @@ public final class SpadesGame extends DrSeuss {
 		}
 		return null;
 	}
-
-	public static void setPlayerByNumber(int playerNum, SpadesPlayerBase player){
-		switch(playerNum){
+/**
+ * Sets the player by their number.
+ * @param playerNum int
+ * @param player SpadesPlayerBase
+ */
+	public static void setPlayerByNumber(final int playerNum,
+			final SpadesPlayerBase player) {
+		switch (playerNum) {
 		case 1: playerOne = player; break;
 		case 2: playerTwo = player; break;
 		case 3: playerThree = player; break;
 		case 4: playerFour = player; break;
-		default: throw new RuntimeException("DEFAULT WHERE THERE SHOULDN'T BE A DEFAULT :(");
+		default: throw new RuntimeException("HOW DID THIS HAPPEN :(");
 		}
 	}
 }
