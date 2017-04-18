@@ -1,11 +1,8 @@
 package edu.gsu.csc1302.prj2.somethingrandom;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.StringReader;
 import java.util.LinkedList;
-import java.util.Scanner;
 
 import edu.gsu.csc1302.coll1.Card;
 import edu.gsu.csc1302.coll1.Card.Rank;
@@ -17,6 +14,8 @@ import edu.gsu.csc1302.prj2.somethingrandom.player.SpadesPlayerChicken;
 import edu.gsu.csc1302.prj2.somethingrandom.player.SpadesPlayerIntelligent;
 import edu.gsu.csc1302.prj2.somethingrandom.player.SpadesPlayerUser;
 import edu.gsu.csc1302.prj2.somethingrandom.player.SpadesPlayerWildcard;
+import edu.gsu.csc1302.prj2.somethingrandom.swing.GUI;
+import edu.gsu.csc1302.prj2.somethingrandom.swing.PlayerTypePopup;
 
 /**
  * Spades Player to manage the generic game stuff.
@@ -35,17 +34,6 @@ public final class SpadesGame extends DrSeuss {
 	 */
 	private SpadesGame() {
 	}
-
-	/**
-	 * GUI input.
-	 */
-	private static String input = " ";
-
-	/**
-	 * Universal input scanner.
-	 */
-	public static final BufferedReader IN =
-			new BufferedReader(new StringReader(input));
 
 	/**
 	 * Cards on the table.
@@ -127,19 +115,10 @@ public final class SpadesGame extends DrSeuss {
 	 * @throws Exception When various unaccounted for things occur.
 	 */
 	public static void main(final String[] args) throws Exception {
+		GUI.main(args);
 		// Start the game and get the desired player configurations.
 		System.out.println("Welcome to Spades!");
-		System.out.println("What play style would you like player One to be?");
-		int behavior1 = Integer.parseInt(IN.readLine());
-		System.out.println("What play style would you like player Two to be?");
-		int behavior2 = Integer.parseInt(IN.readLine());
-		playerTwo = makePlayer(behavior2);
-		System.out.println("What play style would you like player Three to be?");
-		int behavior3 = Integer.parseInt(IN.readLine());
-		playerThree = makePlayer(behavior3);
-		System.out.println("What play style would you like player Four to be?");
-		int behavior4 = Integer.parseInt(IN.readLine());
-		playerFour = makePlayer(behavior4);
+		PlayerTypePopup.main(new String[]{"ass", "1", "1"});
 
 		shuffleAndDeal();
 		playRound();
@@ -270,30 +249,6 @@ public final class SpadesGame extends DrSeuss {
 			}
 		}
 
-		// Close the input stream.
-		IN.close();
-	}
-
-	/** Method for making players.
-	 * @param playerType what kind of player is beind made.
-	 * @return newly made player.
-	 */
-	private static SpadesPlayerBase makePlayer(final int playerType) {
-		int switcheroo = playerType;
-		SpadesPlayerBase newlyMadePlayer = null;
-		switch (switcheroo) {
-		case 0: playerFour = new SpadesPlayerChicken();
-		break;
-		case 1: newlyMadePlayer = new SpadesPlayerAggressive();
-		break;
-		case 2: newlyMadePlayer = new SpadesPlayerWildcard();
-		break;
-		case 3: newlyMadePlayer = new SpadesPlayerIntelligent();
-		break;
-		case 4: newlyMadePlayer = new SpadesPlayerUser();
-		default:
-		}
-		return newlyMadePlayer;
 	}
 
 	/**
@@ -573,10 +528,13 @@ public final class SpadesGame extends DrSeuss {
 		return null;
 	}
 
-	/** Input for gui console.
-	 * @param guiinput input to set.
-	 */
-	public static void setInput(final String guiinput) {
-		input = guiinput;
+	public static void setPlayerByNumber(int playerNum, SpadesPlayerBase player){
+		switch(playerNum){
+		case 1: playerOne = player; break;
+		case 2: playerTwo = player; break;
+		case 3: playerThree = player; break;
+		case 4: playerFour = player; break;
+		default: throw new RuntimeException("DEFAULT WHERE THERE SHOULDN'T BE A DEFAULT :(");
+		}
 	}
 }
