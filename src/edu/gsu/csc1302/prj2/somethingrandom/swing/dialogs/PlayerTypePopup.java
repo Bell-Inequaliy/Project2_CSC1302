@@ -78,7 +78,6 @@ public class PlayerTypePopup {
 			final String defaultText) {
 		initialize(titleAndQuestion, defaultText);
 	}
-
 	/**
 	 * Initialize the contents of the frame.
 	 * @param titleAndQuestion String

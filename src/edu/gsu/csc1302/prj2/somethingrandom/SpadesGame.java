@@ -528,7 +528,6 @@ public final class SpadesGame extends DrSeuss {
 	public static void setUserPlayer() {
 		hasUserPlayer = true;
 	}
-
 	/**
 	 * This method determines who a given player's teammate is.
 	 * @param player the player whose teammate you want to retrieve.
