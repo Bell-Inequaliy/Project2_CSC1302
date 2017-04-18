@@ -120,7 +120,12 @@ public class PlayerTypePopup {
 					newlyMadePlayer = new SpadesPlayerIntelligent();
 					break;
 				case 4:
+					if (SpadesGame.isUserPlayer()) {
+						newlyMadePlayer = new SpadesPlayerIntelligent();
+					} else {
 					newlyMadePlayer = new SpadesPlayerUser();
+					SpadesGame.setUserPlayer();
+					}
 					break;
 				default:
 					break;

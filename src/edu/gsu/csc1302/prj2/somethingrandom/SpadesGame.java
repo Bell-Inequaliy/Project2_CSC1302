@@ -31,6 +31,11 @@ public final class SpadesGame extends DrSeuss {
 	}
 
 	/**
+	 * Boolean to store if a user player exists.
+	 */
+	private static boolean hasUserPlayer = false;
+
+	/**
 	 * Cards on the table.
 	 */
 	private static DeckImplementation table = new DeckImplementation();
@@ -509,6 +514,19 @@ public final class SpadesGame extends DrSeuss {
 	 */
 	public static DeckImplementation getTableCards() {
 		return table;
+	}
+	/**
+	 * return if there is a user player.
+	 * @return boolean
+	 */
+	public static boolean isUserPlayer() {
+		return hasUserPlayer;
+	}
+	/**
+	 * sets if there is a user player.
+	 */
+	public static void setUserPlayer() {
+		hasUserPlayer = true;
 	}
 
 	/**
