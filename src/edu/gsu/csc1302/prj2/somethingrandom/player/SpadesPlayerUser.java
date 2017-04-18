@@ -2,6 +2,8 @@ package edu.gsu.csc1302.prj2.somethingrandom.player;
 
 import edu.gsu.csc1302.coll1.Card;
 import edu.gsu.csc1302.coll1.Deck;
+import edu.gsu.csc1302.prj2.somethingrandom.DeckImplementation;
+import edu.gsu.csc1302.prj2.somethingrandom.SpadesGame;
 import edu.gsu.csc1302.prj2.somethingrandom.swing.dialogs.PlayerBetPopup;
 
 /**
@@ -13,7 +15,10 @@ import edu.gsu.csc1302.prj2.somethingrandom.swing.dialogs.PlayerBetPopup;
  */
 
 public class SpadesPlayerUser extends SpadesPlayerBase {
-
+	/**
+	 * SpadesPlayeruser hand.
+	 */
+	private static Deck hand;
 	/**
 	 * Int to track the player's bet.
 	 */
@@ -62,8 +67,23 @@ public class SpadesPlayerUser extends SpadesPlayerBase {
 	 * @return If the card is a legal play.
 	 */
 	public static boolean setPlayCard(final int cardNum) {
-		// TO DO: Add a check so the player can't reneg or whatever the damn word is.
-		// If the player can play the card legally, return true. Otherwise return false.
+		// TO DO: Add a check so the player can't reneg.
+		// If the player can play the card legally, return true.
+		// Otherwise return false.
+		Deck comparisonDeck = new DeckImplementation();
+		if (SpadesGame.getTableCards().size() != 0) {
+		for (int i = 0; i < hand.size(); i++) {
+			if (SpadesGame.getTableCards().get(0).getSuit()
+					== hand.get(i).getSuit()) {
+				comparisonDeck.add(hand.get(i));
+			}
+		}
+		if (comparisonDeck.size() != 0
+				&& hand.get(cardNum).getSuit()
+				!= SpadesGame.getTableCards().get(0).getSuit()) {
+			return false;
+			}
+		}
 		return true;
 	}
 	/**
