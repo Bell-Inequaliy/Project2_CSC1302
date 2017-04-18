@@ -15,6 +15,8 @@ import javax.swing.JTextPane;
 import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
+import java.awt.Toolkit;
 
 /**
  * This is the GUI.
@@ -69,24 +71,26 @@ public class GUI {
 	 */
 	private void initialize() {
 		frmSpades = new JFrame();
+		frmSpades.setIconImage(Toolkit.getDefaultToolkit().getImage(GUI.class.getResource("/edu/gsu/csc1302/prj2/somethingrandom/swing/graphics/Spade_Ace.png")));
 		frmSpades.setTitle("Spades");
 		frmSpades.getContentPane().setBackground(new Color(34, 139, 34));
 		frmSpades.getContentPane().setLayout(null);
 
 		Panel backPanel = new BackgroundPanel();
+		FlowLayout flowLayout = (FlowLayout) backPanel.getLayout();
+		flowLayout.setHgap(0);
 		frmSpades.getContentPane().add(backPanel);
 
 		Panel panel1 = new Panel();
 		panel1.setPreferredSize(new Dimension(64, 80));
 		panel1.setMinimumSize(new Dimension(64, 80));
 		panel1.setMaximumSize(new Dimension(64, 80));
-		FlowLayout flpanel1 = (FlowLayout) panel1.getLayout();
-		flpanel1.setVgap(0);
-		flpanel1.setHgap(0);
-		panel1.setBounds(416, 26, 64, 80);
+		panel1.setBounds(416, 17, 64, 80);
 		frmSpades.getContentPane().add(panel1);
+		panel1.setLayout(null);
 
 		JButton tableCard1 = new JButton("Table Card 1");
+		tableCard1.setBounds(-14, 0, 93, 23);
 		panel1.add(tableCard1);
 
 		Panel panel2 = new Panel();
@@ -96,7 +100,7 @@ public class GUI {
 		panel2.setPreferredSize(new Dimension(64, 80));
 		panel2.setMinimumSize(new Dimension(64, 80));
 		panel2.setMaximumSize(new Dimension(64, 80));
-		panel2.setBounds(496, 26, 64, 80);
+		panel2.setBounds(496, 17, 64, 80);
 		frmSpades.getContentPane().add(panel2);
 
 		JButton tableCard2 = new JButton("Table Card 2");
@@ -109,7 +113,7 @@ public class GUI {
 		panel3.setPreferredSize(new Dimension(64, 80));
 		panel3.setMinimumSize(new Dimension(64, 80));
 		panel3.setMaximumSize(new Dimension(64, 80));
-		panel3.setBounds(448, 112, 64, 80);
+		panel3.setBounds(448, 104, 64, 80);
 		frmSpades.getContentPane().add(panel3);
 
 		JButton tableCard3 = new JButton("Table Card 3");
@@ -122,7 +126,7 @@ public class GUI {
 		panel4.setPreferredSize(new Dimension(64, 80));
 		panel4.setMinimumSize(new Dimension(64, 80));
 		panel4.setMaximumSize(new Dimension(64, 80));
-		panel4.setBounds(528, 112, 64, 80);
+		panel4.setBounds(528, 104, 64, 80);
 		frmSpades.getContentPane().add(panel4);
 
 		JButton tableCard4 = new JButton("Table Card 4");
@@ -135,7 +139,7 @@ public class GUI {
 		panel5.setPreferredSize(new Dimension(64, 80));
 		panel5.setMinimumSize(new Dimension(64, 80));
 		panel5.setMaximumSize(new Dimension(64, 80));
-		panel5.setBounds(128, 208, 64, 80);
+		panel5.setBounds(128, 200, 64, 80);
 		frmSpades.getContentPane().add(panel5);
 
 		JButton handcard1 = new JButton("HandCard1");
@@ -148,7 +152,7 @@ public class GUI {
 		panel6.setPreferredSize(new Dimension(64, 80));
 		panel6.setMinimumSize(new Dimension(64, 80));
 		panel6.setMaximumSize(new Dimension(64, 80));
-		panel6.setBounds(192, 208, 64, 80);
+		panel6.setBounds(192, 200, 64, 80);
 		frmSpades.getContentPane().add(panel6);
 
 
@@ -162,7 +166,7 @@ public class GUI {
 		panel7.setPreferredSize(new Dimension(64, 80));
 		panel7.setMinimumSize(new Dimension(64, 80));
 		panel7.setMaximumSize(new Dimension(64, 80));
-		panel7.setBounds(256, 208, 64, 80);
+		panel7.setBounds(256, 200, 64, 80);
 		frmSpades.getContentPane().add(panel7);
 
 		JButton handcard3 = new JButton("HandCard3");
@@ -175,7 +179,7 @@ public class GUI {
 		panel8.setPreferredSize(new Dimension(64, 80));
 		panel8.setMinimumSize(new Dimension(64, 80));
 		panel8.setMaximumSize(new Dimension(64, 80));
-		panel8.setBounds(320, 208, 64, 80);
+		panel8.setBounds(320, 200, 64, 80);
 		frmSpades.getContentPane().add(panel8);
 
 		JButton handcard4 = new JButton("HandCard4");
@@ -194,7 +198,7 @@ public class GUI {
 		panel9.setPreferredSize(new Dimension(64, 80));
 		panel9.setMinimumSize(new Dimension(64, 80));
 		panel9.setMaximumSize(new Dimension(64, 80));
-		panel9.setBounds(384, 208, 64, 80);
+		panel9.setBounds(384, 200, 64, 80);
 		frmSpades.getContentPane().add(panel9);
 		JButton handcard5 = new JButton("HandCard5");
 		panel9.add(handcard5);
@@ -205,7 +209,7 @@ public class GUI {
 		panel10.setPreferredSize(new Dimension(64, 80));
 		panel10.setMinimumSize(new Dimension(64, 80));
 		panel10.setMaximumSize(new Dimension(64, 80));
-		panel10.setBounds(448, 208, 64, 80);
+		panel10.setBounds(448, 200, 64, 80);
 		frmSpades.getContentPane().add(panel10);
 		JButton handcard6 = new JButton("HandCard6");
 		panel10.add(handcard6);
@@ -216,7 +220,7 @@ public class GUI {
 		panel11.setPreferredSize(new Dimension(64, 80));
 		panel11.setMinimumSize(new Dimension(64, 80));
 		panel11.setMaximumSize(new Dimension(64, 80));
-		panel11.setBounds(96, 288, 64, 80);
+		panel11.setBounds(96, 280, 64, 80);
 		frmSpades.getContentPane().add(panel11);
 		JButton handcard7 = new JButton("HandCard7");
 		panel11.add(handcard7);
@@ -228,7 +232,7 @@ public class GUI {
 		panel12.setPreferredSize(new Dimension(64, 80));
 		panel12.setMinimumSize(new Dimension(64, 80));
 		panel12.setMaximumSize(new Dimension(64, 80));
-		panel12.setBounds(160, 288, 64, 80);
+		panel12.setBounds(160, 280, 64, 80);
 		frmSpades.getContentPane().add(panel12);
 		JButton handcard8 = new JButton("HandCard8");
 		panel12.add(handcard8);
@@ -240,7 +244,7 @@ public class GUI {
 		panel13.setPreferredSize(new Dimension(64, 80));
 		panel13.setMinimumSize(new Dimension(64, 80));
 		panel13.setMaximumSize(new Dimension(64, 80));
-		panel13.setBounds(224, 288, 64, 80);
+		panel13.setBounds(224, 280, 64, 80);
 		frmSpades.getContentPane().add(panel13);
 
 		JButton handcard9 = new JButton("HandCard9");
@@ -253,7 +257,7 @@ public class GUI {
 		panel14.setPreferredSize(new Dimension(64, 80));
 		panel14.setMinimumSize(new Dimension(64, 80));
 		panel14.setMaximumSize(new Dimension(64, 80));
-		panel14.setBounds(288, 288, 64, 80);
+		panel14.setBounds(288, 280, 64, 80);
 		frmSpades.getContentPane().add(panel14);
 
 		JButton handcard10 = new JButton("HandCard10");
@@ -266,7 +270,7 @@ public class GUI {
 		panel15.setPreferredSize(new Dimension(64, 80));
 		panel15.setMinimumSize(new Dimension(64, 80));
 		panel15.setMaximumSize(new Dimension(64, 80));
-		panel15.setBounds(352, 288, 64, 80);
+		panel15.setBounds(352, 280, 64, 80);
 		frmSpades.getContentPane().add(panel15);
 
 		JButton handcard11 = new JButton("HandCard11");
@@ -279,7 +283,7 @@ public class GUI {
 		panel16.setPreferredSize(new Dimension(64, 80));
 		panel16.setMinimumSize(new Dimension(64, 80));
 		panel16.setMaximumSize(new Dimension(64, 80));
-		panel16.setBounds(416, 288, 64, 80);
+		panel16.setBounds(416, 280, 64, 80);
 		frmSpades.getContentPane().add(panel16);
 
 		JButton handcard12 = new JButton("HandCard12");
@@ -292,7 +296,7 @@ public class GUI {
 		panel17.setPreferredSize(new Dimension(64, 80));
 		panel17.setMinimumSize(new Dimension(64, 80));
 		panel17.setMaximumSize(new Dimension(64, 80));
-		panel17.setBounds(480, 288, 64, 80);
+		panel17.setBounds(480, 280, 64, 80);
 		frmSpades.getContentPane().add(panel17);
 
 		JButton handcard13 = new JButton("HandCard13");
@@ -301,11 +305,22 @@ public class GUI {
 		Panel panel = new Panel();
 		panel.setBounds(224, 80, 176, 80);
 		frmSpades.getContentPane().add(panel);
+				panel.setLayout(null);
 
-		JButton btnTalk = new JButton("Talk");
-		panel.add(btnTalk);
+				JButton btnTalk = new JButton("");
+				btnTalk.setBounds(-16, -4, 209, 89);
+				panel.add(btnTalk);
+				btnTalk.setContentAreaFilled(false);
+				btnTalk.setVerticalAlignment(SwingConstants.TOP);
+				btnTalk.setIcon(new ImageIcon(GUI.class.getResource(
+						"/edu/gsu/csc1302/prj2/somethingrandom/swing/graphics/"
+						+ "TalkButton.png")));
+				btnTalk.setSelectedIcon(new ImageIcon(GUI.class.getResource(
+						"/edu/gsu/csc1302/prj2/somethingrandom/swing/graphics/"
+						+ "TalkButton.png")));
 
 		table = new JTable();
+		table.setBorder(null);
 		table.setRowHeight(32);
 		table.setBackground(SystemColor.desktop);
 		table.setForeground(SystemColor.text);
@@ -321,17 +336,8 @@ public class GUI {
 						"New column", "New column", "New column"
 				}
 				));
-		table.setBounds(32, 48, 176, 96);
+		table.setBounds(33, 41, 176, 96);
 		frmSpades.getContentPane().add(table);
-
-		JTextPane txtpnSpades = new JTextPane();
-		txtpnSpades.setFont(new Font("Tahoma", Font.BOLD, 36));
-		txtpnSpades.setCaretColor(new Color(255, 255, 255));
-		txtpnSpades.setForeground(SystemColor.text);
-		txtpnSpades.setOpaque(false);
-		txtpnSpades.setText("Spades");
-		txtpnSpades.setBounds(240, 16, 144, 48);
-		frmSpades.getContentPane().add(txtpnSpades);
 		background.setIcon(new ImageIcon(GUI.class.getResource("/edu/gsu/csc1302/prj2/somethingrandom/swing/graphics/Layout.png")));
 		background.setBounds(0, 0, 654, 385);
 		frmSpades.getContentPane().add(background);
