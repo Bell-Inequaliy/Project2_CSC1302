@@ -456,7 +456,7 @@ public final class SpadesGame extends DrSeuss {
 			 */
 			winnerBois = 1;
 			highCard = play;
-
+			GUI.main(null);
 			// Repeat the above code but for player two.
 			play = playerTwo.play();
 			System.out.println("Player Two has played " + play);
@@ -469,7 +469,7 @@ public final class SpadesGame extends DrSeuss {
 				winnerBois = 2;
 			}
 			// Otherwise do nothing.
-
+			GUI.main(null);
 			// Repeat above code for player three.
 			play = playerThree.play();
 			System.out.println("Player Three has played " + play);
@@ -478,7 +478,7 @@ public final class SpadesGame extends DrSeuss {
 				highCard = play;
 				winnerBois = 3;
 			}
-
+			GUI.main(null);
 			// Repeat above code for player four.
 			play = playerFour.play();
 			System.out.println("Player Four has played " + play);
@@ -488,7 +488,7 @@ public final class SpadesGame extends DrSeuss {
 				highCard = play;
 				winnerBois = 4;
 			}
-
+			GUI.main(null);
 			// Clear the table
 			table.clear();
 
@@ -500,7 +500,7 @@ public final class SpadesGame extends DrSeuss {
 				// Otherwise team one won.
 				teamOneTricks++;
 			}
-
+			GUI.main(null);
 			// Print the winning player and the number of tricks each team has won.
 			System.out.println("WINNERBOIS = " + winnerBois);
 			System.out.println("Team One tricks: " + teamOneTricks + ", "
