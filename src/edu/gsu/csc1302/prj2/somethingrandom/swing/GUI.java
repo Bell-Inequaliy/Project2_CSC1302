@@ -19,6 +19,8 @@ import edu.gsu.csc1302.prj2.somethingrandom.player.SpadesPlayerUser;
 import edu.gsu.csc1302.prj2.somethingrandom.swing.dialogs.GenericMessagePopup;
 
 import java.awt.SystemColor;
+import javax.swing.JTextPane;
+import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
@@ -74,11 +76,11 @@ public class GUI {
 	/**
 	 * first card in hand.
 	 */
-	JButton handcard1 = new JButton("HandCard1");
+	JButton handcard1 = new JButton("");
 	/**
 	 * second card in hand.
 	 */
-	JButton handcard2 = new JButton("HandCard2");
+	JButton handcard2 = new JButton("");
 	/**
 	 * third card in hand.
 	 */
@@ -86,43 +88,43 @@ public class GUI {
 	/**
 	 * fourth card in hand.
 	 */
-	JButton handcard4 = new JButton("HandCard4");
+	JButton handcard4 = new JButton("");
 	/**
 	 * fifth card in hand.
 	 */
-	JButton handcard5 = new JButton("HandCard5");
+	JButton handcard5 = new JButton("");
 	/**
 	 * sixth card in hand.
 	 */
-	JButton handcard6 = new JButton("HandCard6");
+	JButton handcard6 = new JButton("");
 	/**
 	 * seventh card in hand.
 	 */
-	JButton handcard7 = new JButton("HandCard7");
+	JButton handcard7 = new JButton("");
 	/**
 	 * eighth card in hand.
 	 */
-	JButton handcard8 = new JButton("HandCard8");
+	JButton handcard8 = new JButton("");
 	/**
 	 * ninth card in hand.
 	 */
-	JButton handcard9 = new JButton("HandCard9");
+	JButton handcard9 = new JButton("");
 	/**
 	 * tenth card in hand.
 	 */
-	JButton handcard10 = new JButton("HandCard10");
+	JButton handcard10 = new JButton("");
 	/**
 	 * eleventh card in hand.
 	 */
-	JButton handcard11 = new JButton("HandCard11");
+	JButton handcard11 = new JButton("");
 	/**
 	 * Twelfth card in hand.
 	 */
-	JButton handcard12 = new JButton("HandCard12");
+	JButton handcard12 = new JButton("");
 	/**
 	 * Thirteenth card in hand.
 	 */
-	JButton handcard13 = new JButton("HandCard13");
+	JButton handcard13 = new JButton("");
 	/**
 	 * First card on table.
 	 */
@@ -166,7 +168,7 @@ public class GUI {
 		frmSpades.getContentPane().add(panel1);
 		tableCard1.setVerticalAlignment(SwingConstants.TOP);
 		tableCard1.addActionListener(new ActionListener() {
-			public void actionPerformed(final ActionEvent e) {
+			public void actionPerformed(ActionEvent e) {
 			}
 		});
 		panel1.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
@@ -183,7 +185,7 @@ public class GUI {
 		frmSpades.getContentPane().add(panel2);
 		tableCard2.setVerticalAlignment(SwingConstants.TOP);
 		tableCard2.addActionListener(new ActionListener() {
-			public void actionPerformed(final ActionEvent e) {
+			public void actionPerformed(ActionEvent e) {
 			}
 		});
 		panel2.add(tableCard2);
@@ -197,6 +199,10 @@ public class GUI {
 		panel3.setMaximumSize(new Dimension(64, 80));
 		panel3.setBounds(448, 104, 64, 80);
 		frmSpades.getContentPane().add(panel3);
+		tableCard3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		tableCard3.setVerticalAlignment(SwingConstants.TOP);
 
 		panel3.add(tableCard3);
@@ -223,7 +229,7 @@ public class GUI {
 		panel5.setMaximumSize(new Dimension(64, 80));
 		panel5.setBounds(128, 200, 64, 80);
 		frmSpades.getContentPane().add(panel5);
-		handcard1.setVerticalAlignment(SwingConstants.TOP);
+
 		handcard1.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
 				if (SpadesPlayerUser.setPlayCard(1)) {
@@ -267,7 +273,7 @@ public class GUI {
 		panel7.setBounds(256, 200, 64, 80);
 		frmSpades.getContentPane().add(panel7);
 
-		JButton handcard3 = new JButton("HandCard3");
+		JButton handcard3 = new JButton("");
 		handcard3.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
 				if (SpadesPlayerUser.setPlayCard(3)) {
@@ -317,6 +323,7 @@ public class GUI {
 		panel9.setMaximumSize(new Dimension(64, 80));
 		panel9.setBounds(384, 200, 64, 80);
 		frmSpades.getContentPane().add(panel9);
+
 		handcard5.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
 				if (SpadesPlayerUser.setPlayCard(5)) {
@@ -337,6 +344,7 @@ public class GUI {
 		panel10.setMaximumSize(new Dimension(64, 80));
 		panel10.setBounds(448, 200, 64, 80);
 		frmSpades.getContentPane().add(panel10);
+
 		handcard6.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
 				if (SpadesPlayerUser.setPlayCard(6)) {
@@ -357,6 +365,7 @@ public class GUI {
 		panel11.setMaximumSize(new Dimension(64, 80));
 		panel11.setBounds(96, 280, 64, 80);
 		frmSpades.getContentPane().add(panel11);
+
 		handcard7.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
 				if (SpadesPlayerUser.setPlayCard(7)) {
@@ -377,6 +386,7 @@ public class GUI {
 		panel12.setMaximumSize(new Dimension(64, 80));
 		panel12.setBounds(160, 280, 64, 80);
 		frmSpades.getContentPane().add(panel12);
+
 		handcard8.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
 				if (SpadesPlayerUser.setPlayCard(8)) {
@@ -397,6 +407,7 @@ public class GUI {
 		panel13.setMaximumSize(new Dimension(64, 80));
 		panel13.setBounds(224, 280, 64, 80);
 		frmSpades.getContentPane().add(panel13);
+
 		handcard9.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
 				if (SpadesPlayerUser.setPlayCard(9)) {
@@ -641,8 +652,7 @@ public class GUI {
 			} if (SpadesPlayerUser.getStaticHand().size() >= 1) {
 				handcard1.setIcon(new ImageIcon(setImage(
 						SpadesPlayerUser.getStaticHand().get(0))));
-			}
-			}else {
+			} else {
 				handcard13.setIcon(new ImageIcon(
 						GUI.class.getResource("/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 								+ "graphics/CardFrame.png")));
@@ -664,10 +674,10 @@ public class GUI {
 				handcard3.setIcon(new ImageIcon(GUI.class.getResource(setImage(null))));
 				handcard2.setIcon(new ImageIcon(GUI.class.getResource(setImage(null))));
 				handcard1.setIcon(new ImageIcon(GUI.class.getResource(setImage(null))));
-
+				
 			}
 			}
-
+		}
 	}
 
 	/**
