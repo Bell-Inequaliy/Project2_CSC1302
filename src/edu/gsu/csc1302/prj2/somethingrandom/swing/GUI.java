@@ -185,7 +185,7 @@ public class GUI {
 		frmSpades.getContentPane().add(panel2);
 		tableCard2.setVerticalAlignment(SwingConstants.TOP);
 		tableCard2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 			}
 		});
 		panel2.add(tableCard2);
@@ -200,7 +200,7 @@ public class GUI {
 		panel3.setBounds(448, 104, 64, 80);
 		frmSpades.getContentPane().add(panel3);
 		tableCard3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 			}
 		});
 		tableCard3.setVerticalAlignment(SwingConstants.TOP);
@@ -272,8 +272,6 @@ public class GUI {
 		panel7.setMaximumSize(new Dimension(64, 80));
 		panel7.setBounds(256, 200, 64, 80);
 		frmSpades.getContentPane().add(panel7);
-
-		JButton handcard3 = new JButton("");
 		handcard3.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
 				if (SpadesPlayerUser.setPlayCard(3)) {
@@ -674,7 +672,7 @@ public class GUI {
 				handcard3.setIcon(new ImageIcon(GUI.class.getResource(setImage(null))));
 				handcard2.setIcon(new ImageIcon(GUI.class.getResource(setImage(null))));
 				handcard1.setIcon(new ImageIcon(GUI.class.getResource(setImage(null))));
-				
+
 			}
 			}
 		}
