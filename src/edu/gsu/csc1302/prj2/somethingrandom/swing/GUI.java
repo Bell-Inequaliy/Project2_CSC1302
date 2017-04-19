@@ -146,20 +146,20 @@ public class GUI {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		boardImageFiller();
 		frmSpades = new JFrame();
 		frmSpades.setResizable(false);
 		frmSpades.setIconImage(Toolkit.getDefaultToolkit().getImage(GUI.class.
 				getResource(
-						"/edu/gsu/csc1302/prj2/somethingrandom/swing/graphics/Spade_Ace.png")));
+						"/edu/gsu/csc1302/prj2/somethingrandom/"
+						+ "swing/graphics/Spade_Ace.png")));
 		frmSpades.setTitle("Spades");
 		frmSpades.getContentPane().setBackground(new Color(34, 139, 34));
 		frmSpades.getContentPane().setLayout(null);
-
 		Panel backPanel = new BackgroundPanel();
 		FlowLayout flowLayout = (FlowLayout) backPanel.getLayout();
 		flowLayout.setHgap(0);
 		frmSpades.getContentPane().add(backPanel);
-
 		Panel panel1 = new Panel();
 		panel1.setPreferredSize(new Dimension(64, 80));
 		panel1.setMinimumSize(new Dimension(64, 80));
@@ -543,7 +543,6 @@ public class GUI {
 		frmSpades.getContentPane().add(background);
 		frmSpades.setBounds(100, 100, 643, 412);
 		frmSpades.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		boardImageFiller();
 	}
 
 	/**
@@ -637,7 +636,11 @@ public class GUI {
 						SpadesPlayerUser.getStaticHand().get(0))));
 			} else {
 				handcard13.setIcon(new ImageIcon(
-						GUI.class.getResource(setImage(null))));
+						GUI.class.getResource("/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+								+ "graphics/CardFrame.png")));
+				handcard13.setSelectedIcon(new ImageIcon(
+						GUI.class.getResource("/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+								+ "graphics/CardFrame.png")));
 				handcard12.setIcon(new ImageIcon(
 						GUI.class.getResource(setImage(null))));
 				handcard11.setIcon(new ImageIcon(
@@ -653,6 +656,7 @@ public class GUI {
 				handcard3.setIcon(new ImageIcon(GUI.class.getResource(setImage(null))));
 				handcard2.setIcon(new ImageIcon(GUI.class.getResource(setImage(null))));
 				handcard1.setIcon(new ImageIcon(GUI.class.getResource(setImage(null))));
+				
 			}
 			}
 		}
@@ -665,48 +669,48 @@ public class GUI {
 	 */
 	public String setImage(final Card card) {
 		if (card == null) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/CardFrame.png";
 		}
 		if (card.getSuit() == Suit.CLUB) {
 			if (card.getRank() == Rank.TEN) {
-				return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+				return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 						+ "graphics/Club_10.png";
 			} if (card.getRank() == Rank.NINE) {
-				return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+				return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 						+ "graphics/Club_9.png";
 			} if (card.getRank() == Rank.EIGHT) {
-				return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+				return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 						+ "graphics/Club_8.png";
 			} if (card.getRank() == Rank.SEVEN) {
-				return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+				return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 						+ "graphics/Club_7.png";
 			} if (card.getRank() == Rank.SIX) {
-				return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+				return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 						+ "graphics/Club_6.png";
 			} if (card.getRank() == Rank.FIVE) {
-				return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+				return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 						+ "graphics/Club_5.png";
 			} if (card.getRank() == Rank.FOUR) {
-				return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+				return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 						+ "graphics/Club_4.png";
 			} if (card.getRank() == Rank.THREE) {
-				return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+				return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 						+ "graphics/Club_3.png";
 			} if (card.getRank() == Rank.TWO) {
-				return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+				return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 						+ "graphics/Club_TWO.png";
 			} if (card.getRank() == Rank.ACE) {
-				return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+				return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 						+ "graphics/Club_Ace.png";
 			} if (card.getRank() == Rank.JACK) {
-				return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+				return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 						+ "graphics/Club_Jack.png";
 			} if (card.getRank() == Rank.QUEEN) {
-				return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+				return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 						+ "graphics/Club_Queen.png";
 			} if (card.getRank() == Rank.KING) {
-				return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+				return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 						+ "graphics/Club_King.png";
 			}
 
@@ -717,7 +721,7 @@ public class GUI {
 		} if (card.getSuit() == Suit.SPADE) {
 			return setSpadeImage(card);
 		}
-		return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+		return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 		+ "graphics/CardFrame.png";
 	}
 	/**
@@ -727,43 +731,43 @@ public class GUI {
 	 */
 	public String setDiamondImage(final Card card) {
 		if (card.getRank() == Rank.TEN) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Diamond_10.png";
 		} if (card.getRank() == Rank.NINE) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Diamond_9.png";
 		} if (card.getRank() == Rank.EIGHT) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Diamond_8.png";
 		} if (card.getRank() == Rank.SEVEN) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Diamond_7.png";
 		} if (card.getRank() == Rank.SIX) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Diamond_6.png";
 		} if (card.getRank() == Rank.FIVE) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Diamond_5.png";
 		} if (card.getRank() == Rank.FOUR) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Diamond_4.png";
 		} if (card.getRank() == Rank.THREE) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Diamond_3.png";
 		} if (card.getRank() == Rank.TWO) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Diamond_TWO.png";
 		} if (card.getRank() == Rank.ACE) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Diamond_Ace.png";
 		} if (card.getRank() == Rank.JACK) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Diamond_Jack.png";
 		} if (card.getRank() == Rank.QUEEN) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Diamond_Queen.png";
 		} if (card.getRank() == Rank.KING) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Diamond_King.png";
 		}
 		return null;
@@ -775,43 +779,43 @@ public class GUI {
 	 */
 	public String setHeartImage(final Card card) {
 		if (card.getRank() == Rank.TEN) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Heart_10.png";
 		} if (card.getRank() == Rank.NINE) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Heart_9.png";
 		} if (card.getRank() == Rank.EIGHT) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Heart_8.png";
 		} if (card.getRank() == Rank.SEVEN) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Heart_7.png";
 		} if (card.getRank() == Rank.SIX) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Heart_6.png";
 		} if (card.getRank() == Rank.FIVE) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Heart_5.png";
 		} if (card.getRank() == Rank.FOUR) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Heart_4.png";
 		} if (card.getRank() == Rank.THREE) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Heart_3.png";
 		} if (card.getRank() == Rank.TWO) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Heart_TWO.png";
 		} if (card.getRank() == Rank.ACE) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Heart_Ace.png";
 		} if (card.getRank() == Rank.JACK) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Heart_Jack.png";
 		} if (card.getRank() == Rank.QUEEN) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Heart_Queen.png";
 		} if (card.getRank() == Rank.KING) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Heart_King.png";
 		}
 		return null;
@@ -823,43 +827,43 @@ public class GUI {
 	 */
 	public String setSpadeImage(final Card card) {
 		if (card.getRank() == Rank.TEN) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Spade_10.png";
 		} if (card.getRank() == Rank.NINE) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Spade_9.png";
 		} if (card.getRank() == Rank.EIGHT) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Spade_8.png";
 		} if (card.getRank() == Rank.SEVEN) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Spade_7.png";
 		} if (card.getRank() == Rank.SIX) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Spade_6.png";
 		} if (card.getRank() == Rank.FIVE) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Spade_5.png";
 		} if (card.getRank() == Rank.FOUR) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Spade_4.png";
 		} if (card.getRank() == Rank.THREE) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Spade_3.png";
 		} if (card.getRank() == Rank.TWO) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Spade_TWO.png";
 		} if (card.getRank() == Rank.ACE) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Spade_Ace.png";
 		} if (card.getRank() == Rank.JACK) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Spade_Jack.png";
 		} if (card.getRank() == Rank.QUEEN) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Spade_Queen.png";
 		} if (card.getRank() == Rank.KING) {
-			return "/Project2/src/edu/gsu/csc1302/prj2/somethingrandom/swing/"
+			return "/edu/gsu/csc1302/prj2/somethingrandom/swing/"
 					+ "graphics/Spade_King.png";
 		}
 		return null;
