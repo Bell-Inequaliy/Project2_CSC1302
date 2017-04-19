@@ -25,16 +25,10 @@ public class GenericMessagePopup {
 	 */
 
 	/**
-	 * If we should block progress. Used to wait for button presses.
-	 */
-	private static boolean block = true;
-
-	/**
 	 * Launch the application.
 	 * @param args unused.
 	 */
 	public static void main(final String[] args) {
-		block = true;
 		String title = args[0];
 		String message = args[1];
 
@@ -49,9 +43,6 @@ public class GenericMessagePopup {
 				}
 			}
 		});
-		while (GenericMessagePopup.block) {
-			Runtime.getRuntime().freeMemory();
-		}
 	}
 
 	/**
@@ -83,7 +74,6 @@ public class GenericMessagePopup {
 		JButton btnOK = new JButton("OK");
 		btnOK.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent arg0) {
-				block = false;
 				frame.dispose();
 			}
 		});
