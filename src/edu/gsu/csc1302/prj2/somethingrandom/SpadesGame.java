@@ -9,6 +9,7 @@ import edu.gsu.csc1302.coll1.Card.Rank;
 import edu.gsu.csc1302.coll1.Card.Suit;
 import edu.gsu.csc1302.coll1.Deck;
 import edu.gsu.csc1302.prj2.somethingrandom.player.SpadesPlayerBase;
+import edu.gsu.csc1302.prj2.somethingrandom.player.SpadesPlayerUser;
 import edu.gsu.csc1302.prj2.somethingrandom.swing.GUI;
 import edu.gsu.csc1302.prj2.somethingrandom.swing.dialogs.PlayerTypePopup;
 
@@ -33,7 +34,7 @@ public final class SpadesGame extends DrSeuss {
 	/**
 	 * Boolean to store if a user player exists.
 	 */
-	private static boolean hasUserPlayer = false;
+	private static boolean hasUserPlayer = true;
 
 	/**
 	 * Cards on the table.
@@ -120,8 +121,10 @@ public final class SpadesGame extends DrSeuss {
 		System.out.println("Welcome to Spades!");
 		PlayerTypePopup.main(new String[]{"What type do you want Player One to be?",
 				"1", "1"});
-		PlayerTypePopup.main(new String[]{"What type do you want Player Two to be?",
-				"1", "2"});
+		//PlayerTypePopup.main(new String[]{"What type do you want Player Two to be?
+				//"1", "2"});
+		SpadesPlayerUser newlyMadePlayer = new SpadesPlayerUser();
+		setPlayerByNumber(2, newlyMadePlayer);
 		PlayerTypePopup.main(new String[]{
 				"What type do you want Player Three to be?", "1", "3"});
 		PlayerTypePopup.main(new String[]{
@@ -469,7 +472,7 @@ public final class SpadesGame extends DrSeuss {
 				winnerBois = 2;
 			}
 			// Otherwise do nothing.
-			GUI.main(null);
+
 			// Repeat above code for player three.
 			play = playerThree.play();
 			System.out.println("Player Three has played " + play);
@@ -488,7 +491,7 @@ public final class SpadesGame extends DrSeuss {
 				highCard = play;
 				winnerBois = 4;
 			}
-			GUI.main(null);
+
 			// Clear the table
 			table.clear();
 
@@ -500,7 +503,6 @@ public final class SpadesGame extends DrSeuss {
 				// Otherwise team one won.
 				teamOneTricks++;
 			}
-			GUI.main(null);
 			// Print the winning player and the number of tricks each team has won.
 			System.out.println("WINNERBOIS = " + winnerBois);
 			System.out.println("Team One tricks: " + teamOneTricks + ", "
