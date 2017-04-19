@@ -551,79 +551,83 @@ public class GUI {
 	 */
 	public void boardImageFiller() {
 		if (SpadesGame.getTableCards().size() >= 4) {
-			tableCard4.setIcon(new ImageIcon(setImage(
-					SpadesGame.getTableCards().get(3))));
+			tableCard4.setIcon(new ImageIcon(GUI.class.getResource(setImage(
+					SpadesGame.getTableCards().get(3)))));
 		} else {
-			tableCard4.setIcon(new ImageIcon(setImage(null)));
+			tableCard4.setIcon(new ImageIcon(GUI.class.getResource(setImage(null))));
 		} if (SpadesGame.getTableCards().size() >= 3) {
-			tableCard3.setIcon(new ImageIcon(setImage(
-					SpadesGame.getTableCards().get(2))));
+			tableCard3.setIcon(new ImageIcon(GUI.class.getResource(setImage(
+					SpadesGame.getTableCards().get(2)))));
 		} else {
-			tableCard3.setIcon(new ImageIcon(setImage(null)));
+			tableCard3.setIcon(new ImageIcon(GUI.class.getResource(setImage(null))));
 		} if (SpadesGame.getTableCards().size() >= 2) {
-			tableCard2.setIcon(new ImageIcon(setImage(
-					SpadesGame.getTableCards().get(1))));
+			tableCard2.setIcon(new ImageIcon(GUI.class.getResource(setImage(
+					SpadesGame.getTableCards().get(1)))));
 		} else {
-			tableCard2.setIcon(new ImageIcon(setImage(null)));
+			tableCard2.setIcon(new ImageIcon(GUI.class.getResource(setImage(null))));
 		} if (SpadesGame.getTableCards().size() >= 1) {
-			tableCard1.setIcon(new ImageIcon(setImage(
-					SpadesGame.getTableCards().get(0))));
+			tableCard1.setIcon(new ImageIcon(GUI.class.getResource(setImage(
+					SpadesGame.getTableCards().get(0)))));
 		} else {
-			tableCard1.setIcon(new ImageIcon(setImage(null)));
+			tableCard1.setIcon(new ImageIcon(GUI.class.getResource(setImage(null))));
 			if (SpadesGame.isUserPlayer()) {
 			if (SpadesPlayerUser.getStaticHand().size() >= 13) {
-				handcard13.setIcon(new ImageIcon(setImage(
-						SpadesPlayerUser.getStaticHand().get(12))));
+				handcard13.setIcon(new ImageIcon(GUI.class.getResource(setImage(
+						SpadesPlayerUser.getStaticHand().get(12)))));
 			} else {
-				handcard13.setIcon(new ImageIcon(setImage(null)));
+				handcard13.setIcon(new ImageIcon(GUI.class.getResource(
+						setImage(null))));
 			} if (SpadesPlayerUser.getStaticHand().size() >= 12) {
-				handcard12.setIcon(new ImageIcon(setImage(
-						SpadesPlayerUser.getStaticHand().get(11))));
+				handcard12.setIcon(new ImageIcon(GUI.class.getResource(setImage(
+						SpadesPlayerUser.getStaticHand().get(11)))));
 			} else {
-				handcard12.setIcon(new ImageIcon(setImage(null)));
+				handcard12.setIcon(new ImageIcon(GUI.class.getResource(
+						setImage(null))));
 			} if (SpadesPlayerUser.getStaticHand().size() >= 11) {
-				handcard11.setIcon(new ImageIcon(setImage(
-						SpadesPlayerUser.getStaticHand().get(10))));
+				handcard11.setIcon(new ImageIcon(GUI.class.getResource(setImage(
+						SpadesPlayerUser.getStaticHand().get(10)))));
 			} else {
-				handcard11.setIcon(new ImageIcon(setImage(null)));
+				handcard11.setIcon(new ImageIcon(GUI.class.getResource(
+						setImage(null))));
 			} if (SpadesPlayerUser.getStaticHand().size() >= 10) {
-				handcard10.setIcon(new ImageIcon(setImage(
-						SpadesPlayerUser.getStaticHand().get(9))));
+				handcard10.setIcon(new ImageIcon(GUI.class.getResource(setImage(
+						SpadesPlayerUser.getStaticHand().get(9)))));
 			} else {
-				handcard10.setIcon(new ImageIcon(setImage(null)));
+				handcard10.setIcon(new ImageIcon(GUI.class.getResource(
+						setImage(null))));
 			} if (SpadesPlayerUser.getStaticHand().size() >= 9) {
-				handcard9.setIcon(new ImageIcon(setImage(
-						SpadesPlayerUser.getStaticHand().get(8))));
+				handcard9.setIcon(new ImageIcon(GUI.class.getResource(setImage(
+						SpadesPlayerUser.getStaticHand().get(8)))));
 			} else {
-				handcard9.setIcon(new ImageIcon(setImage(null)));
+				handcard9.setIcon(new ImageIcon(GUI.class.getResource(setImage(null))));
 			} if (SpadesPlayerUser.getStaticHand().size() >= 8) {
-				handcard8.setIcon(new ImageIcon(setImage(
-						SpadesPlayerUser.getStaticHand().get(7))));
+				handcard8.setIcon(new ImageIcon(GUI.class.getResource(setImage(
+						SpadesPlayerUser.getStaticHand().get(7)))));
 			} else {
-				handcard8.setIcon(new ImageIcon(setImage(null)));
+				handcard8.setIcon(new ImageIcon(GUI.class.getResource(setImage(null))));
 			} if (SpadesPlayerUser.getStaticHand().size() >= 7) {
-				handcard7.setIcon(new ImageIcon(setImage(
-						SpadesPlayerUser.getStaticHand().get(6))));
+				handcard7.setIcon(new ImageIcon(GUI.class.getResource(setImage(
+						SpadesPlayerUser.getStaticHand().get(6)))));
 			} else {
-				handcard7.setIcon(new ImageIcon(setImage(null)));
+				handcard7.setIcon(new ImageIcon(GUI.class.getResource(setImage(null))));
 			} if (SpadesPlayerUser.getStaticHand().size() >= 6) {
-				handcard6.setIcon(new ImageIcon(setImage(
-						SpadesPlayerUser.getStaticHand().get(5))));
+				handcard6.setIcon(new ImageIcon(GUI.class.getResource(setImage(
+						SpadesPlayerUser.getStaticHand().get(5)))));
 			} else {
-				handcard6.setIcon(new ImageIcon(setImage(null)));
+				handcard6.setIcon(new ImageIcon(GUI.class.getResource(setImage(null))));
 			} if (SpadesPlayerUser.getStaticHand().size() >= 5) {
-				handcard5.setIcon(new ImageIcon(setImage(
-						SpadesPlayerUser.getStaticHand().get(4))));
+				handcard5.setIcon(new ImageIcon(GUI.class.getResource(setImage(
+						SpadesPlayerUser.getStaticHand().get(4)))));
 			} else {
-				handcard5.setIcon(new ImageIcon(setImage(null)));
+				handcard5.setIcon(new ImageIcon(GUI.class.getResource(setImage(null))));
 			} if (SpadesPlayerUser.getStaticHand().size() >= 4) {
-				handcard4.setIcon(new ImageIcon(setImage(
-						SpadesPlayerUser.getStaticHand().get(3))));
+				handcard4.setIcon(new ImageIcon(GUI.class.getResource(setImage(
+						SpadesPlayerUser.getStaticHand().get(3)))));
 			} else {
-				handcard4.setIcon(new ImageIcon(setImage(null)));
+				handcard4.setIcon(new ImageIcon(GUI.class.getResource(setImage(null))));
 			} if (SpadesPlayerUser.getStaticHand().size() >= 3) {
-				handcard3.setIcon(new ImageIcon(setImage(
-						SpadesPlayerUser.getStaticHand().get(2))));
+				handcard3.setIcon(new ImageIcon(GUI.class.getResource(setImage(
+						SpadesPlayerUser.getStaticHand().get(2)))));
 			} else {
 				handcard3.setIcon(new ImageIcon(setImage(null)));
 			} if (SpadesPlayerUser.getStaticHand().size() >= 2) {
