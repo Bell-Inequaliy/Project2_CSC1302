@@ -84,7 +84,7 @@ public class GUI {
 	/**
 	 * third card in hand.
 	 */
-	JButton handcard3 = new JButton("HandCard3");
+	JButton handcard3 = new JButton("");
 	/**
 	 * fourth card in hand.
 	 */
