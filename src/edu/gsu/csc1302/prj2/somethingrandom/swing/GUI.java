@@ -14,6 +14,7 @@ import javax.swing.table.DefaultTableModel;
 import edu.gsu.csc1302.coll1.Card;
 import edu.gsu.csc1302.coll1.Card.Suit;
 import edu.gsu.csc1302.coll1.Card.Rank;
+import edu.gsu.csc1302.prj2.somethingrandom.SpadesGame;
 import edu.gsu.csc1302.prj2.somethingrandom.player.SpadesPlayerUser;
 import edu.gsu.csc1302.prj2.somethingrandom.swing.dialogs.GenericMessagePopup;
 
@@ -72,7 +73,74 @@ public class GUI {
 	public GUI() {
 		initialize();
 	}
-
+	/**
+	 * first card in hand.
+	 */
+	JButton handcard1 = new JButton("HandCard1");
+	/**
+	 * second card in hand.
+	 */
+	JButton handcard2 = new JButton("HandCard2");
+	/**
+	 * third card in hand.
+	 */
+	JButton handcard3 = new JButton("HandCard3");
+	/**
+	 * fourth card in hand.
+	 */
+	JButton handcard4 = new JButton("HandCard4");
+	/**
+	 * fifth card in hand.
+	 */
+	JButton handcard5 = new JButton("HandCard5");
+	/**
+	 * sixth card in hand.
+	 */
+	JButton handcard6 = new JButton("HandCard6");
+	/**
+	 * seventh card in hand.
+	 */
+	JButton handcard7 = new JButton("HandCard7");
+	/**
+	 * eighth card in hand.
+	 */
+	JButton handcard8 = new JButton("HandCard8");
+	/**
+	 * ninth card in hand.
+	 */
+	JButton handcard9 = new JButton("HandCard9");
+	/**
+	 * tenth card in hand.
+	 */
+	JButton handcard10 = new JButton("HandCard10");
+	/**
+	 * eleventh card in hand.
+	 */
+	JButton handcard11 = new JButton("HandCard11");
+	/**
+	 * Twelfth card in hand.
+	 */
+	JButton handcard12 = new JButton("HandCard12");
+	/**
+	 * Thirteenth card in hand.
+	 */
+	JButton handcard13 = new JButton("HandCard13");
+	/**
+	 * First card on table.
+	 */
+	JButton tableCard1 = new JButton("Table Card 1");
+	/**
+	 * Second card on table.
+	 */
+	JButton tableCard2 = new JButton("Table Card 2");
+	/**
+	 * Third card on table.
+	 */
+	JButton tableCard3 = new JButton("Table Card 3");
+	/**
+	 * Fourth card on table.
+	 */
+	JButton tableCard4 = new JButton("Table Card 4");
 
 	/**
 	 * Initialize the contents of the frame.
@@ -99,8 +167,6 @@ public class GUI {
 		panel1.setBounds(416, 17, 64, 80);
 		frmSpades.getContentPane().add(panel1);
 		panel1.setLayout(null);
-
-		JButton tableCard1 = new JButton("Table Card 1");
 		tableCard1.setBounds(-14, 0, 93, 23);
 		panel1.add(tableCard1);
 
@@ -113,8 +179,6 @@ public class GUI {
 		panel2.setMaximumSize(new Dimension(64, 80));
 		panel2.setBounds(496, 17, 64, 80);
 		frmSpades.getContentPane().add(panel2);
-
-		JButton tableCard2 = new JButton("Table Card 2");
 		panel2.add(tableCard2);
 
 		Panel panel3 = new Panel();
@@ -127,7 +191,6 @@ public class GUI {
 		panel3.setBounds(448, 104, 64, 80);
 		frmSpades.getContentPane().add(panel3);
 
-		JButton tableCard3 = new JButton("Table Card 3");
 		panel3.add(tableCard3);
 
 		Panel panel4 = new Panel();
@@ -140,7 +203,6 @@ public class GUI {
 		panel4.setBounds(528, 104, 64, 80);
 		frmSpades.getContentPane().add(panel4);
 
-		JButton tableCard4 = new JButton("Table Card 4");
 		panel4.add(tableCard4);
 
 		Panel panel5 = new Panel();
@@ -153,7 +215,6 @@ public class GUI {
 		panel5.setBounds(128, 200, 64, 80);
 		frmSpades.getContentPane().add(panel5);
 
-		JButton handcard1 = new JButton("HandCard1");
 		handcard1.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
 				if (SpadesPlayerUser.setPlayCard(1)) {
@@ -175,9 +236,6 @@ public class GUI {
 		panel6.setMaximumSize(new Dimension(64, 80));
 		panel6.setBounds(192, 200, 64, 80);
 		frmSpades.getContentPane().add(panel6);
-
-
-		JButton handcard2 = new JButton("HandCard2");
 		handcard2.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
 				if (SpadesPlayerUser.setPlayCard(2)) {
@@ -223,7 +281,7 @@ public class GUI {
 		panel8.setBounds(320, 200, 64, 80);
 		frmSpades.getContentPane().add(panel8);
 
-		JButton handcard4 = new JButton("HandCard4");
+
 		handcard4.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
 				if (SpadesPlayerUser.setPlayCard(1)) {
@@ -251,7 +309,7 @@ public class GUI {
 		panel9.setMaximumSize(new Dimension(64, 80));
 		panel9.setBounds(384, 200, 64, 80);
 		frmSpades.getContentPane().add(panel9);
-		JButton handcard5 = new JButton("HandCard5");
+
 		handcard5.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
 				if (SpadesPlayerUser.setPlayCard(5)) {
@@ -272,7 +330,7 @@ public class GUI {
 		panel10.setMaximumSize(new Dimension(64, 80));
 		panel10.setBounds(448, 200, 64, 80);
 		frmSpades.getContentPane().add(panel10);
-		JButton handcard6 = new JButton("HandCard6");
+
 		handcard6.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
 				if (SpadesPlayerUser.setPlayCard(6)) {
@@ -293,7 +351,7 @@ public class GUI {
 		panel11.setMaximumSize(new Dimension(64, 80));
 		panel11.setBounds(96, 280, 64, 80);
 		frmSpades.getContentPane().add(panel11);
-		JButton handcard7 = new JButton("HandCard7");
+
 		handcard7.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
 				if (SpadesPlayerUser.setPlayCard(7)) {
@@ -314,7 +372,7 @@ public class GUI {
 		panel12.setMaximumSize(new Dimension(64, 80));
 		panel12.setBounds(160, 280, 64, 80);
 		frmSpades.getContentPane().add(panel12);
-		JButton handcard8 = new JButton("HandCard8");
+
 		handcard8.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
 				if (SpadesPlayerUser.setPlayCard(8)) {
@@ -335,7 +393,7 @@ public class GUI {
 		panel13.setMaximumSize(new Dimension(64, 80));
 		panel13.setBounds(224, 280, 64, 80);
 		frmSpades.getContentPane().add(panel13);
-		JButton handcard9 = new JButton("HandCard9");
+
 		handcard9.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
 				if (SpadesPlayerUser.setPlayCard(9)) {
@@ -347,6 +405,14 @@ public class GUI {
 			}
 		});
 		panel13.add(handcard9);
+		initialize3();
+	}
+
+	/**
+	 * continues initialization even further.
+	 */
+	public void initialize3() {
+
 		Panel panel14 = new Panel();
 		FlowLayout flowLayout5 = (FlowLayout) panel14.getLayout();
 		flowLayout5.setVgap(0);
@@ -356,7 +422,7 @@ public class GUI {
 		panel14.setMaximumSize(new Dimension(64, 80));
 		panel14.setBounds(288, 280, 64, 80);
 		frmSpades.getContentPane().add(panel14);
-		JButton handcard10 = new JButton("HandCard10");
+
 		handcard10.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
 				if (SpadesPlayerUser.setPlayCard(10)) {
@@ -378,7 +444,6 @@ public class GUI {
 		panel15.setBounds(352, 280, 64, 80);
 		frmSpades.getContentPane().add(panel15);
 
-		JButton handcard11 = new JButton("HandCard11");
 		handcard11.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
 				if (SpadesPlayerUser.setPlayCard(11)) {
@@ -401,7 +466,6 @@ public class GUI {
 		panel16.setBounds(416, 280, 64, 80);
 		frmSpades.getContentPane().add(panel16);
 
-		JButton handcard12 = new JButton("HandCard12");
 		handcard12.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
 				if (SpadesPlayerUser.setPlayCard(12)) {
@@ -424,7 +488,7 @@ public class GUI {
 		panel17.setBounds(480, 280, 64, 80);
 		frmSpades.getContentPane().add(panel17);
 
-		JButton handcard13 = new JButton("HandCard13");
+		
 		handcard13.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
 				if (SpadesPlayerUser.setPlayCard(13)) {
@@ -480,6 +544,100 @@ public class GUI {
 		frmSpades.setBounds(100, 100, 643, 412);
 		frmSpades.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
+
+	/**
+	 * Fill out every button on the board with its appropriate image.
+	 * @author stGilbert
+	 */
+	public void boardImageFiller() {
+		if (SpadesGame.getTableCards().size() >= 4) {
+			tableCard4.setIcon(new ImageIcon(setImage(
+					SpadesGame.getTableCards().get(3))));
+		} else {
+			tableCard4.setIcon(new ImageIcon(setImage(null)));
+		} if (SpadesGame.getTableCards().size() >= 3) {
+			tableCard3.setIcon(new ImageIcon(setImage(
+					SpadesGame.getTableCards().get(2))));
+		} else {
+			tableCard3.setIcon(new ImageIcon(setImage(null)));
+		} if (SpadesGame.getTableCards().size() >= 2) {
+			tableCard2.setIcon(new ImageIcon(setImage(
+					SpadesGame.getTableCards().get(1))));
+		} else {
+			tableCard2.setIcon(new ImageIcon(setImage(null)));
+		} if (SpadesGame.getTableCards().size() >= 1) {
+			tableCard1.setIcon(new ImageIcon(setImage(
+					SpadesGame.getTableCards().get(0))));
+		} else {
+			tableCard1.setIcon(new ImageIcon(setImage(null)));
+		} if (SpadesPlayerUser.getStaticHand().size() >= 13) {
+			handcard13.setIcon(new ImageIcon(setImage(
+					SpadesPlayerUser.getStaticHand().get(12))));
+		} else {
+			handcard13.setIcon(new ImageIcon(setImage(null)));
+		} if (SpadesPlayerUser.getStaticHand().size() >= 12) {
+			handcard12.setIcon(new ImageIcon(setImage(
+					SpadesPlayerUser.getStaticHand().get(11))));
+		} else {
+			handcard12.setIcon(new ImageIcon(setImage(null)));
+		} if (SpadesPlayerUser.getStaticHand().size() >= 11) {
+			handcard11.setIcon(new ImageIcon(setImage(
+					SpadesPlayerUser.getStaticHand().get(10))));
+		} else {
+			handcard11.setIcon(new ImageIcon(setImage(null)));
+		} if (SpadesPlayerUser.getStaticHand().size() >= 10) {
+			handcard10.setIcon(new ImageIcon(setImage(
+					SpadesPlayerUser.getStaticHand().get(9))));
+		} else {
+			handcard10.setIcon(new ImageIcon(setImage(null)));
+		} if (SpadesPlayerUser.getStaticHand().size() >= 9) {
+			handcard9.setIcon(new ImageIcon(setImage(
+					SpadesPlayerUser.getStaticHand().get(8))));
+		} else {
+			handcard9.setIcon(new ImageIcon(setImage(null)));
+		} if (SpadesPlayerUser.getStaticHand().size() >= 8) {
+			handcard8.setIcon(new ImageIcon(setImage(
+					SpadesPlayerUser.getStaticHand().get(7))));
+		} else {
+			handcard8.setIcon(new ImageIcon(setImage(null)));
+		} if (SpadesPlayerUser.getStaticHand().size() >= 7) {
+			handcard7.setIcon(new ImageIcon(setImage(
+					SpadesPlayerUser.getStaticHand().get(6))));
+		} else {
+			handcard7.setIcon(new ImageIcon(setImage(null)));
+		} if (SpadesPlayerUser.getStaticHand().size() >= 6) {
+			handcard6.setIcon(new ImageIcon(setImage(
+					SpadesPlayerUser.getStaticHand().get(5))));
+		} else {
+			handcard6.setIcon(new ImageIcon(setImage(null)));
+		} if (SpadesPlayerUser.getStaticHand().size() >= 5) {
+			handcard5.setIcon(new ImageIcon(setImage(
+					SpadesPlayerUser.getStaticHand().get(4))));
+		} else {
+			handcard5.setIcon(new ImageIcon(setImage(null)));
+		} if (SpadesPlayerUser.getStaticHand().size() >= 4) {
+			handcard4.setIcon(new ImageIcon(setImage(
+					SpadesPlayerUser.getStaticHand().get(3))));
+		} else {
+			handcard4.setIcon(new ImageIcon(setImage(null)));
+		} if (SpadesPlayerUser.getStaticHand().size() >= 3) {
+			handcard3.setIcon(new ImageIcon(setImage(
+					SpadesPlayerUser.getStaticHand().get(2))));
+		} else {
+			handcard3.setIcon(new ImageIcon(setImage(null)));
+		} if (SpadesPlayerUser.getStaticHand().size() >= 2) {
+			handcard2.setIcon(new ImageIcon(setImage(
+					SpadesPlayerUser.getStaticHand().get(1))));
+		} else {
+			handcard2.setIcon(new ImageIcon(setImage(null)));
+		} if (SpadesPlayerUser.getStaticHand().size() >= 1) {
+			handcard1.setIcon(new ImageIcon(setImage(
+					SpadesPlayerUser.getStaticHand().get(0))));
+		} else {
+			handcard1.setIcon(new ImageIcon(setImage(null)));
+		}
+	}
+
 	/**
 	 * return the image directory for the given card.
 	 * @param card Card
