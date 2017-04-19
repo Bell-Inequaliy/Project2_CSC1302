@@ -31,6 +31,13 @@ public class SpadesPlayerUser extends SpadesPlayerBase {
 		hand = deck;
 	}
 	/**
+	 * Returns the players hand for reference.
+	 * @return Deck
+	 */
+	public static Deck getStaticHand() {
+		return hand;
+	}
+	/**
 	 * Set the player's bet number.
 	 	 * Should we halt further execution?
 	 * (Called externally to ensure the player's turn isn't skipped.)
