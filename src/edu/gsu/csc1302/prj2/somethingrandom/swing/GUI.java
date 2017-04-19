@@ -128,19 +128,19 @@ public class GUI {
 	/**
 	 * First card on table.
 	 */
-	JButton tableCard1 = new JButton("Table Card 1");
+	JButton tableCard1 = new JButton("");
 	/**
 	 * Second card on table.
 	 */
-	JButton tableCard2 = new JButton("Table Card 2");
+	JButton tableCard2 = new JButton("");
 	/**
 	 * Third card on table.
 	 */
-	JButton tableCard3 = new JButton("Table Card 3");
+	JButton tableCard3 = new JButton("");
 	/**
 	 * Fourth card on table.
 	 */
-	JButton tableCard4 = new JButton("Table Card 4");
+	JButton tableCard4 = new JButton("");
 
 	/**
 	 * Initialize the contents of the frame.
@@ -166,8 +166,12 @@ public class GUI {
 		panel1.setMaximumSize(new Dimension(64, 80));
 		panel1.setBounds(416, 17, 64, 80);
 		frmSpades.getContentPane().add(panel1);
-		panel1.setLayout(null);
-		tableCard1.setBounds(-14, 0, 93, 23);
+		tableCard1.setVerticalAlignment(SwingConstants.TOP);
+		tableCard1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		panel1.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
 		panel1.add(tableCard1);
 
 		Panel panel2 = new Panel();
@@ -179,6 +183,11 @@ public class GUI {
 		panel2.setMaximumSize(new Dimension(64, 80));
 		panel2.setBounds(496, 17, 64, 80);
 		frmSpades.getContentPane().add(panel2);
+		tableCard2.setVerticalAlignment(SwingConstants.TOP);
+		tableCard2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		panel2.add(tableCard2);
 
 		Panel panel3 = new Panel();
@@ -190,6 +199,7 @@ public class GUI {
 		panel3.setMaximumSize(new Dimension(64, 80));
 		panel3.setBounds(448, 104, 64, 80);
 		frmSpades.getContentPane().add(panel3);
+		tableCard3.setVerticalAlignment(SwingConstants.TOP);
 
 		panel3.add(tableCard3);
 
@@ -202,6 +212,7 @@ public class GUI {
 		panel4.setMaximumSize(new Dimension(64, 80));
 		panel4.setBounds(528, 104, 64, 80);
 		frmSpades.getContentPane().add(panel4);
+		tableCard4.setVerticalAlignment(SwingConstants.TOP);
 
 		panel4.add(tableCard4);
 
@@ -302,7 +313,6 @@ public class GUI {
 		Panel panel9 = new Panel();
 		FlowLayout flowLayout2 = (FlowLayout) panel9.getLayout();
 		flowLayout2.setHgap(0);
-		flowLayout2.setAlignment(FlowLayout.LEADING);
 		flowLayout2.setVgap(0);
 		panel9.setPreferredSize(new Dimension(64, 80));
 		panel9.setMinimumSize(new Dimension(64, 80));
